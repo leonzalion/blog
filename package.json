@@ -15,7 +15,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"build": "vue-tsc --noEmit && vite build",
+		"build": "vue-tsc --noEmit && vite-ssg build",
 		"preview": "vite preview",
 		"prepare": "lion-git-hooks",
 		"lint": "eslint --cache --fix .",
@@ -24,11 +24,12 @@
 	},
 	"dependencies": {
 		"@mdi/js": "^6.6.96",
+		"@vueuse/head": "^0.7.6",
 		"dateformat": "^5.0.3",
 		"gray-matter": "^4.0.3",
 		"markdown-it-emoji": "^2.0.2",
 		"pinia": "latest",
-		"simple-vue-icon": "^1.3.2",
+		"simple-vue-icon": "^1.3.5",
 		"vue": "latest",
 		"vue-router": "^4.0.14"
 	},
@@ -47,6 +48,7 @@
 		"vite-plugin-markdown": "^2.0.2",
 		"vite-plugin-md": "^0.13.0",
 		"vite-plugin-windicss": "latest",
+		"vite-ssg": "^0.19.2",
 		"vue-tsc": "latest",
 		"windicss": "latest"
 	}

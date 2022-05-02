@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import dateFormat from 'dateformat';
 import type { Component } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
-import { router } from '~/router.js';
 import type { Article } from '~/types/article.js';
 import { getArticlesMap, importArticle } from '~/utils/article.js';
 
@@ -15,11 +14,12 @@ let articleNotFound = $ref(false);
 let article: Article = undefined!;
 
 if (articleSlug === undefined) {
+	const router = useRouter();
 	await router.push('/404');
 } else {
 	try {
 		ArticleMarkdownComponent = await importArticle(articleSlug);
-		article = getArticlesMap()[articleSlug];
+		article = getArticlesMap()[articleSlug]!;
 	} catch {
 		articleNotFound = true;
 	}
