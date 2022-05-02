@@ -1,0 +1,53 @@
+{
+	"name": "blog",
+	"version": "0.0.0",
+	"description": "blog",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/leonzalion/blog.git"
+	},
+	"homepage": "https://github.com/leonzalion/blog#readme",
+	"author": {
+		"name": "Leon Si",
+		"email": "contact@leonzalion.com",
+		"url": "https://leonzalion.com"
+	},
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vue-tsc --noEmit && vite build",
+		"preview": "vite preview",
+		"prepare": "lion-git-hooks",
+		"lint": "eslint --cache --fix .",
+		"prettier": "prettier --write .",
+		"tc": "vue-tsc --noEmit"
+	},
+	"dependencies": {
+		"@mdi/js": "^6.6.96",
+		"dateformat": "^5.0.3",
+		"gray-matter": "^4.0.3",
+		"markdown-it-emoji": "^2.0.2",
+		"pinia": "latest",
+		"simple-vue-icon": "^1.3.2",
+		"vue": "latest",
+		"vue-router": "^4.0.14"
+	},
+	"devDependencies": {
+		"@leonzalion/configs": "latest",
+		"@types/dateformat": "^5.0.0",
+		"@types/node": "latest",
+		"@vitejs/plugin-vue": "latest",
+		"desm": "^1.2.0",
+		"eslint-define-config": "latest",
+		"execa": "latest",
+		"lion-system": "^1.3.25",
+		"typescript": "latest",
+		"vite": "latest",
+		"vite-plugin-js-imports": "latest",
+		"vite-plugin-markdown": "^2.0.2",
+		"vite-plugin-md": "^0.13.0",
+		"vite-plugin-windicss": "latest",
+		"vue-tsc": "latest",
+		"windicss": "latest"
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"extends": "@leonzalion/configs/tsconfig.json",
+	"compilerOptions": {
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+		"outDir": "dist",
+		"baseUrl": ".",
+		"paths": {
+			"~/*": ["./src/*"],
+			"~test/*": ["./src/*"]
+		},
+		"types": ["vue/ref-macros"],
+		"typeRoots": ["./node_modules/@types", "./typings"]
+	},
+	"include": ["./src", "typings"]
+}
