@@ -2,9 +2,9 @@
 import dateFormat from 'dateformat';
 import dayjs from 'dayjs';
 
-import { getDailyTimeblockDateStrings } from '~/utils/daily-timeblock.js';
+import { getDailyTimeblocksMap } from '~/utils/daily-timeblock.js';
 
-const dailyTimeblockDateStrings = getDailyTimeblockDateStrings();
+const dailyTimeblockDateStrings = Object.keys(getDailyTimeblocksMap());
 </script>
 
 <template>

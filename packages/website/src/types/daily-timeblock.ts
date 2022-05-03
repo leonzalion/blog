@@ -1,4 +1,4 @@
 export interface DailyTimeblock {
-	date: Date;
+	togglData: string;
 	content: string;
 }

@@ -1,4 +1,6 @@
 declare module '~data/daily-timeblocks' {
-	const dailyTimeblockDateStrings: string[];
+	import type { DailyTimeblock } from '~/types/daily-timeblock.js';
+
+	const dailyTimeblockDateStrings: Record<string, DailyTimeblock>;
 	export default dailyTimeblockDateStrings;
 }

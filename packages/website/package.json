@@ -1,5 +1,6 @@
 {
 	"name": "@leonzalion-blog/website",
+	"type": "module",
 	"scripts": {
 		"dev": "vite",
 		"build": "vue-tsc --noEmit && vite-ssg build",
@@ -16,6 +17,7 @@
 		"dayjs": "^1.11.1",
 		"github-markdown-css": "^5.1.0",
 		"gray-matter": "^4.0.3",
+		"jquery": "^3.6.0",
 		"markdown-it-emoji": "^2.0.2",
 		"markdown-it-task-checkbox": "^1.0.6",
 		"pinia": "latest",
@@ -25,6 +27,7 @@
 	},
 	"devDependencies": {
 		"@types/dateformat": "^5.0.0",
+		"@types/jquery": "^3.5.14",
 		"@vitejs/plugin-vue": "latest",
 		"typescript": "^4.6.4",
 		"vite": "latest",
