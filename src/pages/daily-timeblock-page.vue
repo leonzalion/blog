@@ -20,7 +20,7 @@ if (dateString === undefined) {
 
 <template>
 	<div class="column items-center mt-4">
-		<div class="max-w-5xl">
+		<div class="max-w-5xl p-8">
 			<DailyTimeblock />
 		</div>
 	</div>
