@@ -1,0 +1,6 @@
+{
+	"name": "@leonzalion-blog/scripts",
+	"dependencies": {
+		"got": "^12.0.4"
+	}
+}

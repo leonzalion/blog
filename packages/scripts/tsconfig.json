@@ -8,8 +8,7 @@
 			"~/*": ["./src/*"],
 			"~test/*": ["./src/*"]
 		},
-		"types": ["vue/ref-macros"],
-		"typeRoots": ["./node_modules/@types", "./typings"]
+		"types": ["vue/ref-macros"]
 	},
-	"include": ["./src", "typings"]
+	"include": ["./src", "./typings"]
 }
