@@ -7,7 +7,7 @@ body,
 html,
 #app {
 	height: 100%;
-	background-color: rgb(249, 249, 249);
+	background-color: rgb(251, 251, 251);
 }
 
 #app {
@@ -15,7 +15,7 @@ html,
 }
 
 #app .markdown-body {
-	background-color: rgb(249, 249, 249);
+	background-color: rgb(251, 251, 251);
 	font-family: Avenir, Arial, sans-serif;
 }
 
