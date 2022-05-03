@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import 'github-markdown-css/github-markdown.css';
+
 import dateFormat from 'dateformat';
+import dayjs from 'dayjs';
 import type { Component } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
@@ -7,7 +10,7 @@ import type { Article } from '~/types/article.js';
 import { getArticlesMap, importArticle } from '~/utils/article.js';
 
 const route = useRoute();
-const articleSlug = route.params.article?.toString();
+const articleSlug = route.params.slug?.toString();
 
 let ArticleMarkdownComponent: Component;
 let articleNotFound = $ref(false);
@@ -33,7 +36,7 @@ if (articleSlug === undefined) {
 			<div class="mb-2">
 				<h1 class="font-bold text-4xl mb-0.5">{{ article.title }}</h1>
 				<div class="text-gray-500 text-[0.9rem] italic">
-					{{ dateFormat(article.dateCreated, 'longDate') }}
+					{{ dateFormat(dayjs(article.dateCreated).toDate(), 'longDate') }}
 				</div>
 			</div>
 			<ArticleMarkdownComponent />

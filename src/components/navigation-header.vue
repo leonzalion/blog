@@ -25,7 +25,7 @@ import { mdiCalendar, mdiPen } from '@mdi/js';
 		</router-link>
 		<div class="self-stretch w-[1px] bg-gray-300 mx-2"></div>
 		<router-link
-			to="/daily-timeblock"
+			to="/daily-timeblocks"
 			class="row items-center gap-1 rounded-md group hover:text-green-500 transition-colors"
 			exact-active-class="text-green-500"
 		>
@@ -34,7 +34,7 @@ import { mdiCalendar, mdiPen } from '@mdi/js';
 				size="20"
 				class="text-green-500 group-hover:text-green-600 transition-colors"
 			/>
-			Daily Timeblock
+			Daily Timeblocks
 		</router-link>
 	</div>
 </template>

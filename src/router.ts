@@ -14,12 +14,16 @@ export const routes: RouteRecordRaw[] = [
 				component: async () => import('~/pages/article-list-page.vue'),
 			},
 			{
-				path: '/article/:article',
+				path: '/article/:slug',
 				component: async () => import('~/pages/article-page.vue'),
 			},
 			{
-				path: '/daily-timeblock',
-				component: async () => import('~/pages/daily-timeblock.vue'),
+				path: '/daily-timeblocks',
+				component: async () => import('~/pages/daily-timeblock-list-page.vue'),
+			},
+			{
+				path: '/daily-timeblock/:dateString',
+				component: async () => import('~/pages/daily-timeblock-page.vue'),
 			},
 			{
 				path: '/:catchAll(.*)',

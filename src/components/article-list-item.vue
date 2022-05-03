@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import dateFormat from 'dateformat';
+import dayjs from 'dayjs';
 
 import type { Article } from '~/types/article.js';
 
@@ -21,7 +22,7 @@ const { article } = defineProps<{
 			<div class="column">
 				<span class="text-lg">{{ article.title }}</span>
 				<span class="italic text-xs text-gray-500">
-					{{ dateFormat(article.dateCreated, 'longDate') }}
+					{{ dateFormat(dayjs(article.dateCreated).toDate(), 'longDate') }}
 				</span>
 			</div>
 		</div>

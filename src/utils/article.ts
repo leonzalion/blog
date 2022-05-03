@@ -5,7 +5,7 @@ import articlesMap from '~data/articles';
 
 export async function importArticle(articleSlug: string) {
 	const { default: mdComponent } = (await import(
-		`../../data/article/${articleSlug}.md`
+		`../../data/articles/${articleSlug}.md`
 	)) as { default: Component };
 
 	return mdComponent;
