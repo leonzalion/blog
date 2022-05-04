@@ -35,7 +35,7 @@
 
 ```timeblock
 21:00 - 21:25 | Check email; Create timeblock for next day
-21:25 - 21:30 | Clear desk; Plug in devices
+21:25 - 21:30 | Clear desk; Plug in devices; Fill Water Beaker
 21:30 - 21:45 | Brush teeth; Quick shower
 21:45 - 22:15 | Reading
 22:15         | Bedtime
