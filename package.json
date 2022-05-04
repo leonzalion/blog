@@ -15,7 +15,7 @@
 		"build:website": "pnpm --filter=@leonzalion-blog/website run build"
 	},
 	"devDependencies": {
-		"@leonzalion/configs": "^1.2.33",
+		"@leonzalion/configs": "^1.4.4",
 		"desm": "^1.2.0",
 		"eslint-define-config": "^1.4.0",
 		"execa": "^6.1.0",
