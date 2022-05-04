@@ -7,7 +7,7 @@ import type { Plugin } from 'vite';
 export function dailyTimeblocksLoader(): Plugin {
 	const dailyTimeblocksDir = join(
 		import.meta.url,
-		'../../data/daily-timeblocks'
+		'../src/assets/data/daily-timeblocks'
 	);
 	const dailyTimeblockFiles = fs.readdirSync(dailyTimeblocksDir);
 

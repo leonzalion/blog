@@ -5,7 +5,7 @@ import * as path from 'node:path';
 import type { Plugin } from 'vite';
 
 export function articlesLoader(): Plugin {
-	const articleFilesDir = join(import.meta.url, '../../data/articles');
+	const articleFilesDir = join(import.meta.url, '../src/assets/data/articles');
 	const articleFiles = fs.readdirSync(articleFilesDir);
 
 	const articleMatters = Object.fromEntries(
