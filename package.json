@@ -10,6 +10,9 @@
 		"email": "contact@leonzalion.com",
 		"url": "https://leonzalion.com"
 	},
+	"scripts": {
+		"dev:website": "pnpm --filter=@leonzalion-blog/website run dev"
+	},
 	"devDependencies": {
 		"@leonzalion/configs": "^1.2.33",
 		"desm": "^1.2.0",
