@@ -18,11 +18,14 @@ let article: Article = undefined!;
 
 if (articleSlug === undefined) {
 	const router = useRouter();
-	await router.push('/404');
+	await router.replace('/404');
 } else {
 	try {
 		ArticleMarkdownComponent = await importArticle(articleSlug);
 		article = getArticlesMap()[articleSlug]!;
+		if (article === undefined) {
+			articleNotFound = true;
+		}
 	} catch {
 		articleNotFound = true;
 	}
