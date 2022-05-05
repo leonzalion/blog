@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import dateFormat from 'dateformat';
 import dayjs from 'dayjs';
+import { sort } from 'fast-sort';
 
 import { getDailyTimeblocksMap } from '~/utils/daily-timeblock.js';
 
-const dailyTimeblockDateStrings = Object.keys(getDailyTimeblocksMap());
+const dailyTimeblockDateStrings = sort(Object.keys(getDailyTimeblocksMap())).by(
+	{
+		desc: (dateString) => new Date(dateString).getTime(),
+	}
+);
 </script>
 
 <template>
