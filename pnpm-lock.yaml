@@ -4,18 +4,18 @@ importers:
 
   .:
     specifiers:
-      '@leonzalion/configs': ^1.4.4
+      '@leonzalion/configs': ^1.4.6
       desm: ^1.2.0
       eslint-define-config: ^1.4.0
       execa: ^6.1.0
-      lion-system: ^1.3.25
+      lion-system: ^1.3.26
       typescript: ^4.6.4
     devDependencies:
-      '@leonzalion/configs': 1.4.4_typescript@4.6.4
+      '@leonzalion/configs': 1.4.6_typescript@4.6.4
       desm: 1.2.0
       eslint-define-config: 1.4.0
       execa: 6.1.0
-      lion-system: 1.3.25_typescript@4.6.4
+      lion-system: 1.3.26_typescript@4.6.4
       typescript: 4.6.4
 
   packages/scripts:
@@ -322,8 +322,8 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@leonzalion/configs/1.4.4_typescript@4.6.4:
-    resolution: {integrity: sha512-Fc8K+UogIaxTVdlrzcMwTgZknKCxO1YBeKMW2feteoq0EU/0RsaDEKEAWrP6GUkOVU+Ovpss11OldK/y2c0TRw==}
+  /@leonzalion/configs/1.4.6_typescript@4.6.4:
+    resolution: {integrity: sha512-5hQybyfSCvV3Hhdz5vXLLWb/Q1p0FJvQJVkuUkIilZxzlo+YuIb1ZvzBgf4xAmlXrUyGcLQSnvrkdaxYNqtlWw==}
     hasBin: true
     dependencies:
       '@commitlint/cli': 16.2.4_@swc+core@1.2.177
@@ -352,7 +352,7 @@ packages:
       is-ci: 3.0.1
       lint-staged: 12.4.1
       lion-git-hooks: 1.0.10
-      lion-system: 1.3.25_typescript@4.6.4
+      lion-system: 1.3.26_typescript@4.6.4
       lionp: 1.0.24_typescript@4.6.4
       log-symbols: 5.1.0
       markdownlint-cli: 0.31.1
@@ -1776,7 +1776,7 @@ packages:
   /debug/3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
     dependencies:
-      ms: 2.1.2
+      ms: 2.1.3
     dev: true
 
   /debug/4.3.4:
@@ -4022,8 +4022,8 @@ packages:
       pkg-dir: 6.0.1
     dev: true
 
-  /lion-system/1.3.25_typescript@4.6.4:
-    resolution: {integrity: sha512-sn0cFt77XyHp9bQ4IhNCPOy9kATczjw546ZCZYPQJyjsdiiAzTT8fHmOlXtkH0NCkJTQ5lZuIn+eCbLiSCnIog==}
+  /lion-system/1.3.26_typescript@4.6.4:
+    resolution: {integrity: sha512-Y/wCbGCCyD5EfEYIXqOOI9qU6aJGwtMR6/oQfPad+edo6qM78szc9bQnF2/ztqgUhiz6EkN2n78BmHmbYuxNyQ==}
     dependencies:
       '@rollup/plugin-commonjs': 22.0.0_rollup@2.72.0
       '@rollup/plugin-json': 4.1.0_rollup@2.72.0
@@ -4062,7 +4062,7 @@ packages:
       is-interactive: 2.0.0
       is-scoped: 3.0.0
       issue-regex: 4.0.0
-      lion-system: 1.3.25_typescript@4.6.4
+      lion-system: 1.3.26_typescript@4.6.4
       listr2: 4.0.5_enquirer@2.3.6
       log-symbols: 5.1.0
       meow: 10.1.2
@@ -4468,6 +4468,10 @@ packages:
 
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
+    dev: true
+
+  /ms/2.1.3:
+    resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
     dev: true
 
   /mute-stream/0.0.8:
