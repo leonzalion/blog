@@ -3,7 +3,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"build": "vue-tsc --noEmit && vite-ssg build",
+		"build": "vue-tsc --noEmit && vite build",
 		"preview": "vite preview",
 		"prepare": "lion-git-hooks",
 		"lint": "eslint --cache --fix .",
