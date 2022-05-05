@@ -1,11 +1,11 @@
 import vue from '@vitejs/plugin-vue';
 import { join } from 'desm';
+import markdownItAnchor from 'markdown-it-anchor';
 import markdownItTaskCheckbox from 'markdown-it-task-checkbox';
 import { defineConfig } from 'vite';
 import jsImports from 'vite-plugin-js-imports';
 import Markdown from 'vite-plugin-md';
 import WindiCSS from 'vite-plugin-windicss';
-import markdownItAnchor from 'markdown-it-anchor';
 
 import { articlesLoader } from './vite-plugins/articles-loader.js';
 import { dailyTimeblocksLoader } from './vite-plugins/daily-timeblocks-loader.js';
@@ -32,4 +32,7 @@ export default defineConfig({
 		articlesLoader(),
 		dailyTimeblocksLoader(),
 	],
+	ssgOptions: {
+		format: 'cjs',
+	}
 });
