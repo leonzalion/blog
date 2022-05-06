@@ -32,7 +32,4 @@ export default defineConfig({
 		articlesLoader(),
 		dailyTimeblocksLoader(),
 	],
-	ssgOptions: {
-		format: 'cjs',
-	}
 });

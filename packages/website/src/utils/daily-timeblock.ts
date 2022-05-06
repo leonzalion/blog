@@ -5,7 +5,17 @@ import { DailyTimeblock } from '~/types/daily-timeblock.js';
 // eslint-disable-next-line import/extensions
 import dailyTimeblockDateStrings from '~data/daily-timeblocks';
 
-export async function importDailyTimeblock(timeblockDateString: string) {
+export interface DailyTimeblockComponents {
+	DailyPlansComponent: Component;
+	QuarterlyPlansComponent: Component;
+	ThoughtsComponent: Component;
+	TimeblocksComponent: Component;
+	WeeklyPlansComponent: Component;
+}
+
+export async function importDailyTimeblock(
+	timeblockDateString: string
+): Promise<DailyTimeblockComponents> {
 	const { default: DailyPlansComponent } = (await import(
 		`../assets/data/daily-timeblocks/${timeblockDateString}/daily-plans.md`
 	)) as { default: Component };
@@ -31,7 +41,7 @@ export async function importDailyTimeblock(timeblockDateString: string) {
 		QuarterlyPlansComponent,
 		ThoughtsComponent,
 		TimeblocksComponent,
-		
+		WeeklyPlansComponent,
 	};
 }
 
