@@ -1,0 +1,3 @@
+# {{ date }}
+
+## Weekly Plans

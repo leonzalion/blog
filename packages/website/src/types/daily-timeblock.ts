@@ -1,4 +1,7 @@
 export interface DailyTimeblock {
-	togglData: string;
-	content: string;
+	dailyPlans: string;
+	quarterlyPlans: string;
+	thoughts: string;
+	timeblocks: string;
+	weeklyPlans: string;
 }
