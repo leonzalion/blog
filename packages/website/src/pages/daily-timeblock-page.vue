@@ -59,9 +59,13 @@ onMounted(() => {
 			ref="dailyTimeblockContentElement"
 		>
 			<DailyPlansComponent />
+			<br />
 			<TimeblocksComponent />
+			<br />
 			<WeeklyPlansComponent />
+			<br />
 			<QuarterlyPlansComponent />
+			<br />
 			<ThoughtsComponent />
 		</div>
 	</div>
