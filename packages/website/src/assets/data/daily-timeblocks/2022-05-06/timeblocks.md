@@ -64,6 +64,26 @@ Wanted to take a short break after exams.
 19:30 - 21:00 | Set up gap year Twitch stream stuff and integrate with blog
 ```
 
+### v5
+
+Change of plans after friend came over.
+
+```timeblock
+7:30 - 7:45   | Checking email
+8:00 - 9:00   | Quick Paper 3 Review
+9:00 - 10:40  | Paper 3 Exam
+10:40 - 12:30 | Develop better way to create Daily Timeblock files; Move discord-email-tunnel onto fly.io; Move blog deployment onto Netlify (make sure to test out SPA refreshing); Work on blog features
+12:30 - 15:00 | Math Exam
+15:00 - 16:10 | Break
+16:10 - 16:30 | Blog stuff
+16:30 - 17:10 | Call with Kevin X
+17:10 - 17:20 | Spontaneous discussion with a friend who came over
+17:20 - 18:00 | Blog stuff
+18:00 - 18:30 | Hop on a call with George and think about ways to implement PureApps (and also ask whether he's even interested at all in the project)
+18:30 - 19:30 | Prepare for Parkour Gym
+19:30 - 24:xx | Parkour Gym
+24:xx         | Evening routine
+```
 
 ## Routines
 

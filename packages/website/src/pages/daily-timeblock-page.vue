@@ -5,30 +5,23 @@ import type { Component } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 import {
-	dailyTimeblockToDailyTimeblockString,
-	getDailyTimeblocksMap,
+	getDailyTimeblockDateStrings,
 	importDailyTimeblock,
 } from '~/utils/daily-timeblock.js';
 
 const route = useRoute();
 const router = useRouter();
 const dateString = route.params.dateString?.toString();
-
+const dailyTimeblockDateStrings = getDailyTimeblockDateStrings();
 let DailyTimeblockComponent: Component;
-let dailyTimeblockString: string;
-if (dateString === undefined) {
+if (
+	dateString === undefined ||
+	!dailyTimeblockDateStrings.includes(dateString)
+) {
 	await router.replace('/404');
 } else {
-	const dailyTimeblock = getDailyTimeblocksMap()[dateString];
-	if (dailyTimeblock === undefined) {
-		await router.replace('/404');
-	} else {
-		DailyTimeblockComponent = await importDailyTimeblock(dateString);
-		dailyTimeblockString = dailyTimeblockToDailyTimeblockString(dailyTimeblock);
-	}
+	DailyTimeblockComponent = await importDailyTimeblock(dateString);
 }
-
-const timeblocksContainerElement = $ref<HTMLDivElement>();
 </script>
 
 <template>

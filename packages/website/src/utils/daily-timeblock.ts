@@ -3,18 +3,40 @@ import type { Component } from 'vue';
 import { DailyTimeblock } from '~/types/daily-timeblock.js';
 
 // eslint-disable-next-line import/extensions
-import dailyTimeblocksMap from '~data/daily-timeblocks';
+import dailyTimeblockDateStrings from '~data/daily-timeblocks';
 
 export async function importDailyTimeblock(timeblockDateString: string) {
-	const { default: mdComponent } = (await import(
-		`../assets/data/daily-timeblocks/${timeblockDateString}/*.md`
+	const { default: DailyPlansComponent } = (await import(
+		`../assets/data/daily-timeblocks/${timeblockDateString}/daily-plans.md`
 	)) as { default: Component };
 
-	return mdComponent;
+	const { default: QuarterlyPlansComponent } = (await import(
+		`../assets/data/daily-timeblocks/${timeblockDateString}/quarterly-plans.md`
+	)) as { default: Component };
+
+	const { default: ThoughtsComponent } = (await import(
+		`../assets/data/daily-timeblocks/${timeblockDateString}/thoughts.md`
+	)) as { default: Component };
+
+	const { default: TimeblocksComponent } = (await import(
+		`../assets/data/daily-timeblocks/${timeblockDateString}/timeblocks.md`
+	)) as { default: Component };
+
+	const { default: WeeklyPlansComponent } = (await import(
+		`../assets/data/daily-timeblocks/${timeblockDateString}/weekly-plans.md`
+	)) as { default: Component };
+
+	return {
+		DailyPlansComponent,
+		QuarterlyPlansComponent,
+		ThoughtsComponent,
+		TimeblocksComponent,
+		
+	};
 }
 
-export function getDailyTimeblocksMap() {
-	return dailyTimeblocksMap;
+export function getDailyTimeblockDateStrings() {
+	return dailyTimeblockDateStrings;
 }
 
 export function dailyTimeblockToDailyTimeblockString(
