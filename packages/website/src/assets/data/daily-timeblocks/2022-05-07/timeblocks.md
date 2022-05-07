@@ -37,6 +37,7 @@ Was really tired (since I only received like 7 hours of sleep), so I took a nap.
 19:00 - 19:30 | Create an outline for an "Internet intention" article
 19:30 - 20:00 | Flush out portable backpack-desk idea
 20:00 - 21:00 | Gap year stream logistics
+21:00         | Continue timeblock until 23:15
 ```
 
 ### v3
