@@ -27,7 +27,8 @@
 		"pinia": "^2.0.14",
 		"simple-vue-icon": "^1.3.5",
 		"vue": "^3.2.33",
-		"vue-router": "^4.0.15"
+		"vue-router": "^4.0.15",
+		"vue3-spinners": "^1.1.1"
 	},
 	"devDependencies": {
 		"@types/dateformat": "^5.0.0",

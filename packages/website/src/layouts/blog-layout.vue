@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import NavigationHeader from '~/components/navigation-header.vue';
+import { VueSpinnerPuff } from 'vue3-spinners';
 </script>
 
 <template>
@@ -8,6 +9,12 @@ import NavigationHeader from '~/components/navigation-header.vue';
 		<div class="px-4">
 			<Suspense>
 				<RouterView />
+				<template #fallback>
+					<div class="h-full w-full column items-center justify-center">
+						<div>Loading...</div>
+						<VueSpinnerPuff />
+					</div>
+				</template>
 			</Suspense>
 		</div>
 	</div>
