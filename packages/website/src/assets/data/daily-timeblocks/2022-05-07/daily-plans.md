@@ -39,6 +39,7 @@
   - [ ] I'll block Apple Mail once I create InstaChat (hopefully by tomorrow)
 - [ ] Learn a bit about memory palace
 - [ ] Set a reminder to bring a deck of cards every Friday to practice memory palace while on the car ride to gym
+- [ ] Think about how reactive emails would work when using in-person, written emails (make it easy/possible to generate an email on a phone/Apple Watch app? Have backup, extra emails that can be reassigned later on? have a generic, static email for this purpose?)
 
 ### Upstream
 
