@@ -49,14 +49,15 @@ Spent longer adjusting sleep schedule than expected.
 7:50 - 8:00   | Brush teeth
 8:00 - 10:00  | Experiment with Browser Extension + Node Process Web Scraper for ProjectPure
 10:00 - 13:00 | Nap
-13:00 - 14:50 | Look into adjusting my sleep schedule
-14:50 - 15:05 | Lunch
-15:05 - 15:40 | Finish blog create daily timeblock script; Move blog deployment onto Netlify; make backlog hidden on blog by default
-15:40 - 16:xx | Finish AdminControl logo(s) and add icon to tray
-16:xx - 19:00 | Set up Precommit on AWS
+13:00 - 13:50 | Look into adjusting my sleep schedule
+13:50 - 14:05 | Lunch
+14:05 - 14:40 | Finish blog create daily timeblock script; Move blog deployment onto Netlify; make backlog hidden on blog by default
+14:40 - 15:xx | Finish AdminControl logo(s) and add icon to tray
+15:xx - 19:00 | Set up Precommit on AWS
 19:00 - 19:30 | Create an outline for an "Internet intention" article
 19:30 - 20:00 | Flush out portable backpack-desk idea
 20:00 - 21:00 | Gap year stream logistics
+21:00         | Continue timeblock until 23:15
 ```
 
 ## Routines
