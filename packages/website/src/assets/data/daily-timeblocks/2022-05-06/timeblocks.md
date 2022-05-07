@@ -81,7 +81,8 @@ Change of plans after friend came over.
 17:20 - 18:00 | Blog stuff
 18:00 - 18:30 | Hop on a call with George and think about ways to implement PureApps (and also ask whether he's even interested at all in the project)
 18:30 - 19:30 | Prepare for Parkour Gym
-19:30 - 24:xx | Parkour Gym
+19:30 - 24:10 | Parkour Gym
+24:10 - 24:20 | Email
 24:xx         | Evening routine
 ```
 
