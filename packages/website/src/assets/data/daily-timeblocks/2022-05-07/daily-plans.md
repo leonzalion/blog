@@ -42,6 +42,8 @@
 - [ ] Think about how reactive emails would work when using in-person, written emails (make it easy/possible to generate an email on a phone/Apple Watch app? Have backup, extra emails that can be reassigned later on? have a generic, static email for this purpose?)
 - [ ] Finish up vue3-spinners (hard because I need to fix up compile-vue-sfc, which is a significant challenge)
 - [ ] Finish up a very basic browser extension + Node proxy prototype for ProjectPure
+- [ ] Change build script for AdminControl to avoid using pnpm shamefully-hoist (e.g. symlinking/cloning the project folder into a separate directory when running `pnpm run compile`) 
+- [ ] Make a wrapper for daily timeblocks that will auto-commit whenever file is updated
 
 ### Upstream
 
