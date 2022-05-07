@@ -36,6 +36,7 @@
   - [ ] What about the encryption key stored as a blurry/cryptic message that requires effort to manually enter (e.g. captchas or even using images to represent text; anything that a computer can't do quickly and requires time and effort from my end)
 - [ ] Find a way to take Cornell notes in Notion (hidden answer/explanation column and visible term/question column)
 - [ ] Create InstaChat, a on-the-fly "chat" app for posting stuff like links and images in limited "chat" places like Google Meet where you can't send images. Use WebRTC
+  - [ ] I'll block Apple Mail once I create InstaChat (hopefully by tomorrow)
 - [ ] Learn a bit about memory palace
 - [ ] Set a reminder to bring a deck of cards every Friday to practice memory palace while on the car ride to gym
 
