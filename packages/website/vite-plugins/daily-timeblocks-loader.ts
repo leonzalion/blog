@@ -3,11 +3,11 @@ import * as fs from 'node:fs';
 import type { Plugin } from 'vite';
 
 export function dailyTimeblocksLoader(): Plugin {
-	const dailyTimeblocksDir = join(
-		import.meta.url,
-		'../src/assets/data/daily-timeblocks'
-	);
-	const dateStrings = fs.readdirSync(dailyTimeblocksDir);
+	const dailyTimeblocksDir = join(import.meta.url, '../../daily-timeblocks');
+	const dateStrings = fs
+		.readdirSync(dailyTimeblocksDir, { withFileTypes: true })
+		.filter((dirent) => dirent.isDirectory())
+		.map((dirent) => dirent.name);
 
 	return {
 		name: 'daily-timeblocks-loader',

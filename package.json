@@ -19,7 +19,6 @@
 	"devDependencies": {
 		"@leonzalion/configs": "^1.4.11",
 		"desm": "^1.2.0",
-		"eslint-define-config": "^1.4.0",
 		"execa": "^6.1.0",
 		"lion-system": "^1.3.27",
 		"typescript": "^4.6.4"

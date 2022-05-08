@@ -1,46 +1,43 @@
-import type { Component } from 'vue';
+import ky from 'ky';
 
 // eslint-disable-next-line import/extensions
 import dailyTimeblockDateStrings from '~data/daily-timeblocks';
 
-export interface DailyTimeblockComponents {
-	DailyPlansComponent: Component;
-	QuarterlyPlansComponent: Component;
-	ThoughtsComponent: Component;
-	TimeblocksComponent: Component;
-	WeeklyPlansComponent: Component;
+export interface DailyTimeblockParts {
+	'daily-plans.md': string;
+	'quarterly-plans.md': string;
+	'thoughts.md': string;
+	'timeblocks.md': string;
+	'weekly-plans.md': string;
 }
 
-export async function importDailyTimeblock(
-	timeblockDateString: string
-): Promise<DailyTimeblockComponents> {
-	const { default: DailyPlansComponent } = (await import(
-		`../assets/data/daily-timeblocks/${timeblockDateString}/daily-plans.md`
-	)) as { default: Component };
+export async function fetchDailyTimeblock({
+	dateString,
+}: {
+	dateString: string;
+}) {
+	const baseUrl =
+		'https://raw.githubusercontent.com/leonzalion/blog/main/packages/daily-timeblocks';
+	const dailyTimeblockFileNames = [
+		'daily-plans.md',
+		'quarterly-plans.md',
+		'thoughts.md',
+		'timeblocks.md',
+		'weekly-plans.md',
+	];
 
-	const { default: QuarterlyPlansComponent } = (await import(
-		`../assets/data/daily-timeblocks/${timeblockDateString}/quarterly-plans.md`
-	)) as { default: Component };
+	const dailyTimeblockFilesMarkdown = Object.fromEntries(
+		await Promise.all(
+			dailyTimeblockFileNames.map(async (dailyTimeblockFileName) => {
+				const url = `${baseUrl}/${dateString}/${dailyTimeblockFileName}`;
+				const response = await ky.get(url);
+				const markdown = await response.text();
+				return [dailyTimeblockFileName, markdown];
+			})
+		)
+	) as DailyTimeblockParts;
 
-	const { default: ThoughtsComponent } = (await import(
-		`../assets/data/daily-timeblocks/${timeblockDateString}/thoughts.md`
-	)) as { default: Component };
-
-	const { default: TimeblocksComponent } = (await import(
-		`../assets/data/daily-timeblocks/${timeblockDateString}/timeblocks.md`
-	)) as { default: Component };
-
-	const { default: WeeklyPlansComponent } = (await import(
-		`../assets/data/daily-timeblocks/${timeblockDateString}/weekly-plans.md`
-	)) as { default: Component };
-
-	return {
-		DailyPlansComponent,
-		QuarterlyPlansComponent,
-		ThoughtsComponent,
-		TimeblocksComponent,
-		WeeklyPlansComponent,
-	};
+	return dailyTimeblockFilesMarkdown;
 }
 
 export function getDailyTimeblockDateStrings() {
