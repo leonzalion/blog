@@ -77,7 +77,27 @@ Kinda lost track of time while working on Precommit.
 20:30 - 21:00 | Create an outline for an "Internet intention" article
 21:00 - 21:30 | Flush out portable backpack-desk idea
 21:30 - 22:00 | Move discord-email-tunnel onto fly.io
-22:00 - 23:15 | Gap year stream logistics
+```
+
+### v5
+
+Spent a bit of time revising Daily Timeblock thoughts for today.
+
+```timeblock
+7:30 - 7:50   | Create timeblock (decided to sleep yesterday before finishing evening routine since I was really tired)
+7:50 - 8:00   | Brush teeth
+8:00 - 10:00  | Experiment with Browser Extension + Node Process Web Scraper for ProjectPure
+10:00 - 13:00 | Nap
+13:00 - 13:50 | Look into adjusting my sleep schedule
+13:50 - 14:05 | Lunch
+14:05 - 14:40 | Finish blog create daily timeblock script; Move blog deployment onto Netlify; make backlog hidden on blog by default
+14:40 - 15:40 | Finish AdminControl logo(s) and add icon to tray
+15:40 - 20:30 | Set up Precommit + Docker
+20:30 - 21:00 | Create an outline for an "Internet intention" article
+21:00 - 21:30 | Flush out portable backpack-desk idea
+21:30 - 21:40 | Revise Daily Timeblock thoughts
+21:40 - 22:00 | Move discord-email-tunnel onto fly.io
+22:00 - 23:15 | Evening Routine
 ```
 
 ## Routines
@@ -93,9 +113,9 @@ Kinda lost track of time while working on Precommit.
 ### Evening Routine
 
 ```timeblock
-23:15 - 23:40 | Check email; Create timeblock for next day
-23:40 - 23:45 | Clear desk; Plug in devices
-23:45 - 24:00 | Brush teeth; Quick shower
-24:00 - 24:30 | Reading
-24:30         | Bedtime; experiment with playing Weightless
+22:00 - 22:25 | Check email; Create timeblock for next day
+22:25 - 22:30 | Clear desk; Plug in devices
+22:30 - 22:45 | Brush teeth; Quick shower
+22:45 - 23:15 | Reading
+23:15         | Bedtime; experiment with playing Weightless
 ```
