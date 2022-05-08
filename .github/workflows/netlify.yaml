@@ -42,6 +42,7 @@ jobs:
         run: pnpm install
   deploy:
     runs-on: ubuntu-latest
+    needs: cache-and-install
 
     steps:
       - name: Build frontend
