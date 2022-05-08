@@ -6,12 +6,12 @@
 
 - [ ] Set up & start gap year stream on Twitch
 - [ ] Make backlog hidden on blog by default (or better, make all headers toggleable)
-- [ ] Do a practice Paper 2 mock exam for Math; review integrals and volume of revolution
+- [x] Do a practice Paper 2 mock exam for Math; review integrals and volume of revolution
 - [ ] Flush out my portable backpack-desk idea (a fun project I have in mind for learning mechanical/computer engineering while still being pretty useful for me)
 - [ ] Learn a bit about memory palace
 - [ ] Set a reminder to bring a deck of cards every Friday to practice memory palace while on the car ride to gym
 - [ ] Create BetterChat prototype
-- [ ] Find more immediate way of updating blog (GitHub pages can take a while) - Use Fetch API to dynamically retrieve latest content using the `raw.githubusercontent.com` URLs since they don't have CORS (also need to place under a production flag in development)
+- [x] Find more immediate way of updating blog (GitHub pages can take a while) - Use Fetch API to dynamically retrieve latest content using the `raw.githubusercontent.com` URLs since they don't have CORS (also need to place under a production flag in development)
 - [ ] Find a way to not have to rebuild the site every single time I update it - create a script in the GitHub pages workflow to skip rebuilding if only markdown in `daily-timeblock/` was changed
 - [ ] Get a bunch of cardboard to build backpack-desk thingy prototype
 
@@ -29,6 +29,7 @@
   - [ ] I'll block Apple Mail once I create BetterChat
 - [ ] Toggl integration in Daily Timeblock
 - [ ] Web worker refresh thing like Vue docs (since I still have caching issues with Netlify)
+- [ ] Create `markdown-it` playground
 
 #### Distant
 

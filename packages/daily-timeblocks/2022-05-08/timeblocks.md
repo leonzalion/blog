@@ -39,6 +39,10 @@ There goes my schedule for the day...
 22:00 - 23:15 | Evening Routine
 ```
 
+#### Notes
+
+`markdown-it` has like _zero_ documentation for writing plugins, and as such it's really difficult for me to write custom plugins for my specific markdown parsing needs for my blog. I'll probably invest time in creating a markdown-it playground where I can input markdown and then take a look at the syntax tree that gets parsed (it doesn't help that the variables are cryptically named either).
+
 ### Morning Routine
 
 ```timeblock
