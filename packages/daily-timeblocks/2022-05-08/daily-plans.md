@@ -66,6 +66,7 @@
 - [ ] Create a website for AdminControl
 - [ ] Make changing screen time passcode toggleable on AdminControl
 - [ ] Fix AdminControl bitwarden integration where it creates a folder and keeps track of changes instead of overwriting
+- [ ] Create a little CLI utility to print double-sided using AppleScript automation (it will print odd pages, then output instructions on how to insert the paper, and when you're done you press enter in the CLI and it will automatically print the even sides using the saved preset it creates by default, and then it will delete the temporary preset afterwards)
 
 ### Upstream
 
