@@ -19,18 +19,6 @@
 22:00 - 23:15 | Evening Routine
 ```
 
-- [ ] Set up & start gap year stream on Twitch
-- [ ] Make backlog hidden on blog by default (or better, make all headers toggleable)
-- [ ] Do a practice Paper 2 mock exam for Math; review integrals and volume of revolution
-- [ ] Move discord-email-tunnel onto fly.io
-- [ ] Flush out my portable backpack-desk idea (a fun project I have in mind for learning mechanical/computer engineering while still being pretty useful for me)
-- [ ] Learn a bit about memory palace
-- [ ] Set a reminder to bring a deck of cards every Friday to practice memory palace while on the car ride to gym
-- [ ] Create InstaChat prototype (need a better name)
-- [ ] Find more immediate way of updating blog (GitHub pages can take a while) - Use Fetch API to dynamically retrieve latest content using the `raw.githubusercontent.com` URLs since they don't have CORS (also need to place under a production flag in development)
-- [ ] Find a way to not have to rebuild the site every single time I update it - create a script in the GitHub pages workflow to skip rebuilding if only markdown in `daily-timeblock/` was changed
-- [ ] Get a bunch of cardboard to build backpack-desk thingy prototype
-
 ### Morning Routine
 
 ```timeblock
