@@ -35,22 +35,12 @@ async function getDailyTimeblockMarkdownFiles(): Promise<DailyTimeblockParts> {
 const dailyTimeblockMarkdownFiles =
 	(await getDailyTimeblockMarkdownFiles()) ?? {};
 
-const dailyTimeblockContentElement = $ref<HTMLDivElement>();
-
-onMounted(() => {
-	const headings =
-		dailyTimeblockContentElement.querySelectorAll<HTMLHeadingElement>('h1');
-	for (const heading of Array.prototype.slice.call(headings).slice(1)) {
-		(heading as HTMLHeadingElement).remove();
-	}
-});
-
 const md = new Markdown();
 </script>
 
 <template>
 	<div
-		v-if="Object.keys(dailyTimeblockContentElement).length > 0"
+		v-if="Object.keys(dailyTimeblockMarkdownFiles).length > 0"
 		class="column items-center mt-4"
 	>
 		<div
