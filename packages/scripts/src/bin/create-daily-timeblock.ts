@@ -36,13 +36,10 @@ function getTomorrowDateString() {
 	return `${year}-${month}-${date}`;
 }
 
-let timeblockDirToCopy: string;
-let timeblockDirToCreate: string;
+let dateStringToCopy: string;
+let dateStringToCreate: string;
 
-const todayTimeblockDir = path.join(
-	dailyTimeblocksDir,
-	`${getTodayDateString()}`
-);
+const todayTimeblockDir = path.join(dailyTimeblocksDir, getTodayDateString());
 
 // If today's timeblock exists, assume the user wants to create tomorrow's timeblock
 if (fs.existsSync(todayTimeblockDir)) {
@@ -53,18 +50,18 @@ if (fs.existsSync(todayTimeblockDir)) {
 	if (fs.existsSync(tomorrowTimeblockDir)) {
 		throw new Error("Tomorrow's timeblock already exists.");
 	}
-	timeblockDirToCopy = todayTimeblockDir;
-	timeblockDirToCreate = tomorrowTimeblockDir;
+
+	dateStringToCopy = getTodayDateString();
+	dateStringToCreate = getTomorrowDateString();
 }
 // otherwise, assume the user wants to create today's timeblock
 else {
-	const yesterdayTimeblockDir = path.join(
-		dailyTimeblocksDir,
-		getYesterdayDateString()
-	);
-	timeblockDirToCopy = yesterdayTimeblockDir;
-	timeblockDirToCreate = todayTimeblockDir;
+	dateStringToCopy = getYesterdayDateString();
+	dateStringToCreate = getTodayDateString();
 }
+
+const timeblockDirToCopy = path.join(dailyTimeblocksDir, dateStringToCopy);
+const timeblockDirToCreate = path.join(dailyTimeblocksDir, dateStringToCreate);
 
 fs.cpSync(timeblockDirToCopy, timeblockDirToCreate, { recursive: true });
 
@@ -78,7 +75,7 @@ for (const dailyTimeblockFileName of dailyTimeblockFileNames) {
 
 	const fileMarkdown = fs.readFileSync(dailyTimeblockFilePath, 'utf8');
 	const fileMarkdownLines = fileMarkdown.split('\n');
-	fileMarkdownLines[0] = `# ${dayjs(getTodayDateString()).format(
+	fileMarkdownLines[0] = `# ${dayjs(dateStringToCreate).format(
 		'dddd, MMMM D, YYYY'
 	)}`;
 
