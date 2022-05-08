@@ -42,6 +42,7 @@ jobs:
           deploy-message: "Deploy from GitHub Actions"
           production-deploy: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          enable-commit-comment: false
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

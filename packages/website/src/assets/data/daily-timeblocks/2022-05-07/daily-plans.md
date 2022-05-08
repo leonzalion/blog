@@ -44,6 +44,7 @@
 - [ ] Finish up a very basic browser extension + Node proxy prototype for ProjectPure
 - [ ] Change build script for AdminControl to avoid using pnpm shamefully-hoist (e.g. symlinking/cloning the project folder into a separate directory when running `pnpm run compile`)
 - [ ] Make a wrapper for daily timeblocks that will auto-commit whenever file is updated
+- [ ] Create a "sort of" checkbox markdown parser for daily goals on blog
 
 ### Upstream
 
