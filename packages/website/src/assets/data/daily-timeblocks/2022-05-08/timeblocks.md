@@ -9,9 +9,9 @@
 7:30 - 8:00   | Review Math by going through integration notes and doing a few practice ones (especially trig integrals)
 8:00 - 10:10  | Finish + mark a mock paper 2
 10:10 - 11:30 | Create blog script; update GitHub workflow; backlog hidden on blog
-11:30 - 13:50 | Create InstaChat Prototype
+11:30 - 13:50 | Create BetterChat Prototype
 13:50 - 15:15 | Soccer w/ friends
-15:15 - 17:10 | Create InstaChat prototype if not finished ~ move discord-email-tunnel onto fly.io
+15:15 - 17:10 | Create BetterChat prototype if not finished ~ move discord-email-tunnel onto fly.io
 17:10 - 18:30 | Running some errands; pick up some cardboard for backpack-desk-thingy
 18:30 - 19:00 | Set deck of cards reminder; Research about Memory Palace (and practice)
 19:00 - 21:00 | Weekly Vibe

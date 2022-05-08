@@ -10,7 +10,7 @@
 - [ ] Flush out my portable backpack-desk idea (a fun project I have in mind for learning mechanical/computer engineering while still being pretty useful for me)
 - [ ] Learn a bit about memory palace
 - [ ] Set a reminder to bring a deck of cards every Friday to practice memory palace while on the car ride to gym
-- [ ] Create InstaChat prototype (need a better name)
+- [ ] Create BetterChat prototype (need a better name)
 - [ ] Find more immediate way of updating blog (GitHub pages can take a while) - Use Fetch API to dynamically retrieve latest content using the `raw.githubusercontent.com` URLs since they don't have CORS (also need to place under a production flag in development)
 - [ ] Find a way to not have to rebuild the site every single time I update it - create a script in the GitHub pages workflow to skip rebuilding if only markdown in `daily-timeblock/` was changed
 - [ ] Get a bunch of cardboard to build backpack-desk thingy prototype
@@ -25,8 +25,8 @@
 #### Prioritized
 
 - [ ] Create English Literary Terms Anki flashcards
-- [ ] Create InstaChat, a on-the-fly "chat" app for posting stuff like links and images in limited "chat" places like Google Meet where you can't send images. Use WebRTC
-  - [ ] I'll block Apple Mail once I create InstaChat
+- [ ] Create BetterChat, a on-the-fly "chat" app for posting stuff like links and images in limited "chat" places like Google Meet where you can't send images. Use WebRTC
+  - [ ] I'll block Apple Mail once I create BetterChat
 - [ ] Toggl integration in Daily Timeblock
 - [ ] Web worker refresh thing like Vue docs (since I still have caching issues with Netlify)
 
@@ -58,6 +58,13 @@
 - [ ] Fix blog loading screen when loading article
 - [ ] Specify a standard notation when writing timeblocks (e.g. a ~ b = if finished a, do b)
 - [ ] Make sure AdminControl keeps track of previous screen time passwords somewhere in case it goes wrong
+- [ ] Create some Neovim configs that get me comfortable working in Neovim (e.g. pane shortcuts, etc.)
+- [ ] Create a generic `run-bin` script for `@leonzalion/configs` that follows the `./src/bin/x.ts` convention
+- [ ] Create a generic command that encompasses `lint`, `prettier`, and `typecheck` so I don't need to repeatedly specify it in the scripts of every package.json
+- [ ] Compile AdminControl so I can download it on my Mac
+- [ ] Create a website for AdminControl
+- [ ] Make changing screen time passcode toggleable on AdminControl
+- [ ] Fix AdminControl bitwarden integration where it creates a folder and keeps track of changes instead of overwriting
 
 ### Upstream
 
