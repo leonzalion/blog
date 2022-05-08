@@ -23,7 +23,7 @@
 - [ ] Make backlog hidden on blog by default (or better, make all headers toggleable)
 - [ ] Do a practice Paper 2 mock exam for Math; review integrals and volume of revolution
 - [ ] Move discord-email-tunnel onto fly.io
-- [ ] Flush out my portable backpack-desk idea (a fun project I have in mind for learning mechanical/computer engineering while still being pretty useful for me)
+- [ ] Flush out my portable backpack-desk idea (a fun project I have in mind for learning mechanical/computer   engineering while still being pretty useful for me)
 - [ ] Learn a bit about memory palace
 - [ ] Set a reminder to bring a deck of cards every Friday to practice memory palace while on the car ride to gym
 - [ ] Create InstaChat prototype (need a better name)

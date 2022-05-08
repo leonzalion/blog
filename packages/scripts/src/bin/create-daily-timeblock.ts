@@ -74,7 +74,7 @@ for (const dailyTimeblockFileName of dailyTimeblockFileNames) {
 	);
 
 	const fileMarkdown = fs.readFileSync(dailyTimeblockFilePath, 'utf8');
-	const fileMarkdownLines = fileMarkdown.split('\n');
+	let fileMarkdownLines = fileMarkdown.split('\n');
 	fileMarkdownLines[0] = `# ${dayjs(dateStringToCreate).format(
 		'dddd, MMMM D, YYYY'
 	)}`;
@@ -88,6 +88,12 @@ for (const dailyTimeblockFileName of dailyTimeblockFileNames) {
 				`\`Thoughts\` header not found in \`thoughts.md\` file in \`${timeblockDirToCopy}\``
 			);
 		}
+
+		fileMarkdownLines = [
+			...fileMarkdownLines.slice(0, thoughtsIndex),
+			'',
+			'(No thoughts.)',
+		];
 	}
 
 	if (dailyTimeblockFileName === 'timeblocks.md') {
