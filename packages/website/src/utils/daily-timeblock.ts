@@ -31,7 +31,13 @@ export async function fetchDailyTimeblock({
 			dailyTimeblockFileNames.map(async (dailyTimeblockFileName) => {
 				const url = `${baseUrl}/${dateString}/${dailyTimeblockFileName}`;
 				const response = await ky.get(url);
-				const markdown = await response.text();
+				let markdown = await response.text();
+
+				if (dailyTimeblockFileName !== 'daily-plans.md') {
+					// Trim the date header off of timeblock files
+					markdown = markdown.split('\n').slice(1).join('\n');
+				}
+
 				return [dailyTimeblockFileName, markdown];
 			})
 		)
