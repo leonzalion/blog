@@ -2,39 +2,12 @@ import dayjs from 'dayjs';
 import { getProjectDir } from 'lion-system';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-
-const monorepoDir = getProjectDir(import.meta.url, { monorepoRoot: true });
-const dailyTimeblocksDir = path.join(
-	monorepoDir,
-	'packages/website/src/assets/data/daily-timeblocks'
-);
-
-function getYesterdayDateString() {
-	const yesterday = dayjs().subtract(1, 'day');
-	const year = String(yesterday.year()).padStart(2, '0');
-	const month = String(yesterday.month() + 1).padStart(2, '0');
-	const date = String(yesterday.date()).padStart(2, '0');
-
-	return `${year}-${month}-${date}`;
-}
-
-function getTodayDateString() {
-	const today = dayjs();
-	const year = String(today.year());
-	const month = String(today.month() + 1).padStart(2, '0');
-	const date = String(today.date()).padStart(2, '0');
-
-	return `${year}-${month}-${date}`;
-}
-
-function getTomorrowDateString() {
-	const yesterday = dayjs().add(1, 'day');
-	const year = String(yesterday.year()).padStart(2, '0');
-	const month = String(yesterday.month() + 1).padStart(2, '0');
-	const date = String(yesterday.date()).padStart(2, '0');
-
-	return `${year}-${month}-${date}`;
-}
+import {
+	getTodayDateString,
+	getTomorrowDateString,
+	getYesterdayDateString,
+} from '~/utils/date-string.js';
+import { dailyTimeblocksDir } from '~/utils/paths.js';
 
 let dateStringToCopy: string;
 let dateStringToCreate: string;

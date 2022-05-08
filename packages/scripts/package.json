@@ -3,7 +3,8 @@
 	"type": "module",
 	"scripts": {
 		"toggl": "node-ts ./src/toggl.ts",
-		"create-daily-timeblock": "node-ts ./src/bin/create-daily-timeblock.ts"
+		"create-daily-timeblock": "node-ts ./src/bin/create-daily-timeblock.ts",
+		"edit-daily-timeblock": "node-ts ./src/bin/edit-daily-timeblock.ts"
 	},
 	"dependencies": {
 		"dayjs": "^1.11.1",
