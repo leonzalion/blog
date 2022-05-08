@@ -32,7 +32,8 @@ async function getDailyTimeblockMarkdownFiles(): Promise<DailyTimeblockParts> {
 	}
 }
 
-const dailyTimeblockMarkdownFiles = await getDailyTimeblockMarkdownFiles();
+const dailyTimeblockMarkdownFiles =
+	(await getDailyTimeblockMarkdownFiles()) ?? {};
 
 const dailyTimeblockContentElement = $ref<HTMLDivElement>();
 
