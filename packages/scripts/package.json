@@ -2,7 +2,8 @@
 	"name": "@leonzalion-blog/scripts",
 	"type": "module",
 	"scripts": {
-		"toggl": "node-ts ./src/toggl.ts"
+		"toggl": "node-ts ./src/toggl.ts",
+		"create-daily-timeblock": "node-ts ./src/bin/create-daily-timeblock.ts"
 	},
 	"dependencies": {
 		"dayjs": "^1.11.1",

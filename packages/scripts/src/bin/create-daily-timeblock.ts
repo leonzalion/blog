@@ -4,47 +4,75 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 
 const monorepoDir = getProjectDir(import.meta.url, { monorepoRoot: true });
-const dailyTimeblocksDir = path.join(monorepoDir, 'data/daily-timeblocks');
+const dailyTimeblocksDir = path.join(
+	monorepoDir,
+	'packages/website/src/assets/data/daily-timeblocks'
+);
+
+function getYesterdayDateString() {
+	const yesterday = dayjs().subtract(1, 'day');
+	const year = String(yesterday.year()).padStart(2, '0');
+	const month = String(yesterday.month() + 1).padStart(2, '0');
+	const date = String(yesterday.date()).padStart(2, '0');
+
+	return `${year}-${month}-${date}`;
+}
 
 function getTodayDateString() {
 	const today = dayjs();
-	const date = String(today.date()).padStart(2, '0');
-	const month = String(today.month()).padStart(2, '0');
 	const year = String(today.year());
+	const month = String(today.month() + 1).padStart(2, '0');
+	const date = String(today.date() + 1).padStart(2, '0');
 
 	return `${year}-${month}-${date}`;
 }
 
-function getYesterdayDateString() {
-	const yesterday = dayjs();
-	const date = String(yesterday.date()).padStart(2, '0');
-	const month = String(yesterday.month()).padStart(2, '0');
+function getTomorrowDateString() {
+	const yesterday = dayjs().add(1, 'day');
 	const year = String(yesterday.year()).padStart(2, '0');
+	const month = String(yesterday.month() + 1).padStart(2, '0');
+	const date = String(yesterday.date()).padStart(2, '0');
 
 	return `${year}-${month}-${date}`;
 }
+
+let timeblockDirToCopy: string;
+let timeblockDirToCreate: string;
 
 const todayTimeblockDir = path.join(
 	dailyTimeblocksDir,
 	`${getTodayDateString()}`
 );
-const yesterdayTimeblockDir = path.join(
-	dailyTimeblocksDir,
-	`${getYesterdayDateString()}`
-);
 
+// If today's timeblock exists, assume the user wants to create tomorrow's timeblock
 if (fs.existsSync(todayTimeblockDir)) {
-	console.info("Today's timeblock directory already exists!");
-	process.exit(1);
+	const tomorrowTimeblockDir = path.join(
+		dailyTimeblocksDir,
+		getTomorrowDateString()
+	);
+	if (fs.existsSync(tomorrowTimeblockDir)) {
+		throw new Error("Tomorrow's timeblock already exists.");
+	}
+	timeblockDirToCopy = todayTimeblockDir;
+	timeblockDirToCreate = tomorrowTimeblockDir;
+}
+// otherwise, assume the user wants to create today's timeblock
+else {
+	const yesterdayTimeblockDir = path.join(
+		dailyTimeblocksDir,
+		getYesterdayDateString()
+	);
+	timeblockDirToCopy = yesterdayTimeblockDir;
+	timeblockDirToCreate = todayTimeblockDir;
 }
 
-fs.cpSync(yesterdayTimeblockDir, todayTimeblockDir, { recursive: true });
+fs.cpSync(timeblockDirToCopy, timeblockDirToCreate, { recursive: true });
 
-const dailyTimeblockFileNames = fs.readdirSync(todayTimeblockDir);
+const dailyTimeblockFileNames = fs.readdirSync(timeblockDirToCreate);
 
 for (const dailyTimeblockFileName of dailyTimeblockFileNames) {
 	const dailyTimeblockFilePath = path.join(
-		todayTimeblockDir,
+		timeblockDirToCreate,
 		dailyTimeblockFileName
 	);
 
@@ -60,7 +88,7 @@ for (const dailyTimeblockFileName of dailyTimeblockFileNames) {
 		);
 		if (thoughtsIndex === -1) {
 			console.error(
-				`\`Thoughts\` header not found in \`thoughts.md\` file in \`${getYesterdayDateString()}\``
+				`\`Thoughts\` header not found in \`thoughts.md\` file in \`${timeblockDirToCopy}\``
 			);
 		}
 	}
@@ -72,7 +100,7 @@ for (const dailyTimeblockFileName of dailyTimeblockFileNames) {
 
 		if (timeblocksIndex === -1) {
 			console.error(
-				`\`Timeblocks\` header not found in \`timeblocks.md\` file in \`${getYesterdayDateString()}\``
+				`\`Timeblocks\` header not found in \`timeblocks.md\` file in \`${timeblockDirToCopy}\``
 			);
 		}
 
@@ -82,11 +110,14 @@ for (const dailyTimeblockFileName of dailyTimeblockFileNames) {
 
 		if (routinesIndex === -1) {
 			console.error(
-				`\`Routines\` header not found in \`timeblocks.md\` file in \`${getYesterdayDateString()}\``
+				`\`Routines\` header not found in \`timeblocks.md\` file in \`${timeblockDirToCopy}\``
 			);
 		}
 
-		fileMarkdownLines.splice(timeblocksIndex + 1, routinesIndex - 1);
+		fileMarkdownLines.splice(
+			timeblocksIndex + 1,
+			routinesIndex - timeblocksIndex
+		);
 	}
 
 	fs.writeFileSync(dailyTimeblockFilePath, fileMarkdownLines.join('\n'));
