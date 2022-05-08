@@ -7,7 +7,6 @@
 - [ ] Set up & start gap year stream on Twitch
 - [ ] Make backlog hidden on blog by default (or better, make all headers toggleable)
 - [ ] Do a practice Paper 2 mock exam for Math; review integrals and volume of revolution
-- [ ] Move discord-email-tunnel onto fly.io
 - [ ] Flush out my portable backpack-desk idea (a fun project I have in mind for learning mechanical/computer engineering while still being pretty useful for me)
 - [ ] Learn a bit about memory palace
 - [ ] Set a reminder to bring a deck of cards every Friday to practice memory palace while on the car ride to gym
@@ -19,6 +18,7 @@
 ### Reach
 
 - [ ] Update Cold Turkey email times based on new Evening Routine
+- [ ] Move discord-email-tunnel onto fly.io
 
 ### Backlog
 
@@ -57,6 +57,7 @@
 - [ ] Finish setting up Docker containers for Precommit
 - [ ] Fix blog loading screen when loading article
 - [ ] Specify a standard notation when writing timeblocks (e.g. a ~ b = if finished a, do b)
+- [ ] Make sure AdminControl keeps track of previous screen time passwords somewhere in case it goes wrong
 
 ### Upstream
 

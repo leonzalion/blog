@@ -13,8 +13,8 @@
 13:50 - 15:15 | Soccer w/ friends
 15:15 - 17:10 | Create InstaChat prototype if not finished ~ move discord-email-tunnel onto fly.io
 17:10 - 18:30 | Running some errands; pick up some cardboard for backpack-desk-thingy
-18:30 - 19:00 | Set deck of cards reminder; Research about Memory Palace (and practice);
-19:00 - 21:00 | Move discord-email-tunnel onto fly.io
+18:30 - 19:00 | Set deck of cards reminder; Research about Memory Palace (and practice)
+19:00 - 21:00 | Weekly Vibe
 21:00 - 22:00 | Set up and start gap year stream on Twitch
 22:00 - 23:15 | Evening Routine
 ```
