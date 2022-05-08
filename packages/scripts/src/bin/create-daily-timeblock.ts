@@ -22,7 +22,7 @@ function getTodayDateString() {
 	const today = dayjs();
 	const year = String(today.year());
 	const month = String(today.month() + 1).padStart(2, '0');
-	const date = String(today.date() + 1).padStart(2, '0');
+	const date = String(today.date()).padStart(2, '0');
 
 	return `${year}-${month}-${date}`;
 }
