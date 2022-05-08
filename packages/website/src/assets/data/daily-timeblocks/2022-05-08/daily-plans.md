@@ -28,6 +28,7 @@
 - [ ] Create InstaChat, a on-the-fly "chat" app for posting stuff like links and images in limited "chat" places like Google Meet where you can't send images. Use WebRTC
   - [ ] I'll block Apple Mail once I create InstaChat
 - [ ] Toggl integration in Daily Timeblock
+- [ ] Web worker refresh thing like Vue docs (since I still have caching issues with Netlify)
 
 #### Distant
 
