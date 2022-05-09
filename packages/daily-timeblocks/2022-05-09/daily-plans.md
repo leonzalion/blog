@@ -69,6 +69,7 @@
 - [ ] Experiment with precommit hooks for blog to add \[skip ci]
 - [ ] Experiment with a script that makes old blog entries frozen (i.e. read-only on the file system) so I don't accidentally edit them in VSCode
 - [ ] Create npm helper packages for managing pseudo-monorepos (where some packages of the monorepo are in their own repos)
+- [ ] Consider learning the streaming API so I can create my own streaming software eventually (without having to depend on heavy OBS and also not worry about mic being unmuted)
 
 ### Upstream
 
