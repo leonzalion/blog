@@ -68,6 +68,7 @@
 - [ ] Consider setting a deadline for all my small, side-projects (Precommit will be my main project once exams are over). Make sure I don't get sucked into the trap of working on a billion small projects instead of one big project and taking the big project as far as possible (set a minimum limit to how much I must work on the big project every day). But, I do want to finish all my productivity utilities for my productivity workflow that will support me throughout the gap year (AdminControl, ProjectPure, etc.)
 - [ ] Experiment with precommit hooks for blog to add \[skip ci]
 - [ ] Experiment with a script that makes old blog entries frozen (i.e. read-only on the file system) so I don't accidentally edit them in VSCode
+- [ ] Create npm helper packages for managing pseudo-monorepos (where some packages of the monorepo are in their own repos)
 
 ### Upstream
 
