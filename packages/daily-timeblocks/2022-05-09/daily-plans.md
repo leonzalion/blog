@@ -64,6 +64,10 @@
 - [ ] Fix AdminControl bitwarden integration where it creates a folder and keeps track of changes instead of overwriting
 - [ ] Create a little CLI utility to print double-sided using AppleScript automation (it will print odd pages, then output instructions on how to insert the paper, and when you're done you press enter in the CLI and it will automatically print the even sides using the saved preset it creates by default, and then it will delete the temporary preset afterwards)
 - [ ] Linter/formatter for Daily Timeblock files?
+- [x] Find out what is causing the "can't read &lt;root&gt;/tsconfig.json file" eslint error when editing files in VSCode with my new configs setup (fixed: <https://github.com/leonzalion/configs/commit/b112d0bc69554aa37db9d789ce56ea6fb7abd211>)
+- [ ] Consider setting a deadline for all my small, side-projects (Precommit will be my main project once exams are over). Make sure I don't get sucked into the trap of working on a billion small projects instead of one big project and taking the big project as far as possible (set a minimum limit to how much I must work on the big project every day). But, I do want to finish all my productivity utilities for my productivity workflow that will support me throughout the gap year (AdminControl, ProjectPure, etc.)
+- [ ] Experiment with precommit hooks for blog to add \[skip ci]
+- [ ] Experiment with a script that makes old blog entries frozen (i.e. read-only on the file system) so I don't accidentally edit them in VSCode
 
 ### Upstream
 
