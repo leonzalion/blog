@@ -7,5 +7,5 @@ export const monorepoDir = getProjectDir(import.meta.url, {
 });
 export const dailyTimeblocksDir = path.join(
 	monorepoDir,
-	'packages/website/src/assets/data/daily-timeblocks'
+	'packages/daily-timeblocks'
 );

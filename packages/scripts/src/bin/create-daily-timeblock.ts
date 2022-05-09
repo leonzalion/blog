@@ -92,7 +92,7 @@ for (const dailyTimeblockFileName of dailyTimeblockFileNames) {
 
 		fileMarkdownLines.splice(
 			timeblocksIndex + 1,
-			routinesIndex - timeblocksIndex
+			routinesIndex - timeblocksIndex - 1
 		);
 	}
 
