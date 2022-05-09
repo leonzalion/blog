@@ -43,6 +43,22 @@ There goes my schedule for the day...
 
 `markdown-it` has like _zero_ documentation for writing plugins, and as such it's really difficult for me to write custom plugins for my specific markdown parsing needs for my blog. I'll probably invest time in creating a markdown-it playground where I can input markdown and then take a look at the syntax tree that gets parsed (it doesn't help that the variables are cryptically named either).
 
+### v3 (post)
+
+```timeblock
+7:00 - 7:30   | Morning Routine
+7:30 - 8:00   | Review Math by going through integration notes and doing a few practice ones (especially trig integrals)
+8:00 - 10:10  | Finish + mark a mock paper 2
+10:10 - 10:30 | Create blog script; update GitHub workflow; backlog hidden on blog
+10:30 - 13:50 | Family trip outside
+13:50 - 15:15 | Soccer w/ friends
+15:15 - 16:00 | Nap
+16:00 - 17:00 | Finish blog scripts
+17:00 - 23:00 | Running some errands and doing stuff with family
+23:00 - 23:15 | Email
+23:15         | Sleep (need to sleep on time for exams)
+```
+
 ### Morning Routine
 
 ```timeblock
