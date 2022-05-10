@@ -12,7 +12,7 @@
 - [ ] Create English Literary Terms Anki flashcards
 - [ ] Create a `leonzalion-bot` to make my automated commits
 - [ ] Experiment with a script that makes old blog entries frozen (i.e. read-only on the file system) so I don't accidentally edit them in VSCode
-- [ ] Create a little CLI utility to print double-sided using AppleScript automation (it will print odd pages, then output instructions on how to insert the paper, and when you're done you press enter in the CLI and it will automatically print the even sides using the saved preset it creates by default, and then it will delete the temporary preset afterwards)
+- [x] Create a little CLI utility to print double-sided using AppleScript automation (it will print odd pages, then output instructions on how to insert the paper, and when you're done you press enter in the CLI and it will automatically print the even sides using the saved preset it creates by default, and then it will delete the temporary preset afterwards)
 - [ ] Do a practice English Paper 1
 - [ ] Make stream box resizable on blog
 - [ ] Format micro SD card

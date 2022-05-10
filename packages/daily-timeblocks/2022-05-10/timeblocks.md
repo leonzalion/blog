@@ -39,6 +39,24 @@ Want to finish working on print-double-sided since I'm making a lot of progress.
 22:00 - 23:15 | Evening Routine
 ```
 
+### v3
+
+Took a bit longer to finish print-double-sided than I expected, but at least it works!
+
+```timeblock
+7:00 - 7:30   | Morning Routine
+7:30 - 11:55  | Create CLI utility to print double-sided using AppleScript automation (using `applescript-utils`)
+11:55 - 12:30 | Create a `leonzalion-bot` account to automate commits; make old blog entries frozen; make stream box resizable
+12:30 - 12:45 | Lunch
+12:45 - 13:15 | English Anki Terms
+13:15 - 15:45 | Do a practice Paper 1 and mark it
+15:45 - 17:00 | Explore the Notion API and try to find a way to port the backlog over to Notion (because it's way easier to organize it + make some backlog entries private within Notion than with Markdown)
+17:00 - 19:00 | Finish basic prototype of BetterChat (all I really need is image support via WebRTC; I'll deal with file support later); update Cold Turkey blocks if finished
+19:00 - 21:00 | Fix discord-email-tunnel image embeds on Apple Mail; migrate discord-email-tunnel onto fly.io
+21:00 - 22:00 | Buffer time
+22:00 - 23:15 | Evening Routine
+```
+
 ## Routines
 
 ### Morning Routine
