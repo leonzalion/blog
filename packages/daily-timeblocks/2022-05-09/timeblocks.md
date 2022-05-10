@@ -55,6 +55,12 @@ oops, got sidetracked
 22:00 - 23:15 | Evening Routine
 ```
 
+#### Notes
+
+I might document my progress with memory palace as I practice it
+
+Today: Took me 12 minutes to memorize 22 playing cards
+
 ## Routines
 
 ### Morning Routine
