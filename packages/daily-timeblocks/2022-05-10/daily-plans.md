@@ -1,39 +1,43 @@
-# Monday, May 9, 2022
+# Tuesday, May 10, 2022
 
 ## Daily Plans
 
 ### Target
 
-- [x] Set up & start gap year stream on Twitch
-- [x] Learn a bit about memory palace
-- [x] Set a reminder to bring a deck of cards every Friday to practice memory palace while on the car ride to gym
-- [-] Create prototype of BetterChat, a on-the-fly "chat" app for posting stuff like links and images in limited "chat" places like Google Meet where you can't send images. Use WebRTC
+- [ ] Create prototype of BetterChat, a on-the-fly "chat" app for posting stuff like links and images in limited "chat" places like Google Meet where you can't send images. Use WebRTC
   - [ ] I'll block Apple Mail once I create BetterChat
-- [x] Find a way to not have to rebuild the site every single time I update it - create a script in the GitHub pages workflow to skip rebuilding if only the files in `packages/daily-timeblock` was changed
+- [ ] Update Cold Turkey email times based on new Evening Routine
+- [ ] Find a better way to organize this backlog (maybe port it into Notion and interact with Notion API to display some of them live on the blog?)
+- [ ] Fix discord-email-tunnel image embeds on Apple Mail
+- [ ] Create English Literary Terms Anki flashcards
+- [ ] Create a `leonzalion-bot` to make my automated commits
+- [ ] Experiment with a script that makes old blog entries frozen (i.e. read-only on the file system) so I don't accidentally edit them in VSCode
+- [ ] Create a little CLI utility to print double-sided using AppleScript automation (it will print odd pages, then output instructions on how to insert the paper, and when you're done you press enter in the CLI and it will automatically print the even sides using the saved preset it creates by default, and then it will delete the temporary preset afterwards)
+- [ ] Do a practice English Paper 1
+- [ ] Make stream box resizable on blog
+- [ ] Format micro SD card
 
 ### Reach
 
-- [ ] Update Cold Turkey email times based on new Evening Routine
+- [ ] Look into web worker cache-refresh functionality like Vue docs (since I still have caching issues with Netlify)
+- [ ] Create `markdown-it` playground
+- [ ] Finish setting up Docker containers for Precommit
 - [ ] Move discord-email-tunnel onto fly.io
-- [ ] Find a better way to organize this backlog (maybe port it into Notion and interact with Notion API to display some of them live on the blog?)
-- [ ] Fix discord-email-tunnel image embeds on Apple Mail
 
 ### Backlog
 
 #### Prioritized
 
+- [ ] Consider setting a deadline for all my small, side-projects (Precommit will be my main project once exams are over). Make sure I don't get sucked into the trap of working on a billion small projects instead of one big project and taking the big project as far as possible (set a minimum limit to how much I must work on the big project every day). But, I do want to finish all my productivity utilities for my productivity workflow that will support me throughout the gap year (AdminControl, ProjectPure, etc.)
 - [ ] Flush out my portable backpack-desk idea (a fun project I have in mind for learning mechanical/computer engineering while still being pretty useful for me)
 - [ ] Get a bunch of cardboard to build backpack-desk thingy prototype
-- [ ] Create English Literary Terms Anki flashcards
 - [ ] Toggl integration in Daily Timeblock
-- [ ] Web worker refresh thing like Vue docs (since I still have caching issues with Netlify)
-- [ ] Create `markdown-it` playground
   - [ ] Make backlog hidden on blog by default (or better, make all headers toggleable)
 - [ ] Polish up reactive emails to the point where I can challenge myself to try and set up a meeting with Google asking whether it's possible to get better API support for dynamically changing emails instead of having to resort to browser automation
 
 #### Distant
 
-- [ ] Diff functionality in Daily Timeblock
+- [ ] Diff functionality in Daily Timeblock (will likely depend on `markdown-it` playground)
 - [ ] Write article about thoughts on the worrying business model which is dependent on time spent on the service rather than value gained from the service
 - [ ] Digital Minimalism talks about social media presenting a falsely overpositive portrayal of people's lives which is discouraging towards others; think about how I can try and avoid that aspect with my projects
 - [ ] Digital minimalism mentions "philosophy of technology use"; think about what my philosophy of technology use is
@@ -51,7 +55,6 @@
 - [ ] Make a wrapper for daily timeblocks that will auto-commit whenever file is updated
 - [ ] Create a "sort of" checkbox markdown parser for daily goals on blog
 - [ ] Finish writing "Internet Intention" article
-- [ ] Finish setting up Docker containers for Precommit
 - [ ] Fix blog loading screen when loading article
 - [ ] Specify a standard notation when writing timeblocks (e.g. a ~ b = if finished a, do b)
 - [ ] Make sure AdminControl keeps track of previous screen time passwords somewhere in case it goes wrong
@@ -62,15 +65,9 @@
 - [ ] Create a website for AdminControl
 - [ ] Make changing screen time passcode toggleable on AdminControl
 - [ ] Fix AdminControl bitwarden integration where it creates a folder and keeps track of changes instead of overwriting
-- [ ] Create a little CLI utility to print double-sided using AppleScript automation (it will print odd pages, then output instructions on how to insert the paper, and when you're done you press enter in the CLI and it will automatically print the even sides using the saved preset it creates by default, and then it will delete the temporary preset afterwards)
 - [ ] Linter/formatter for Daily Timeblock files?
-- [x] Find out what is causing the "can't read &lt;root&gt;/tsconfig.json file" eslint error when editing files in VSCode with my new configs setup (fixed: <https://github.com/leonzalion/configs/commit/b112d0bc69554aa37db9d789ce56ea6fb7abd211>)
-- [ ] Consider setting a deadline for all my small, side-projects (Precommit will be my main project once exams are over). Make sure I don't get sucked into the trap of working on a billion small projects instead of one big project and taking the big project as far as possible (set a minimum limit to how much I must work on the big project every day). But, I do want to finish all my productivity utilities for my productivity workflow that will support me throughout the gap year (AdminControl, ProjectPure, etc.)
-- [x] Experiment with precommit hooks for blog to add \[skip ci]
-- [ ] Experiment with a script that makes old blog entries frozen (i.e. read-only on the file system) so I don't accidentally edit them in VSCode
 - [ ] Create npm helper packages for managing pseudo-monorepos (where some packages of the monorepo are in their own repos)
 - [ ] Consider learning the streaming API so I can create my own streaming software eventually (without having to depend on heavy OBS and also not worry about mic being unmuted)
-- [ ] Create a `leonzalion-bot` to make my automated commits
 
 ### Upstream
 

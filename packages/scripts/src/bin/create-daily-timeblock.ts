@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
-import { getProjectDir } from 'lion-system';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+
 import {
 	getTodayDateString,
 	getTomorrowDateString,
@@ -53,9 +53,7 @@ for (const dailyTimeblockFileName of dailyTimeblockFileNames) {
 	)}`;
 
 	if (dailyTimeblockFileName === 'thoughts.md') {
-		const thoughtsIndex = fileMarkdownLines.findIndex(
-			(line) => line === '## Thoughts'
-		);
+		const thoughtsIndex = fileMarkdownLines.indexOf('## Thoughts');
 		if (thoughtsIndex === -1) {
 			console.error(
 				`\`Thoughts\` header not found in \`thoughts.md\` file in \`${timeblockDirToCopy}\``
@@ -63,16 +61,15 @@ for (const dailyTimeblockFileName of dailyTimeblockFileNames) {
 		}
 
 		fileMarkdownLines = [
-			...fileMarkdownLines.slice(0, thoughtsIndex),
+			...fileMarkdownLines.slice(0, thoughtsIndex + 1),
 			'',
 			'(No thoughts.)',
+			'',
 		];
 	}
 
 	if (dailyTimeblockFileName === 'timeblocks.md') {
-		const timeblocksIndex = fileMarkdownLines.findIndex(
-			(line) => line === '## Timeblocks'
-		);
+		const timeblocksIndex = fileMarkdownLines.indexOf('## Timeblocks');
 
 		if (timeblocksIndex === -1) {
 			console.error(
@@ -80,9 +77,7 @@ for (const dailyTimeblockFileName of dailyTimeblockFileNames) {
 			);
 		}
 
-		const routinesIndex = fileMarkdownLines.findIndex(
-			(line) => line === '## Routines'
-		);
+		const routinesIndex = fileMarkdownLines.indexOf('## Routines');
 
 		if (routinesIndex === -1) {
 			console.error(
@@ -92,7 +87,7 @@ for (const dailyTimeblockFileName of dailyTimeblockFileNames) {
 
 		fileMarkdownLines.splice(
 			timeblocksIndex + 1,
-			routinesIndex - timeblocksIndex - 1
+			routinesIndex - timeblocksIndex - 2
 		);
 	}
 
