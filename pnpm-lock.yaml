@@ -69,6 +69,7 @@ importers:
       vite-plugin-windicss: ^1.8.4
       vite-ssg: ^0.20.0
       vue: ^3.2.33
+      vue-plugin-load-script: ^2.1.1
       vue-router: ^4.0.15
       vue-tsc: ^0.34.11
       vue3-spinners: ^1.1.1
@@ -94,6 +95,7 @@ importers:
       pinia: 2.0.14_ytvqwwdyss532bvoq2clv4ed5m
       simple-vue-icon: 1.3.5_vue@3.2.33
       vue: 3.2.33
+      vue-plugin-load-script: 2.1.1
       vue-router: 4.0.15_vue@3.2.33
       vue3-spinners: 1.1.1_vue@3.2.33
     devDependencies:
@@ -6699,6 +6701,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /vue-plugin-load-script/2.1.1:
+    resolution: {integrity: sha512-IViO0hNj4O39M8I1taX74B5PR5RI7IrlEt+dvAjOk3NRLwQ7ZrdexUo9+K++KBzGPJtaVL1+emTyMWeOtjZojw==}
+    dev: false
 
   /vue-router/4.0.15_vue@3.2.33:
     resolution: {integrity: sha512-xa+pIN9ZqORdIW1MkN2+d9Ui2pCM1b/UMgwYUCZOiFYHAvz/slKKBDha8DLrh5aCG/RibtrpyhKjKOZ85tYyWg==}

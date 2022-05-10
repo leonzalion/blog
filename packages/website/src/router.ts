@@ -26,6 +26,10 @@ export const routes: RouteRecordRaw[] = [
 				component: async () => import('~/pages/daily-timeblock-page.vue'),
 			},
 			{
+				path: '/stream-information',
+				component: async () => import('~/pages/stream-information-page.vue'),
+			},
+			{
 				path: '/:catchAll(.*)',
 				component: async () => import('~/pages/404-page.vue'),
 			},

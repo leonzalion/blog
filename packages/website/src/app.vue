@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import './css/prose.postcss';
+</script>
+
 <template>
 	<router-view />
 </template>

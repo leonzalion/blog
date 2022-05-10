@@ -40,9 +40,9 @@ const md = getMarkdownInstance();
 <template>
 	<div
 		v-if="Object.keys(dailyTimeblockMarkdownFiles).length > 0"
-		class="column items-center mt-4"
+		class="column items-center"
 	>
-		<div class="max-w-5xl w-full p-8 overflow-x-scroll markdown-body">
+		<div class="max-w-5xl w-full px-8 pb-4 overflow-x-scroll markdown-body">
 			<div
 				v-html="md.render(dailyTimeblockMarkdownFiles['daily-plans.md'])"
 			></div>

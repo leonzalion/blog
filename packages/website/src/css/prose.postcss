@@ -1,0 +1,43 @@
+.prose {
+	@apply max-w-5xl p-8;
+}
+
+.prose a {
+	@apply text-orange-500 underline hover:text-orange-600;
+}
+
+.prose h1 {
+	@apply font-bold text-4xl;
+}
+
+.prose h2 {
+	@apply font-bold text-3xl;
+}
+
+.prose h3 {
+	@apply font-bold text-2xl;
+}
+
+.prose h4 {
+	@apply font-bold text-xl;
+}
+
+.prose h5 {
+	@apply font-bold text-lg;
+}
+
+.prose h6 {
+	@apply font-bold text-md;
+}
+
+.prose .title {
+	@apply mb-4;
+}
+
+// Dotted underline
+.prose [title] {
+	@apply relative cursor-help;
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='4' height='10'><circle stroke='black' fill='black' r='0.2' cx='3' cy='8' /></svg>");
+	background-repeat: repeat-x;
+	background-position: -1px bottom;
+}

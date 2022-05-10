@@ -25,15 +25,22 @@ const streamPlayerExpandButtonClass = $computed(() => {
 			'rounded-br-xl top-0 left-0 hover:(pr-0.5 pb-0.5 w-7.5 h-7.5) opacity-80',
 		];
 	} else {
-		return [' bottom-0 right-0 hover:(pl-0.5 pt-0.5 w-7.5 h-7.5)'];
+		return ['bottom-0 right-0 hover:(pl-0.5 pt-0.5 w-7.5 h-7.5)'];
 	}
 });
 </script>
 
 <template>
-	<div class="absolute bottom-0 right-0">
+	<div class="fixed bottom-0 right-0">
+		<router-link
+			v-if="isStreamPlayerExpanded"
+			class="absolute top-0 transform -translate-y-full right-0 z-1 bg-orange-500 px-2 pt-1 rounded-tl-xl font-bold text-white underline"
+			to="/stream-information"
+		>
+			Stream Information
+		</router-link>
 		<div
-			class="absolute bg-orange-500 w-7 h-7 column items-center justify-center cursor-pointer transition-all rounded-tl-xl z-5"
+			class="absolute bg-orange-500 w-7 h-7 column items-center justify-center cursor-pointer transition-all rounded-tl-xl z-1"
 			:class="streamPlayerExpandButtonClass"
 			@click="onStreamButtonClick"
 		>

@@ -34,28 +34,13 @@ if (articleSlug === undefined) {
 
 <template>
 	<div v-if="articleNotFound">Article not found.</div>
-	<div v-else class="column items-center article-content">
-		<div class="max-w-5xl p-8">
-			<div class="mb-4">
-				<h1 class="font-bold text-4xl">{{ article.title }}</h1>
-				<div class="text-gray-500 text-[0.9rem] italic">
-					{{ dateFormat(dayjs(article.dateCreated).toDate(), 'longDate') }}
-				</div>
+	<div v-else class="prose">
+		<div class="mb-4">
+			<h1 class="font-bold text-4xl">{{ article.title }}</h1>
+			<div class="text-gray-500 text-[0.9rem] italic">
+				{{ dateFormat(dayjs(article.dateCreated).toDate(), 'longDate') }}
 			</div>
-			<ArticleMarkdownComponent />
 		</div>
+		<ArticleMarkdownComponent />
 	</div>
 </template>
-
-<style lang="postcss">
-.article-content a {
-	@apply text-orange-500 underline hover:text-orange-600;
-}
-
-.article-content [title] {
-	@apply relative cursor-help;
-	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='4' height='10'><circle stroke='black' fill='black' r='0.2' cx='3' cy='8' /></svg>");
-	background-repeat: repeat-x;
-	background-position: -1px bottom;
-}
-</style>
