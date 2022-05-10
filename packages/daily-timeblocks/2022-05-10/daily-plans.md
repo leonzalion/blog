@@ -70,6 +70,7 @@
 - [ ] Create npm helper packages for managing pseudo-monorepos (where some packages of the monorepo are in their own repos)
 - [ ] Consider learning the streaming API so I can create my own streaming software eventually (without having to depend on heavy OBS and also not worry about mic being unmuted)
 - [ ] Apply to Google Internship
+- [ ] Find better ways to set alarms (maybe a small Google Voice app utility to set a bunch of alarms in quick succession?)
 
 ### Upstream
 

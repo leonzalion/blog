@@ -95,6 +95,25 @@ I'm feeling pretty tired; not a good state to be in when trying to do efficient 
 22:00 - 23:15 | Evening Routine
 ```
 
+### v6
+
+I swear I set an alarm for 30 mins on my Google Home; no idea if I slept through it or if I like unconsciously closed it...
+
+```timeblock
+7:00 - 7:30   | Morning Routine
+7:30 - 11:55  | Create CLI utility to print double-sided using AppleScript automation (using `applescript-utils`)
+11:55 - 12:30 | Create a `leonzalion-bot` account to automate commits;  make stream box resizable
+12:30 - 12:45 | Lunch
+12:45 - 14:00 | Make old blog entries frozen (this took a long time because I had to make a new package)
+14:00 - 14:15 | Break
+14:15 - 16:00 | Nap
+16:00 - 16:30 | English Anki Terms
+16:30 - 18:00 | Do + mark (half of) a practice Paper 1
+18:00 - 20:00 | Finish basic prototype of BetterChat (all I really need is image support via WebRTC; I'll deal with file support later); update Cold Turkey blocks if finished
+20:00 - 22:00 | Fix discord-email-tunnel image embeds on Apple Mail; migrate discord-email-tunnel onto fly.io
+22:00 - 23:15 | Evening Routine
+```
+
 ## Routines
 
 ### Morning Routine
