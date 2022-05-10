@@ -61,6 +61,27 @@ I might document my progress with memory palace as I practice it
 
 Today: Took me 12 minutes to memorize 22 playing cards
 
+### v4
+
+```timeblock
+7:00 - 7:30  | Morning Routine
+7:30 - 8:00  | Sent some messages to friends
+8:00 - 8:20  | Breakfast
+8:20 - 8:40  | Create timeblock
+8:40 - 11:45 | Math Paper 2 exam; learn about memory palace; reminder to bring deck of cards
+11:45 - 12:15 | Blog script for intelligent rebuilds
+11:45 - 16:40 | Create BetterChat prototype
+16:40 - 18:00 | Spontaneous code golfing
+18:00 - 19:00 | Continue working on BetterChat
+19:00 - 21:00 | Handle logistics for Twitch stream
+21:00 - 22:00 | Learn about memory palace
+22:00 - 22:25 | Check email; create timeblock for next day
+22:25 - 22:50 | Family stuff
+22:50 - 23:15 | Brush teeth; quick shower
+23:15 - 23:30 | Reading (unfortunately have to skip)
+23:30         | Bedtime
+```
+
 ## Routines
 
 ### Morning Routine
