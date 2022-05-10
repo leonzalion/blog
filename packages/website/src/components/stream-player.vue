@@ -47,14 +47,14 @@ const streamPlayerExpandButtonClass = $computed(() => {
 			<VueIcon :icon="mdiVideo" class="text-white" size="15" />
 		</div>
 		<div
-			class="relative border-t-2 border-l-2 border-orange-500 border-orange-500 rounded-tl-xl transition-all right-0 bottom-0 overflow-hidden pointer-events-none cursor-not-allowed bg-white"
+			class="relative border-t-2 border-l-2 border-orange-500 border-orange-500 rounded-tl-xl transition-all right-0 bottom-0 overflow-hidden cursor-not-allowed bg-white"
 			:class="streamPlayerContainerClass"
 		>
 			<div v-show="isStreamPlayerExpanded" class="w-full h-full">
 				<iframe
 					v-if="hasStreamPlayerBeenExpanded"
 					:src="twitchIframeSrc"
-					class="w-full h-full"
+					class="w-full h-full pointer-events-none"
 				></iframe>
 			</div>
 		</div>
