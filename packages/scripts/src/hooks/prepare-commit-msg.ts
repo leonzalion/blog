@@ -19,5 +19,5 @@ if (fs.existsSync(path.join(monorepoDir, '.git/MERGE_MSG'))) {
 		}
 	}
 
-	fs.appendFileSync(process.argv.at(-1)!, ' [skip ci]');
+	fs.appendFileSync(process.argv.slice(2)[0]!, ' [skip ci]');
 }

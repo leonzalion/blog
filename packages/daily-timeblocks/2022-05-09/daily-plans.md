@@ -9,7 +9,7 @@
 - [x] Set a reminder to bring a deck of cards every Friday to practice memory palace while on the car ride to gym
 - [-] Create prototype of BetterChat, a on-the-fly "chat" app for posting stuff like links and images in limited "chat" places like Google Meet where you can't send images. Use WebRTC
   - [ ] I'll block Apple Mail once I create BetterChat
-- [ ] Find a way to not have to rebuild the site every single time I update it - create a script in the GitHub pages workflow to skip rebuilding if only the files in `packages/daily-timeblock` was changed
+- [x] Find a way to not have to rebuild the site every single time I update it - create a script in the GitHub pages workflow to skip rebuilding if only the files in `packages/daily-timeblock` was changed
 
 ### Reach
 
