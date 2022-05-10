@@ -1,3 +1,4 @@
+import { chmodrSync } from 'chmodrp';
 import dayjs from 'dayjs';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
@@ -11,6 +12,22 @@ import { dailyTimeblocksDir } from '~/utils/paths.js';
 
 let dateStringToCopy: string;
 let dateStringToCreate: string;
+
+function freezePastTimeblocks({ beforeDate }: { beforeDate: string }) {
+	const dailyTimeblockDirNames = fs.readdirSync(dailyTimeblocksDir);
+
+	for (const dailyTimeblockDirName of dailyTimeblockDirNames) {
+		if (dayjs(dailyTimeblockDirName).unix() < dayjs(beforeDate).unix()) {
+			const dailyTimeblockDir = path.join(
+				dailyTimeblocksDir,
+				dailyTimeblockDirName
+			);
+
+			// Make folder read-only
+			chmodrSync(dailyTimeblockDir, 0o400);
+		}
+	}
+}
 
 const todayTimeblockDir = path.join(dailyTimeblocksDir, getTodayDateString());
 
@@ -26,11 +43,13 @@ if (fs.existsSync(todayTimeblockDir)) {
 
 	dateStringToCopy = getTodayDateString();
 	dateStringToCreate = getTomorrowDateString();
+	freezePastTimeblocks({ beforeDate: getTomorrowDateString() });
 }
 // otherwise, assume the user wants to create today's timeblock
 else {
 	dateStringToCopy = getYesterdayDateString();
 	dateStringToCreate = getTodayDateString();
+	freezePastTimeblocks({ beforeDate: getTodayDateString() });
 }
 
 const timeblockDirToCopy = path.join(dailyTimeblocksDir, dateStringToCopy);

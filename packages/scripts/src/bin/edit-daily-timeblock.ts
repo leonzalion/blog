@@ -1,8 +1,9 @@
+import { execaSync } from 'execa';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+
 import { getTodayDateString } from '~/utils/date-string.js';
 import { dailyTimeblocksDir } from '~/utils/paths.js';
-import { execaSync } from 'execa';
 
 const todayTimeblockDir = path.join(dailyTimeblocksDir, getTodayDateString());
 

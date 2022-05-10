@@ -7,6 +7,7 @@
 		"edit-daily-timeblock": "node-ts ./src/bin/edit-daily-timeblock.ts"
 	},
 	"dependencies": {
+		"chmodrp": "^1.0.0",
 		"dayjs": "^1.11.1",
 		"dotenv": "^16.0.0",
 		"execa": "^6.1.0",
