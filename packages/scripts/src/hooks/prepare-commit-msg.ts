@@ -21,5 +21,5 @@ if (fs.existsSync(path.join(monorepoDir, '.git/MERGE_MSG'))) {
 
 	const gitCommitMsgFile = process.argv.slice(2)[0]!;
 	const gitCommitMsgFilePath = path.join(monorepoDir, gitCommitMsgFile);
-	fs.appendFileSync(gitCommitMsgFilePath, ' [skip ci]');
+	fs.appendFileSync(gitCommitMsgFilePath, '[skip ci]');
 }
