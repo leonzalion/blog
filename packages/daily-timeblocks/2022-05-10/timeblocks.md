@@ -26,9 +26,9 @@ Want to finish working on print-double-sided since I'm making a lot of progress.
 
 ```timeblock
 7:00 - 7:30   | Morning Routine
-7:30 - 11:00   | Create CLI utility to print double-sided using AppleScript automation (using `applescript-utils`)
-11:00 - 11:45   | Create English Literary Terms Anki Flashcards
-11:45 - 12:45  | Write half of an English Paper 1
+7:30 - 11:00  | Create CLI utility to print double-sided using AppleScript automation (using `applescript-utils`)
+11:00 - 11:45 | Create English Literary Terms Anki Flashcards
+11:45 - 12:45 | Write half of an English Paper 1
 12:45 - 13:00 | Lunch
 13:00 - 13:20 | Try to mark the Paper 1/compare it to an exemplar (make sure to find a Paper 1 with an exemplar)
 13:20 - 13:40 | Create a `leonzalion-bot` account to automate commits; make old blog entries frozen; make stream box resizable

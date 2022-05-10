@@ -13,9 +13,14 @@ function onStreamButtonClick() {
 	isStreamPlayerExpanded = !isStreamPlayerExpanded;
 }
 
-const streamPlayerContainerClass = $computed(() => {
+let frameWidth = $ref(533);
+let frameHeight = $ref(300);
+const streamPlayerContainerStyle = $computed(() => {
 	if (isStreamPlayerExpanded) {
-		return 'w-[533px] h-[300px]';
+		return {
+			width: `${frameWidth}px`,
+			height: `${frameHeight}px`,
+		};
 	}
 });
 
@@ -27,6 +32,23 @@ const streamPlayerExpandButtonClass = $computed(() => {
 	} else {
 		return ['bottom-0 right-0 hover:(pl-0.5 pt-0.5 w-7.5 h-7.5)'];
 	}
+});
+
+let isResizeDragging = $ref(false);
+
+function onResizeMouseDown(event: MouseEvent) {
+	isResizeDragging = true;
+}
+
+window.addEventListener('mousemove', (event) => {
+	if (isResizeDragging) {
+		frameWidth = window.innerWidth - event.clientX;
+		frameHeight = window.innerHeight - event.clientY;
+	}
+});
+
+window.addEventListener('mouseup', () => {
+	isResizeDragging = false;
 });
 </script>
 
@@ -48,8 +70,14 @@ const streamPlayerExpandButtonClass = $computed(() => {
 		</div>
 		<div
 			class="relative border-t-2 border-l-2 border-orange-500 border-orange-500 rounded-tl-xl transition-all right-0 bottom-0 overflow-hidden cursor-not-allowed bg-white"
-			:class="streamPlayerContainerClass"
+			:style="streamPlayerContainerStyle"
 		>
+			<div
+				v-if="isStreamPlayerExpanded"
+				class="h-[7px] w-[7px] absolute top-0 left-0 z-2"
+				style="cursor: nwse-resize"
+				@mousedown.prevent="onResizeMouseDown"
+			></div>
 			<div v-show="isStreamPlayerExpanded" class="w-full h-full">
 				<iframe
 					v-if="hasStreamPlayerBeenExpanded"
