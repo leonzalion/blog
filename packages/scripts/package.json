@@ -2,6 +2,9 @@
 	"name": "@leonzalion-blog/scripts",
 	"type": "module",
 	"scripts": {
+		"lint": "eslint --cache --fix .",
+		"prettier": "prettier --write .",
+		"typecheck": "tsc --noEmit",
 		"toggl": "node-ts ./src/toggl.ts",
 		"create-daily-timeblock": "node-ts ./src/bin/create-daily-timeblock.ts",
 		"edit-daily-timeblock": "node-ts ./src/bin/edit-daily-timeblock.ts"
