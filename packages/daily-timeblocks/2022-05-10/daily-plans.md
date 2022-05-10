@@ -28,7 +28,7 @@
 
 #### Prioritized
 
-- [ ] (tomorrow)  Do a (cardano?) Math Paper 3
+- [ ] (tomorrow) Do a (cardano?) Math Paper 3
 - [ ] Consider setting a deadline for all my small, side-projects (Precommit will be my main project once exams are over). Make sure I don't get sucked into the trap of working on a billion small projects instead of one big project and taking the big project as far as possible (set a minimum limit to how much I must work on the big project every day). But, I do want to finish all my productivity utilities for my productivity workflow that will support me throughout the gap year (AdminControl, ProjectPure, etc.)
 - [ ] Flush out my portable backpack-desk idea (a fun project I have in mind for learning mechanical/computer engineering while still being pretty useful for me)
 - [ ] Get a bunch of cardboard to build backpack-desk thingy prototype
