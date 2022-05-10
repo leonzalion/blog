@@ -34,13 +34,15 @@ if (articleSlug === undefined) {
 
 <template>
 	<div v-if="articleNotFound">Article not found.</div>
-	<div v-else class="prose">
-		<div class="mb-4">
-			<h1 class="font-bold text-4xl">{{ article.title }}</h1>
-			<div class="text-gray-500 text-[0.9rem] italic">
-				{{ dateFormat(dayjs(article.dateCreated).toDate(), 'longDate') }}
+	<div v-else class="column items-center">
+		<div class="prose">
+			<div class="mb-4">
+				<h1 class="font-bold text-4xl">{{ article.title }}</h1>
+				<div class="text-gray-500 text-[0.9rem] italic">
+					{{ dateFormat(dayjs(article.dateCreated).toDate(), 'longDate') }}
+				</div>
 			</div>
+			<ArticleMarkdownComponent />
 		</div>
-		<ArticleMarkdownComponent />
 	</div>
 </template>
