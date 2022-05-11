@@ -1,4 +1,4 @@
-# Thursday, May 5, 2022
+# Wednesday, May 11, 2022
 
 ## Quarterly Plans
 
@@ -39,3 +39,4 @@ Finish developing Precommit to the point where I'm comfortable actively using it
 
 - Precommit myself to meeting exercise goals once I get a exercise routine set up
 - Learn a bit of Electrical/Mechanical Engineering
+- Learn parkour (as a way to get exercise and as a way to get used to the feeling of stepping outside my comfort zone)

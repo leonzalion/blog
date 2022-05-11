@@ -1,4 +1,4 @@
-# Tuesday, May 10, 2022
+# Wednesday, May 11, 2022
 
 ## Weekly Plans
 

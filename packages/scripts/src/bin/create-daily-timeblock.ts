@@ -26,6 +26,10 @@ function freezePastTimeblocks({ beforeDate }: { beforeDate: string }) {
 			// Make folder read-only
 			chmodrSync(dailyTimeblockDir, 0o400);
 		}
+		// Make folder writable
+		else {
+			chmodrSync(dailyTimeblocksDir, 0o755);
+		}
 	}
 }
 
