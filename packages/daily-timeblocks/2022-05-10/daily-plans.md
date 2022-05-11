@@ -8,12 +8,12 @@
   - [ ] I'll block Apple Mail once I create BetterChat
 - [ ] Update Cold Turkey email times based on new Evening Routine
 - [ ] Find a better way to organize this backlog (maybe port it into Notion and interact with Notion API to display some of them live on the blog?)
-- [ ] Fix discord-email-tunnel image embeds on Apple Mail
+- [x] Fix discord-email-tunnel image embeds on Apple Mail
 - [ ] Create English Literary Terms Anki flashcards
 - [x] Create a `leonzalion-bot` to make my automated commits
 - [x] Experiment with a script that makes old blog entries frozen (i.e. read-only on the file system) so I don't accidentally edit them in VSCode
 - [x] Create a little CLI utility to print double-sided using AppleScript automation (it will print odd pages, then output instructions on how to insert the paper, and when you're done you press enter in the CLI and it will automatically print the even sides using the saved preset it creates by default, and then it will delete the temporary preset afterwards)
-- [ ] Do a practice English Paper 1
+- [x] Do a practice English Paper 1
 - [x] Make stream box resizable on blog
 - [ ] Format micro SD card
 
@@ -22,7 +22,7 @@
 - [ ] Look into web worker cache-refresh functionality like Vue docs (since I still have caching issues with Netlify)
 - [ ] Create `markdown-it` playground
 - [ ] Finish setting up Docker containers for Precommit
-- [ ] Move discord-email-tunnel onto fly.io
+- [x] Move discord-email-tunnel onto fly.io
 
 ### Backlog
 
@@ -71,6 +71,7 @@
 - [ ] Consider learning the streaming API so I can create my own streaming software eventually (without having to depend on heavy OBS and also not worry about mic being unmuted)
 - [ ] Apply to Google Internship
 - [ ] Find better ways to set alarms (maybe a small Google Voice app utility to set a bunch of alarms in quick succession?)
+- [ ] Create GitHub Actions workflow for discord-email-tunnel on fly.io
 
 ### Upstream
 
