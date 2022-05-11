@@ -17,12 +17,16 @@ function freezePastTimeblocks({ beforeDate }: { beforeDate: string }) {
 	const dailyTimeblockDirNames = fs.readdirSync(dailyTimeblocksDir);
 
 	for (const dailyTimeblockDirName of dailyTimeblockDirNames) {
-		if (dayjs(dailyTimeblockDirName).unix() < dayjs(beforeDate).unix()) {
-			const dailyTimeblockDir = path.join(
-				dailyTimeblocksDir,
-				dailyTimeblockDirName
-			);
+		const dailyTimeblockDir = path.join(
+			dailyTimeblocksDir,
+			dailyTimeblockDirName
+		);
 
+		if (!fs.statSync(dailyTimeblockDir).isDirectory()) {
+			continue;
+		}
+
+		if (dayjs(dailyTimeblockDirName).isBefore(dayjs(beforeDate))) {
 			// Make folder read-only
 			chmodrSync(dailyTimeblockDir, 0o400);
 		}
@@ -47,13 +51,11 @@ if (fs.existsSync(todayTimeblockDir)) {
 
 	dateStringToCopy = getTodayDateString();
 	dateStringToCreate = getTomorrowDateString();
-	freezePastTimeblocks({ beforeDate: getTomorrowDateString() });
 }
 // otherwise, assume the user wants to create today's timeblock
 else {
 	dateStringToCopy = getYesterdayDateString();
 	dateStringToCreate = getTodayDateString();
-	freezePastTimeblocks({ beforeDate: getTodayDateString() });
 }
 
 const timeblockDirToCopy = path.join(dailyTimeblocksDir, dateStringToCopy);
@@ -116,3 +118,6 @@ for (const dailyTimeblockFileName of dailyTimeblockFileNames) {
 
 	fs.writeFileSync(dailyTimeblockFilePath, fileMarkdownLines.join('\n'));
 }
+
+// Freeze all past timeblocks *after* the current timeblock has been created
+freezePastTimeblocks({ beforeDate: dateStringToCreate });
