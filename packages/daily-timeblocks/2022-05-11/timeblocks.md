@@ -20,7 +20,25 @@
 
 Not yet finished; will continue tomorrow morning because my hand is starting to hurt
 
-- [ ] Move voice memos onto backlog
+### v2
+
+Slept 30 minutes through my alarm (somehow).
+
+```timeblock
+7:30          | Woke up
+7:30 - 7:55   | Maintenance stuff on laptop
+7:55 - 8:05   | Continue making timeblock
+8:05 - 8:35   | Morning Routine
+8:35 - 9:10   | Do a paper 3 and mark it
+9:10 - 10:00  | Create list of English Literary Terms and literary features to discuss (e.g. mood, tone), Anki flashcards are kinda useless a day before the exam
+10:00 - 11:30 | Do the practice Paper 1 on Google Classroom
+11:30 - 13:00 | For `@leonzalion/configs`, create a generic `run-bin` script and a generic command to prevent repetition
+13:00 - 17:00 | Continue building BetterChat/learning about WebRTC
+17:00 - 20:00 | Explore Notion API for backlog
+20:00 - 20:30 | Format micro SD card; move voice memos onto backlog
+20:30 - 22:00 | Buffer time (work on Reach goals)
+22:00 - 23:15 | Evening Routine
+```
 
 ## Routines
 
