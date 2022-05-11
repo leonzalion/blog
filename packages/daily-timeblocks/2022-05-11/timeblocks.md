@@ -83,6 +83,49 @@ Slept 30 minutes through my alarm (somehow).
 22:00 - 23:15 | Evening Routine
 ```
 
+### v5
+
+Sidetracked trying to fix `discord-email-tunnel` and my `yabai` installation on my MacBook (running `brew upgrade` was a mistake)
+
+```timeblock
+7:30          | Woke up
+7:30 - 7:55   | Maintenance stuff on laptop
+7:55 - 8:05   | Continue making timeblock
+8:05 - 8:35   | Morning Routine
+8:35 - 9:10   | Do a paper 3 and mark it
+9:10 - 10:30  | Fix discord-email-tunnel
+10:30 - 10:40 | Reschedule timeblock
+10:40 - 11:10 | Practice math paper 3
+11:10 - 14:00
+11:40 - 13:00 | Practice english Paper 1
+13:00 - 14:30 | For `@leonzalion/configs`, create a generic `run-bin` script and a generic command to prevent repetition
+14:30 - 17:00 | Continue building BetterChat/learning about WebRTC
+17:00 - 20:00 | Explore Notion API for backlog
+20:00 - 20:30 | Format micro SD card; move voice memos onto backlog
+20:30 - 22:00 | Buffer time (work on Reach goals)
+22:00 - 23:15 | Evening Routine
+```
+
+### v6
+
+Literally spent the whole day trying to fix `yabai` and upgrade my computer software...in hindsight I should've just let it stay broken (since I don't even use my MacBook that often anyways) but I just have an unreasonably large aversion to leaving things broken for me to deal with later (partially has to do with impatience, I'm not the best at being patient). However, patience is definitely a virtue I'll have to master if I want to be successful with timeblocking.
+
+```timeblock
+7:30          | Woke up
+7:30 - 7:55   | Maintenance stuff on laptop
+7:55 - 8:05   | Continue making timeblock
+8:05 - 8:35   | Morning Routine
+8:35 - 9:10   | Do a paper 3 and mark it
+9:10 - 10:30  | Fix discord-email-tunnel
+10:30 - 10:40 | Reschedule timeblock
+10:40 - 11:10 | Practice math paper 3
+11:10 - 18:30 | Try to fix my MacBook software and upgrade things
+18:30 - 19:15 | Practice math paper 3
+19:15 - 21:00 | Explore Notion API w/ backlog
+21:00 - 22:00 | Create English Literary Features checklist
+22:00 - 23:15 | Evening Routine
+```
+
 ## Routines
 
 ### Morning Routine
