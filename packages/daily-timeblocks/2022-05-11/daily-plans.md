@@ -16,6 +16,7 @@
 - [ ] Move voice memos onto backlog
 - [ ] Finish the practice Paper 1 on Google Classroom
 - [ ] fix skip ci script when new timeblock is created
+  - [ ] Consider making the daily timeblock list page dynamic instead of statically built
 
 ### Reach
 
