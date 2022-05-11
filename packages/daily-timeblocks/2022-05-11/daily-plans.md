@@ -34,6 +34,7 @@
 - [ ] Toggl integration in Daily Timeblock
   - [ ] Make backlog hidden on blog by default (or better, make all headers toggleable)
 - [ ] Polish up reactive emails to the point where I can challenge myself to try and set up a meeting with Google asking whether it's possible to get better API support for dynamically changing emails instead of having to resort to browser automation
+- [ ] It looks like raw.githubusercontent.com is [rate limited](https://github.community/t/raw-githubusercontent-com-rate-limit/142444/6); find a better solution to instantly update timeblocks (maybe there's some way I can integrate with a fly.io database as a secondary data store which is fully based on my files? I'm definitely sticking to a file-based CMS for local editing)
 
 #### Backburner
 
