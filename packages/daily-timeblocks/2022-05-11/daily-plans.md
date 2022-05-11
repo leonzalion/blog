@@ -74,7 +74,7 @@
 - [ ] Incorporate some of the ideas during my conversation with George in my Internet Intention article; there should be friction/a barrier for accessing entertainment online (e.g. paying for entertainment), and things that are productive should be frictionless/free to access
 - [ ] Think about whether I want to be able to record voice memos to append to my blog (e.g. when I'm out and can't write stuff down on my blog, but still would like to be able to dynamically update it instantly? idk)
 - [ ] Buy more scotch tape
-- [ ] Sign up for Scott Young, Thomas Frank, and Cal Newport mailing lists w/ new emails
+- [x] Sign up for Scott Young, Thomas Frank, and Cal Newport mailing lists w/ new emails
 - [ ] Think of whether I want a way to update my timeblock via my phone (app, offline mode?)
 - [ ] Apple Health sleep tracking integration in Daily Timeblock
 - [ ] Apple Watch App for blog (i.e. displaying daily timeblock on apple watch and/or notifications)

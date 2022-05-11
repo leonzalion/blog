@@ -83,7 +83,6 @@ Slept 30 minutes through my alarm (somehow).
 22:00 - 23:15 | Evening Routine
 ```
 
-
 ## Routines
 
 ### Morning Routine
