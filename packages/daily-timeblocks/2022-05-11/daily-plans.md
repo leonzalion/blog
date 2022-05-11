@@ -8,7 +8,7 @@
   - [ ] I'll block Apple Mail once I create BetterChat
 - [ ] Update Cold Turkey email times based on new Evening Routine
 - [ ] Find a better way to organize this backlog (maybe port it into Notion and interact with Notion API to display some of them live on the blog?)
-- [ ] Create English Literary Terms Anki flashcards
+- [ ] Create English Literary Features Checklist
 - [ ] Format micro SD card
 - [ ] Do a (cardano?) Math Paper 3
 - [ ] Create a generic `run-bin` script for `@leonzalion/configs` that follows the `./src/bin/x.ts` convention

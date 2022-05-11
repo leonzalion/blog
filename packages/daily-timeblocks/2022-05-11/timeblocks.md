@@ -62,6 +62,26 @@ Slept 30 minutes through my alarm (somehow).
 22:00 - 23:15 | Evening Routine
 ```
 
+### v4
+
+```timeblock
+7:30          | Woke up
+7:30 - 7:55   | Maintenance stuff on laptop
+7:55 - 8:05   | Continue making timeblock
+8:05 - 8:35   | Morning Routine
+8:35 - 9:10   | Do a paper 3 and mark it
+9:10 - 10:30  | Fix discord-email-tunnel
+10:30 - 10:40 | Reschedule timeblock
+10:40 - 11:10 | Practice math paper 3
+11:10 - 11:40 | Create an English features checklist
+11:40 - 13:00 | Practice english Paper 1
+13:00 - 14:30 | For `@leonzalion/configs`, create a generic `run-bin` script and a generic command to prevent repetition
+14:30 - 17:00 | Continue building BetterChat/learning about WebRTC
+17:00 - 20:00 | Explore Notion API for backlog
+20:00 - 20:30 | Format micro SD card; move voice memos onto backlog
+20:30 - 22:00 | Buffer time (work on Reach goals)
+22:00 - 23:15 | Evening Routine
+```
 
 
 ## Routines
