@@ -1,4 +1,4 @@
-# Tuesday, May 10, 2022
+# Wednesday, May 11, 2022
 
 ## Daily Plans
 
@@ -8,35 +8,32 @@
   - [ ] I'll block Apple Mail once I create BetterChat
 - [ ] Update Cold Turkey email times based on new Evening Routine
 - [ ] Find a better way to organize this backlog (maybe port it into Notion and interact with Notion API to display some of them live on the blog?)
-- [x] Fix discord-email-tunnel image embeds on Apple Mail
 - [ ] Create English Literary Terms Anki flashcards
-- [x] Create a `leonzalion-bot` to make my automated commits
-- [x] Experiment with a script that makes old blog entries frozen (i.e. read-only on the file system) so I don't accidentally edit them in VSCode
-- [x] Create a little CLI utility to print double-sided using AppleScript automation (it will print odd pages, then output instructions on how to insert the paper, and when you're done you press enter in the CLI and it will automatically print the even sides using the saved preset it creates by default, and then it will delete the temporary preset afterwards)
-- [x] Do a practice English Paper 1
-- [x] Make stream box resizable on blog
 - [ ] Format micro SD card
+- [ ] Do a (cardano?) Math Paper 3
+- [ ] Create a generic `run-bin` script for `@leonzalion/configs` that follows the `./src/bin/x.ts` convention
+- [ ] Create a generic command that encompasses `lint`, `prettier`, and `typecheck` so I don't need to repeatedly specify it in the scripts of every package.json
+- [ ] Move voice memos onto backlog
+- [ ] Finish the practice Paper 1 on Google Classroom
 
 ### Reach
 
+- [ ] Create GitHub Actions workflow for discord-email-tunnel on fly.io
 - [ ] Look into web worker cache-refresh functionality like Vue docs (since I still have caching issues with Netlify)
 - [ ] Create `markdown-it` playground
 - [ ] Finish setting up Docker containers for Precommit
-- [x] Move discord-email-tunnel onto fly.io
 
 ### Backlog
 
 #### Prioritized
 
-- [ ] (tomorrow) Do a (cardano?) Math Paper 3
 - [ ] Consider setting a deadline for all my small, side-projects (Precommit will be my main project once exams are over). Make sure I don't get sucked into the trap of working on a billion small projects instead of one big project and taking the big project as far as possible (set a minimum limit to how much I must work on the big project every day). But, I do want to finish all my productivity utilities for my productivity workflow that will support me throughout the gap year (AdminControl, ProjectPure, etc.)
 - [ ] Flush out my portable backpack-desk idea (a fun project I have in mind for learning mechanical/computer engineering while still being pretty useful for me)
-- [x] Get a bunch of cardboard to build backpack-desk thingy prototype
 - [ ] Toggl integration in Daily Timeblock
   - [ ] Make backlog hidden on blog by default (or better, make all headers toggleable)
 - [ ] Polish up reactive emails to the point where I can challenge myself to try and set up a meeting with Google asking whether it's possible to get better API support for dynamically changing emails instead of having to resort to browser automation
 
-#### Distant
+#### Backburner
 
 - [ ] Diff functionality in Daily Timeblock (will likely depend on `markdown-it` playground)
 - [ ] Write article about thoughts on the worrying business model which is dependent on time spent on the service rather than value gained from the service
@@ -60,8 +57,6 @@
 - [ ] Specify a standard notation when writing timeblocks (e.g. a ~ b = if finished a, do b)
 - [ ] Make sure AdminControl keeps track of previous screen time passwords somewhere in case it goes wrong
 - [ ] Create some Neovim configs that get me comfortable working in Neovim (e.g. pane shortcuts, etc.)
-- [ ] Create a generic `run-bin` script for `@leonzalion/configs` that follows the `./src/bin/x.ts` convention
-- [ ] Create a generic command that encompasses `lint`, `prettier`, and `typecheck` so I don't need to repeatedly specify it in the scripts of every package.json
 - [ ] Compile AdminControl so I can download it on my Mac
 - [ ] Create a website for AdminControl
 - [ ] Make changing screen time passcode toggleable on AdminControl
@@ -71,7 +66,15 @@
 - [ ] Consider learning the streaming API so I can create my own streaming software eventually (without having to depend on heavy OBS and also not worry about mic being unmuted)
 - [ ] Apply to Google Internship
 - [ ] Find better ways to set alarms (maybe a small Google Voice app utility to set a bunch of alarms in quick succession?)
-- [ ] Create GitHub Actions workflow for discord-email-tunnel on fly.io
+- [ ] Think about/look into how many people *really* get distracted by social media and the Internet
+- [ ] Incorporate some of the ideas during my conversation with George in my Internet Intention article; there should be friction/a barrier for accessing entertainment online (e.g. paying for entertainment), and things that are productive should be frictionless/free to access
+- [ ] Think about whether I want to be able to record voice memos to append to my blog (e.g. when I'm out and can't write stuff down on my blog, but still would like to be able to dynamically update it instantly? idk)
+- [ ] Buy more scotch tape
+- [ ] Sign up for Scott Young, Thomas Frank, and Cal Newport mailing lists w/ new emails
+- [ ] Think of whether I want a way to update my timeblock via my phone (app, offline mode?)
+- [ ] Apple Health sleep tracking integration in Daily Timeblock
+- [ ] Apple Watch App for blog (i.e. displaying daily timeblock on apple watch and/or notifications)
+- [ ] Precommit should have a notification symbol that's not invasive; e.g. facebook turned theirs blue to red to attract more attention, meanwhile github has a blue color that I literally never click on; this should also be the case with Precommit such that you only see new notifications when you are intentionally looking at new notifications and otherwise you should feel free to ignore it
 
 ### Upstream
 
