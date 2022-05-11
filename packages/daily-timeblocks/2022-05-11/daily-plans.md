@@ -15,6 +15,7 @@
 - [ ] Create a generic command that encompasses `lint`, `prettier`, and `typecheck` so I don't need to repeatedly specify it in the scripts of every package.json
 - [ ] Move voice memos onto backlog
 - [ ] Finish the practice Paper 1 on Google Classroom
+- [ ] fix skip ci script when new timeblock is created
 
 ### Reach
 
