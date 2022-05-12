@@ -1,22 +1,17 @@
-# Wednesday, May 11, 2022
+# Thursday, May 12, 2022
 
 ## Daily Plans
 
 ### Target
 
-- [ ] Create prototype of BetterChat, a on-the-fly "chat" app for posting stuff like links and images in limited "chat" places like Google Meet where you can't send images. Use WebRTC
-  - [ ] I'll block Apple Mail once I create BetterChat
 - [ ] Update Cold Turkey email times based on new Evening Routine
 - [ ] Find a better way to organize this backlog (maybe port it into Notion and interact with Notion API to display some of them live on the blog?)
-- [ ] Create English Literary Features Checklist
-- [x] Format micro SD card
-- [x] Do a (cardano?) Math Paper 3
 - [ ] Create a generic `run-bin` script for `@leonzalion/configs` that follows the `./src/bin/x.ts` convention
 - [ ] Create a generic command that encompasses `lint`, `prettier`, and `typecheck` so I don't need to repeatedly specify it in the scripts of every package.json
 - [ ] Move voice memos onto backlog
-- [ ] Finish the practice Paper 1 on Google Classroom
 - [ ] fix skip ci script when new timeblock is created
   - [ ] Consider making the daily timeblock list page dynamic instead of statically built
+- [ ] Fix discord-email-tunnel double-send bug
 
 ### Reach
 
@@ -34,7 +29,6 @@
 - [ ] Toggl integration in Daily Timeblock
   - [ ] Make backlog hidden on blog by default (or better, make all headers toggleable)
 - [ ] Polish up reactive emails to the point where I can challenge myself to try and set up a meeting with Google asking whether it's possible to get better API support for dynamically changing emails instead of having to resort to browser automation
-- [x] It looks like raw.githubusercontent.com is [rate limited](https://github.community/t/raw-githubusercontent-com-rate-limit/142444/6); find a better solution to instantly update timeblocks (maybe set up a GitHub actions script to copy the updated markdown files to the `public` directory on netlify only instead of rebuilding + bundling the entire site) (ended up using Netlify CMS)
 
 #### Backburner
 
@@ -73,13 +67,12 @@
 - [ ] Incorporate some of the ideas during my conversation with George in my Internet Intention article; there should be friction/a barrier for accessing entertainment online (e.g. paying for entertainment), and things that are productive should be frictionless/free to access
 - [ ] Think about whether I want to be able to record voice memos to append to my blog (e.g. when I'm out and can't write stuff down on my blog, but still would like to be able to dynamically update it instantly? idk)
 - [ ] Buy more scotch tape
-- [x] Sign up for Scott Young, Thomas Frank, and Cal Newport mailing lists w/ new emails
 - [ ] Think of whether I want a way to update my timeblock via my phone (app, offline mode?)
 - [ ] Apple Health sleep tracking integration in Daily Timeblock
 - [ ] Apple Watch App for blog (i.e. displaying daily timeblock on apple watch and/or notifications)
 - [ ] Precommit should have a notification symbol that's not invasive; e.g. facebook turned theirs blue to red to attract more attention, meanwhile github has a blue color that I literally never click on; this should also be the case with Precommit such that you only see new notifications when you are intentionally looking at new notifications and otherwise you should feel free to ignore it
 - [ ] Make print-double-sided faster (and applescript-utils in general)
-- [ ] There's a caching issue with raw.githubusercontent.com with my blog; investigate it (or better, move away from it)
+- [ ] Rename `@leonzalion/configs` and add documentation on how to use it
 
 ### Upstream
 

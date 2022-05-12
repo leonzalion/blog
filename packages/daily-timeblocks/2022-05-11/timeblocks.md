@@ -141,8 +141,8 @@ Gave up trying to follow today's timeblock :/
 10:40 - 11:10 | Practice math paper 3
 11:10 - 18:30 | Try to fix my MacBook software and upgrade things
 18:30 - 19:15 | Practice math paper 3
-19:15 - 22:00 | Fix blog
-22:00 - 23:15 | Evening Routine
+19:15 - 22:15 | Fix blog
+22:15 - 23:15 | Evening Routine
 ```
 
 ## Routines
