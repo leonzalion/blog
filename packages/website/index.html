@@ -21,15 +21,6 @@
 				}, 1);
 			}
 
-			// Redirects user from 404
-			(function () {
-				var redirect = sessionStorage.redirect;
-				delete sessionStorage.redirect;
-				if (redirect && redirect != location.href) {
-					history.replaceState(null, null, redirect);
-				}
-			})();
-
 			if (window.netlifyIdentity) {
 				window.netlifyIdentity.on('init', (user) => {
 					if (!user) {
@@ -38,6 +29,15 @@
 						});
 					}
 				});
+			} else {
+				// Redirects user from 404
+				(function () {
+					var redirect = sessionStorage.redirect;
+					delete sessionStorage.redirect;
+					if (redirect && redirect != location.href) {
+						history.replaceState(null, null, redirect);
+					}
+				})();
 			}
 		</script>
 	</body>
