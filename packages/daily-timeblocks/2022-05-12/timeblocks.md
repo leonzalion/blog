@@ -16,7 +16,7 @@
 16:00 - 17:30 | Make sure blog is working correctly; dynamic timeblock list page
 17:30 - 18:00 | Fix discord-email-tunnel double-send bug
 18:00 - 18:30 | Schedule meeting with Pulley & reply
-18:30 - 20:00 | Create generic script + command for `@leonzalion/configs` (and also consider a rename considering how ridiculously useful my configurations are, maybe "lionconfig"?)
+18:30 - 20:00 | Create generic script + command for `@leonzalion/configs` (and also consider renaming considering how ridiculously useful my configurations are, maybe "lionconfig"?)
 20:00 - 21:45 | Explore Notion API for backlog migration
 21:45 - 22:00 | Move voice memos onto backlog
 22:00 - 23:15 | Evening Routine
