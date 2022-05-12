@@ -8,6 +8,7 @@ public_folder: "/cms-assets/uploads"
 collections:
   - name: "daily-timeblock"
     label: "Daily Timeblock"
+    format: "json"
     extension: "json"
     folder: "packages/netlify-cms-assets/daily-timeblocks"
     slug: "{{year}}-{{month}}-{{day}}"
