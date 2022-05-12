@@ -79,7 +79,7 @@
 - [ ] Apple Watch App for blog (i.e. displaying daily timeblock on apple watch and/or notifications)
 - [ ] Precommit should have a notification symbol that's not invasive; e.g. facebook turned theirs blue to red to attract more attention, meanwhile github has a blue color that I literally never click on; this should also be the case with Precommit such that you only see new notifications when you are intentionally looking at new notifications and otherwise you should feel free to ignore it
 - [ ] Make print-double-sided faster (and applescript-utils in general)
-- [ ] There's a caching issue with raw.githubusercontent.com with my blog; investigate it (or better, move away from it)
+- [x] There's a caching issue with raw.githubusercontent.com with my blog; investigate it (or better, move away from it)
 
 ### Upstream
 
