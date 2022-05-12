@@ -10,10 +10,16 @@ collections:
     label: "Daily Timeblock"
     folder: "packages/netlify-cms-assets/daily-timeblocks"
     slug: "{{year}}-{{month}}-{{day}}"
+    identifier_field: datestring
     fields:
-      - { label: "Date", name: "date" }
-      - { label: "Daily Plans", name: "daily-plans" }
-      - { label: "Quarterly Plans", name: "quarterly-plans" }
-      - { label: "Thoughts", name: "thoughts" }
-      - { label: "Timeblocks", name: "timeblocks" }
-      - { label: "Weekly Plans", name: "weekly-plans" }
+      - { label: "Date String", name: "datestring", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Daily Plans", name: "daily-plans", widget: "markdown" }
+      - {
+          label: "Quarterly Plans",
+          name: "quarterly-plans",
+          widget: "markdown",
+        }
+      - { label: "Thoughts", name: "thoughts", widget: "markdown" }
+      - { label: "Timeblocks", name: "timeblocks", widget: "markdown" }
+      - { label: "Weekly Plans", name: "weekly-plans", widget: "markdown" }
