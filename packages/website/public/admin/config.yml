@@ -13,6 +13,8 @@ collections:
     folder: "packages/netlify-cms-assets/daily-timeblocks"
     slug: "{{year}}-{{month}}-{{day}}"
     identifier_field: datestring
+    delete: false
+    create: false
     fields:
       - { label: "Date String", name: "datestring", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
