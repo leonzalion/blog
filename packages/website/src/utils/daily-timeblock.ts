@@ -4,11 +4,12 @@ import ky from 'ky';
 import dailyTimeblockDateStrings from '~data/daily-timeblocks';
 
 export interface DailyTimeblockParts {
-	'daily-plans.md': string;
-	'quarterly-plans.md': string;
-	'thoughts.md': string;
-	'timeblocks.md': string;
-	'weekly-plans.md': string;
+	'daily-plans': string;
+	'quarterly-plans': string;
+	date: string;
+	thoughts: string;
+	timeblocks: string;
+	'weekly-plans': string;
 }
 
 export async function fetchDailyTimeblock({
@@ -16,34 +17,27 @@ export async function fetchDailyTimeblock({
 }: {
 	dateString: string;
 }) {
-	const baseUrl =
-		'https://raw.githubusercontent.com/leonzalion/blog/main/packages/daily-timeblocks';
-	const dailyTimeblockFileNames = [
-		'daily-plans.md',
-		'quarterly-plans.md',
-		'thoughts.md',
-		'timeblocks.md',
-		'weekly-plans.md',
-	];
+	const url = `/netlify-cms-assets/daily-timeblocks/${dateString}.json`;
 
-	const dailyTimeblockFilesMarkdown = Object.fromEntries(
-		await Promise.all(
-			dailyTimeblockFileNames.map(async (dailyTimeblockFileName) => {
-				const url = `${baseUrl}/${dateString}/${dailyTimeblockFileName}`;
-				const response = await ky.get(url);
-				let markdown = await response.text();
+	const response = await ky.get(url);
+	const dailyTimeblockParts = (await response.json()) as DailyTimeblockParts;
 
-				if (dailyTimeblockFileName !== 'daily-plans.md') {
-					// Trim the date header off of timeblock files
-					markdown = markdown.split('\n').slice(1).join('\n');
-				}
+	const removeHeader = (part: keyof DailyTimeblockParts) => {
+		dailyTimeblockParts[part] = dailyTimeblockParts[part]
+			.split('\n')
+			.slice(1)
+			.join('\n');
+	};
 
-				return [dailyTimeblockFileName, markdown];
-			})
-		)
-	) as DailyTimeblockParts;
+	for (const part of Object.keys(dailyTimeblockParts) as Array<
+		keyof DailyTimeblockParts
+	>) {
+		if (part !== 'daily-plans' && part !== 'date') {
+			removeHeader(part);
+		}
+	}
 
-	return dailyTimeblockFilesMarkdown;
+	return dailyTimeblockParts;
 }
 
 export function getDailyTimeblockDateStrings() {

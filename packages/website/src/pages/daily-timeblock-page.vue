@@ -23,11 +23,11 @@ async function getDailyTimeblockMarkdownFiles(): Promise<DailyTimeblockParts> {
 		await router.replace('/404');
 		return {} as DailyTimeblockParts;
 	} else {
-		const dailyTimeblockMarkdownFiles = await fetchDailyTimeblock({
+		const dailyTimeblockParts = await fetchDailyTimeblock({
 			dateString,
 		});
 
-		return dailyTimeblockMarkdownFiles;
+		return dailyTimeblockParts;
 	}
 }
 
@@ -43,19 +43,15 @@ const md = getMarkdownInstance();
 		class="column items-center"
 	>
 		<div class="max-w-5xl w-full px-8 pb-4 overflow-x-scroll markdown-body">
+			<div v-html="md.render(dailyTimeblockMarkdownFiles['daily-plans'])"></div>
+			<div v-html="md.render(dailyTimeblockMarkdownFiles['timeblocks'])"></div>
 			<div
-				v-html="md.render(dailyTimeblockMarkdownFiles['daily-plans.md'])"
+				v-html="md.render(dailyTimeblockMarkdownFiles['weekly-plans'])"
 			></div>
 			<div
-				v-html="md.render(dailyTimeblockMarkdownFiles['timeblocks.md'])"
+				v-html="md.render(dailyTimeblockMarkdownFiles['quarterly-plans'])"
 			></div>
-			<div
-				v-html="md.render(dailyTimeblockMarkdownFiles['weekly-plans.md'])"
-			></div>
-			<div
-				v-html="md.render(dailyTimeblockMarkdownFiles['quarterly-plans.md'])"
-			></div>
-			<div v-html="md.render(dailyTimeblockMarkdownFiles['thoughts.md'])"></div>
+			<div v-html="md.render(dailyTimeblockMarkdownFiles['thoughts'])"></div>
 		</div>
 	</div>
 </template>
