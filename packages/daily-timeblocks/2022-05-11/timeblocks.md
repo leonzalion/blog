@@ -126,6 +126,25 @@ Literally spent the whole day trying to fix `yabai` and upgrade my computer soft
 22:00 - 23:15 | Evening Routine
 ```
 
+### v7
+
+Gave up trying to follow today's timeblock :/
+
+```timeblock
+7:30          | Woke up
+7:30 - 7:55   | Maintenance stuff on laptop
+7:55 - 8:05   | Continue making timeblock
+8:05 - 8:35   | Morning Routine
+8:35 - 9:10   | Do a paper 3 and mark it
+9:10 - 10:30  | Fix discord-email-tunnel
+10:30 - 10:40 | Reschedule timeblock
+10:40 - 11:10 | Practice math paper 3
+11:10 - 18:30 | Try to fix my MacBook software and upgrade things
+18:30 - 19:15 | Practice math paper 3
+19:15 - 22:00 | Fix blog
+22:00 - 23:15 | Evening Routine
+```
+
 ## Routines
 
 ### Morning Routine
