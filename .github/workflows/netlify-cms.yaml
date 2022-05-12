@@ -4,6 +4,8 @@ name: Netlify CMS Compile Workflow
 
 on:
   push:
+    paths:
+      - packages/daily-timeblocks/*
     branches:
       - main
 
