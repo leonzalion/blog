@@ -1,0 +1,19 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "packages/website/public/cms-assets/uploads"
+public_folder: "/cms-assets/uploads"
+
+collections:
+  - name: "daily-timeblock"
+    label: "Daily Timeblock"
+    folder: "packages/netlify-cms-assets/daily-timeblocks"
+    slug: "{{year}}-{{month}}-{{day}}"
+    fields:
+      - { label: "Date", name: "date" }
+      - { label: "Daily Plans", name: "daily-plans" }
+      - { label: "Quarterly Plans", name: "quarterly-plans" }
+      - { label: "Thoughts", name: "thoughts" }
+      - { label: "Timeblocks", name: "timeblocks" }
+      - { label: "Weekly Plans", name: "weekly-plans" }

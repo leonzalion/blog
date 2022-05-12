@@ -34,8 +34,7 @@
 - [ ] Toggl integration in Daily Timeblock
   - [ ] Make backlog hidden on blog by default (or better, make all headers toggleable)
 - [ ] Polish up reactive emails to the point where I can challenge myself to try and set up a meeting with Google asking whether it's possible to get better API support for dynamically changing emails instead of having to resort to browser automation
-- [ ] It looks like raw.githubusercontent.com is [rate limited](https://github.community/t/raw-githubusercontent-com-rate-limit/142444/6); find a better solution to instantly update timeblocks (maybe there's some way I can integrate with a fly.io database as a secondary data store which is fully based on my files? I'm definitely sticking to a file-based CMS for local editing)
-  - [ ] Make a GitHub actions script can run that updates the DB (I just want to avoid rebuilding and redeploying the entire website each time since I imagine as the site grows larger, that will take more time and I sometimes make very frequent updates to these timeblocks so I don't want it to be a bottleneck)
+- [ ] It looks like raw.githubusercontent.com is [rate limited](https://github.community/t/raw-githubusercontent-com-rate-limit/142444/6); find a better solution to instantly update timeblocks (maybe set up a GitHub actions script to copy the updated markdown files to the `public` directory on netlify only instead of rebuilding + bundling the entire site)
 
 #### Backburner
 
@@ -80,6 +79,7 @@
 - [ ] Apple Watch App for blog (i.e. displaying daily timeblock on apple watch and/or notifications)
 - [ ] Precommit should have a notification symbol that's not invasive; e.g. facebook turned theirs blue to red to attract more attention, meanwhile github has a blue color that I literally never click on; this should also be the case with Precommit such that you only see new notifications when you are intentionally looking at new notifications and otherwise you should feel free to ignore it
 - [ ] Make print-double-sided faster (and applescript-utils in general)
+- [ ] There's a caching issue with raw.githubusercontent.com with my blog; investigate it (or better, move away from it)
 
 ### Upstream
 

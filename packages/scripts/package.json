@@ -7,7 +7,8 @@
 		"typecheck": "tsc --noEmit",
 		"toggl": "node-ts ./src/toggl.ts",
 		"create-daily-timeblock": "node-ts ./src/bin/create-daily-timeblock.ts",
-		"edit-daily-timeblock": "node-ts ./src/bin/edit-daily-timeblock.ts"
+		"edit-daily-timeblock": "node-ts ./src/bin/edit-daily-timeblock.ts",
+		"compile-daily-timeblocks": "node-ts ./src/bin/compile-daily-timeblocks.ts"
 	},
 	"dependencies": {
 		"chmodrp": "^1.0.2",
