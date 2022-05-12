@@ -6,7 +6,7 @@ import { monorepoDir } from './paths.js';
 export async function compileDailyTimeblocksForNetlifyCMS() {
 	const dailyTimeblocksNetlifyCMSDir = path.join(
 		monorepoDir,
-		'packages/netlify-cms-assets/daily-timeblocks'
+		'packages/website/public/netlify-cms-assets/daily-timeblocks'
 	);
 	const dailyTimeblocksDir = path.join(
 		monorepoDir,
