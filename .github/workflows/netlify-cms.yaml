@@ -40,8 +40,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Prune unneeded folders
-        run: rm -rf packages/website
+      - name: Prune unneeded files
+        run: rm -rf packages/website/package.json
 
       - name: Install dependencies
         run: pnpm install
@@ -53,5 +53,6 @@ jobs:
         run: |
           git config --global user.name 'Leon'
           git config --global user.email 'contact@leonzalion.com'
-          git commit -am "chore: compiled daily timeblocks"
+          git add packages/website/public/netlify-cms-assets
+          git commit -m "chore: compiled daily timeblocks"
           git push
