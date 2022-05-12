@@ -5,8 +5,7 @@
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"],
-      "~test/*": ["./src/*"]
+      "~/*": ["./src/*"]
     },
     "types": ["vue/ref-macros"]
   },
