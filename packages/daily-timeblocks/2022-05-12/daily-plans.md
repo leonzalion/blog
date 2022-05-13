@@ -1,6 +1,6 @@
 # Thursday, May 12, 2022
 
-## Daily Plans
+## Daily Plans (v1)
 
 ### Target
 
@@ -20,19 +20,32 @@
 - [ ] Create `markdown-it` playground
 - [ ] Finish setting up Docker containers for Precommit
 
+## Daily Plans (v2)
+
+### Target
+
+- [x] Update Cold Turkey email times on MacBook based on new Evening Routine
+- [x] Update Cold Turkey email times on Desktop based on new Evening Routine
+- [ ] Move voice memos onto backlog
+- [ ] Flush out/experiment with my portable backpack-desk idea (since I got access to cardboard!), a fun project I have in mind for learning mechanical/computer engineering while still being pretty useful for me
+
 ### Backlog
 
 #### Prioritized
 
+- [ ] Create a generic `run-bin` script for `@leonzalion/configs` that follows the `./src/bin/x.ts` convention
+- [x] Create a generic command that encompasses `lint`, `prettier`, and `typecheck` so I don't need to repeatedly specify it in the scripts of every package.json
+- [x] Fix discord-email-tunnel double-send bug
+- [ ] Diff functionality in Daily Timeblock (will likely depend on `markdown-it` playground)
+- [ ] Rename `@leonzalion/configs` and add documentation on how to use it
+- [ ] Create `markdown-it` playground
 - [ ] Consider setting a deadline for all my small, side-projects (Precommit will be my main project once exams are over). Make sure I don't get sucked into the trap of working on a billion small projects instead of one big project and taking the big project as far as possible (set a minimum limit to how much I must work on the big project every day). But, I do want to finish all my productivity utilities for my productivity workflow that will support me throughout the gap year (AdminControl, ProjectPure, etc.)
-- [ ] Flush out my portable backpack-desk idea (a fun project I have in mind for learning mechanical/computer engineering while still being pretty useful for me)
 - [ ] Toggl integration in Daily Timeblock
   - [ ] Make backlog hidden on blog by default (or better, make all headers toggleable)
 - [ ] Polish up reactive emails to the point where I can challenge myself to try and set up a meeting with Google asking whether it's possible to get better API support for dynamically changing emails instead of having to resort to browser automation
 
 #### Backburner
 
-- [ ] Diff functionality in Daily Timeblock (will likely depend on `markdown-it` playground)
 - [ ] Write article about thoughts on the worrying business model which is dependent on time spent on the service rather than value gained from the service
 - [ ] Digital Minimalism talks about social media presenting a falsely overpositive portrayal of people's lives which is discouraging towards others; think about how I can try and avoid that aspect with my projects
 - [ ] Digital minimalism mentions "philosophy of technology use"; think about what my philosophy of technology use is
@@ -59,7 +72,7 @@
 - [ ] Make changing screen time passcode toggleable on AdminControl
 - [ ] Fix AdminControl bitwarden integration where it creates a folder and keeps track of changes instead of overwriting
 - [ ] Linter/formatter for Daily Timeblock files?
-- [ ] Create npm helper packages for managing pseudo-monorepos (where some packages of the monorepo are in their own repos)
+- [ ] Create npm helper packages for managing pseudo-monorepos (where some packages of the monorepo are in their own repos), decide whether this is even a good idea or not
 - [ ] Consider learning the streaming API so I can create my own streaming software eventually (without having to depend on heavy OBS and also not worry about mic being unmuted)
 - [ ] Apply to Google Internship
 - [ ] Find better ways to set alarms (maybe a small Google Voice app utility to set a bunch of alarms in quick succession?)
@@ -72,7 +85,11 @@
 - [ ] Apple Watch App for blog (i.e. displaying daily timeblock on apple watch and/or notifications)
 - [ ] Precommit should have a notification symbol that's not invasive; e.g. facebook turned theirs blue to red to attract more attention, meanwhile github has a blue color that I literally never click on; this should also be the case with Precommit such that you only see new notifications when you are intentionally looking at new notifications and otherwise you should feel free to ignore it
 - [ ] Make print-double-sided faster (and applescript-utils in general)
-- [ ] Rename `@leonzalion/configs` and add documentation on how to use it
+- [ ] Fix yabai on MacBook Air
+- [x] In AdminControl, what if the password is inputted like 1 character every 30 seconds; this would make it so that it's hard to just "copy-paste" the password somewhere else since it would abort any time it doesn't detect secure input
+- [ ] Create a background app utility that always git pulls when connected to Internet/when it detects a change to the remote GitHub repository
+- [ ] Reply to Pulley email
+- [ ] Create a way to sort Backlog entries by type/project
 
 ### Upstream
 

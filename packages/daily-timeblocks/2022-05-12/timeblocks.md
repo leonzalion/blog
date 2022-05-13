@@ -22,6 +22,27 @@
 22:00 - 23:15 | Evening Routine
 ```
 
+### v2
+
+Schedule got ruined by a surprise lockdown situation at school :/
+
+Rule is that I'm not allowed to use Internet for 24 hours, so I'll reschedule my plans accordingly (i.e. basically do the one thing on my task list that doesn't involve using the internet).
+
+```timeblock
+7:00 - 7:30   | Morning Routine
+7:30 - 8:20   | Prepare for Exam (create English checklist on the spot?), reminder to self: tell friend to remind me about Chem13
+8:20 - 9:00   | Work on English checklist
+9:00 - 10:30  | Math exam
+10:30 - 12:00 | Chem13 contest
+12:00 - 14:15 | Lockdown
+14:15 - 14:30 | Recreate timeblock
+14:30 - 14:40 | Fix Cold Turkey block schedule on MacBook
+14:30 - 15:00 | Travel time
+15:00 - 21:45 | Experiment with portable backpack-desk + cardboard
+21:45 - 22:00 | Move voice memos onto backlog
+22:00 - 23:15 | Evening Routine
+```
+
 ## Routines
 
 ### Morning Routine
