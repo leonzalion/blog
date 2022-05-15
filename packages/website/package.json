@@ -34,7 +34,7 @@
 		"vue": "^3.2.33",
 		"vue-plugin-load-script": "^2.1.1",
 		"vue-router": "^4.0.15",
-		"vue3-spinners": "^1.1.1"
+		"vue3-spinners": "^1.2.1"
 	},
 	"devDependencies": {
 		"@types/dateformat": "^5.0.0",
