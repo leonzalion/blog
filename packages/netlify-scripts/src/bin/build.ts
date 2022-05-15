@@ -28,7 +28,6 @@ chProjectDir(import.meta.url, { monorepoRoot: true });
 fs.rmSync('dist', { recursive: true, force: true });
 
 async function buildWebsite() {
-	await fs.promises.mkdir('dist/packages/website', { recursive: true });
 	await execaCommand('pnpm build:website', { stdio: 'inherit' });
 	await fs.promises.rename('packages/website/dist', 'dist');
 }
