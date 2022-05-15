@@ -39,7 +39,7 @@ export async function updateNotionTasksOnGithub({
 	const dateString = getTodayDateString();
 
 	treeItems.push({
-		path: `packages/tasks/generated/${dateString}.json`,
+		path: `packages/content/tasks/json/${dateString}.json`,
 		type: 'blob',
 		sha: notionTaskBlobResponse.data.sha,
 		mode: '100644',

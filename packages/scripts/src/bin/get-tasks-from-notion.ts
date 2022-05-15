@@ -9,7 +9,7 @@ const monorepoDir = getProjectDir(import.meta.url, { monorepoRoot: true });
 
 const notionTasks = await getNotionTasks();
 
-const generatedTasksDir = path.join(monorepoDir, 'packages/tasks/generated');
+const generatedTasksDir = path.join(monorepoDir, 'packages/content/tasks/json');
 
 const todayDateString = getTodayDateString();
 

@@ -5,6 +5,6 @@ import onetime from 'onetime';
 export const getOctokit: () => InstanceType<typeof Octokit> = onetime(
 	() =>
 		new Octokit({
-			auth: process.env.GITHUB_TOKEN,
+			auth: process.env.GITHUB_BOT_TOKEN,
 		})
 );

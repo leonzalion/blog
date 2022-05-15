@@ -8,7 +8,7 @@ export async function getCurrentTasksOnGithub(): Promise<NotionTask[]> {
 	const todayDateString = getTodayDateString();
 	try {
 		const todayTasksResponse = await retrieveGithubFiles(
-			`packages/tasks/generated/${todayDateString}.json`
+			`packages/content/tasks/json/${todayDateString}.json`
 		);
 
 		if (Array.isArray(todayTasksResponse)) {

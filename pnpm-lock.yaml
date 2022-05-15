@@ -5,11 +5,11 @@ importers:
   .:
     specifiers:
       dotenv-cli: ^5.1.0
-      lionconfig: ^1.6.15
+      lionconfig: ^1.6.17
       typescript: ^4.6.4
     devDependencies:
       dotenv-cli: 5.1.0
-      lionconfig: 1.6.15_typescript@4.6.4
+      lionconfig: 1.6.17_typescript@4.6.4
       typescript: 4.6.4
 
   packages/content:
@@ -5256,8 +5256,8 @@ packages:
       tslib: 2.4.0
       typescript: 4.6.4
 
-  /lionconfig/1.6.15_typescript@4.6.4:
-    resolution: {integrity: sha512-2WSQrEI5h07C4q7MnD/x2Svb/wORROerge1pQIX6uGClPJ8uv1nal/Jy0x0SDoup4TosMX+XgILebNlt8misuA==}
+  /lionconfig/1.6.17_typescript@4.6.4:
+    resolution: {integrity: sha512-IprpnsEGQ1j5EaonG42MXEH5bXwjBopWJwWcQiTkf7qY3oxP04Xmu9OsolfMVuuBDARac3DeKforXI5aWNcfbw==}
     hasBin: true
     dependencies:
       '@commitlint/cli': 16.3.0_@swc+core@1.2.183
@@ -5272,6 +5272,7 @@ packages:
       '@typescript-eslint/parser': 5.23.0_hcfsmds2fshutdssjqluwm76uu
       deepmerge-ts: 4.0.3
       desm: 1.2.0
+      dotenv: 16.0.1
       eslint: 8.15.0
       eslint-config-airbnb-base: 15.0.0_gwd37gqv3vjv3xlpl7ju3ag2qu
       eslint-config-prettier: 8.5.0_eslint@8.15.0
@@ -5288,6 +5289,7 @@ packages:
       eslint-plugin-unicorn: 42.0.0_eslint@8.15.0
       eslint-plugin-vue: 8.7.1_eslint@8.15.0
       eslint-plugin-yml: 0.15.0_eslint@8.15.0
+      execa-cjs: /execa/5.1.1
       find-up: 5.0.0
       is-ci: 3.0.1
       lint-staged: 12.4.1
