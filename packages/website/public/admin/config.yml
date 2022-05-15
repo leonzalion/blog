@@ -2,15 +2,15 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "packages/website/public/netlify-cms-assets/uploads"
-public_folder: "/netlify-cms-assets/uploads"
+media_folder: "content/uploads"
+public_folder: "/content/uploads"
 
 collections:
   - name: "daily-timeblock"
     label: "Daily Timeblock"
     format: "json"
     extension: "json"
-    folder: "packages/website/public/netlify-cms-assets/daily-timeblocks"
+    folder: "content/daily-timeblocks"
     slug: "{{year}}-{{month}}-{{day}}"
     identifier_field: datestring
     delete: false

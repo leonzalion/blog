@@ -21,12 +21,14 @@ The blog is built using a custom build script that creates a directory structure
 - assets/
   - <the bundled HTML/CSS/JS assets that are sent to browsers>
 - content/
-  - daily-timeblocks/
+  - articles/
     - <a list of generated JSON files representing the blog articles>
   - tasks/
     - <a list of generated JSON files representing my tasks>
   - daily-timeblocks/
     - <a list of generated JSON files representing my daily timeblocks>
+  - uploads/
+    - <various media uploads (e.g. images) associated with content>
 ```
 
 This file structure is then committed to Git and is pushed to the `netlify` branch of the GitHub repo. The Netlify site is configured to automatically update the website whenever the `netlify` branch is changed. Because the `netlify` branch will already contain the bundled website assets, the build script on `netlify` only needs to update the files in their CDN. This makes the Netlify build scripts run very quickly, preventing us from exceeding Netlify's build minutes quota.

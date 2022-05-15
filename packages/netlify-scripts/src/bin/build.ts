@@ -7,12 +7,14 @@
 	- assets/
 		- <the bundled HTML/CSS/JS assets that are sent to browsers>
 	- content/
-		- daily-timeblocks/
+		- articles/
 			- <a list of generated JSON files representing the blog articles>
 		- tasks/
 			- <a list of generated JSON files representing my tasks>
 		- daily-timeblocks/
 			- <a list of generated JSON files representing my daily timeblocks>
+		- uploads/
+			- <various media uploads (e.g. images) associated with content>
 	```
 */
 
@@ -49,6 +51,8 @@ async function createNetlifyCMSPackages() {
 			);
 		})
 	);
+
+	await fs.promises.mkdir('dist/content/uploads', { recursive: true });
 }
 
 await createNetlifyCMSPackages();
