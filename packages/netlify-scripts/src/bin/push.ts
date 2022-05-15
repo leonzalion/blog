@@ -11,7 +11,8 @@ const monorepoDir = getProjectDir(import.meta.url, { monorepoRoot: true });
 const netlifyDistDir = path.join(monorepoDir, 'dist');
 process.chdir(netlifyDistDir);
 await execa('git', ['init']);
-await execa('git', ['commit', '-am', 'netlify deploy']);
+await execa('git', ['add', '.']);
+await execa('git', ['commit', '-m', 'netlify deploy']);
 await execa('git', [
 	'push',
 	'--force',
