@@ -46,7 +46,9 @@ jobs:
 
       - name: Build website for Netlify
         run: |
+          git config --global user.email "contact@leonzalion.com"
+          git config --global user.name "leonzalion-bot"
           pnpm --filter @leonzalion-blog/netlify-scripts exec run-bin build
           pnpm --filter @leonzalion-blog/netlify-scripts exec run-bin push
         env:
-          GITHUB_BOT_TOKEN: ${{ secrets.env.GH_BOT_TOKEN }}
+          GITHUB_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
