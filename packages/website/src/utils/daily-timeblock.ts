@@ -1,3 +1,4 @@
+import type { DailyTimeblocksMetadata } from '@leonzalion-blog/content';
 import ky from 'ky';
 
 export interface DailyTimeblockParts {
@@ -37,10 +38,10 @@ export async function fetchDailyTimeblock({
 	return dailyTimeblockParts;
 }
 
-export async function getDailyTimeblockDateStrings() {
+export async function getDailyTimeblocksMetadata() {
 	const dailyTimeblockMetadata = await ky
 		.get('/content/metadata/daily-timeblock.json')
-		.json<{ fileNames: string[] }>();
+		.json<DailyTimeblocksMetadata>();
 
-	return dailyTimeblockMetadata.fileNames;
+	return dailyTimeblockMetadata;
 }

@@ -3,13 +3,12 @@ import dateFormat from 'dateformat';
 import dayjs from 'dayjs';
 import { sort } from 'fast-sort';
 
-import { getDailyTimeblockDateStrings } from '~/utils/daily-timeblock.js';
+import { getDailyTimeblocksMetadata } from '~/utils/daily-timeblock.js';
 
-const dailyTimeblockDateStrings = sort(await getDailyTimeblockDateStrings()).by(
-	{
-		desc: (dateString) => new Date(dateString).getTime(),
-	}
-);
+const dailyTimeblocksMetadata = await getDailyTimeblocksMetadata();
+const dailyTimeblockDateStrings = sort(dailyTimeblocksMetadata.dateStrings).by({
+	desc: (dateString) => new Date(dateString).getTime(),
+});
 </script>
 
 <template>

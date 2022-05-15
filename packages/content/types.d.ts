@@ -24,7 +24,7 @@ export interface DailyTimeblock {
 /**
 	Array of date strings
 */
-export type DailyTimeblocksMetadata = string[];
+export type DailyTimeblocksMetadata = { dateStrings: string[] };
 
 export interface TasksData {
 	dateString: string;

@@ -1,6 +1,7 @@
 import type {
 	ArticleData,
-	ArticleMetadata,
+	ArticlesMetadata,
+	DailyTimeblocksMetadata,
 	TasksData,
 	TasksMetadata,
 } from '@leonzalion-blog/content';
@@ -14,7 +15,7 @@ const metadataDir = path.join(contentPackageDir, 'metadata');
 async function generateArticlesMetadata(): Promise<void> {
 	const articlesDir = path.join(contentPackageDir, 'articles/json');
 
-	const articleMetadata = {} as ArticleMetadata;
+	const articleMetadata = {} as ArticlesMetadata;
 
 	const articleSlugs = await fs.promises.readdir(articlesDir);
 	for (const articleSlug of articleSlugs) {
@@ -62,7 +63,9 @@ async function generateDailyTimeblocksMetadata(): Promise<void> {
 	const dailyTimeblockDateStrings = dailyTimeblockFileNames.map(
 		(fileName) => path.parse(fileName).name
 	);
-	const dailyTimeblocksMetadata = dailyTimeblockDateStrings;
+	const dailyTimeblocksMetadata: DailyTimeblocksMetadata = {
+		dateStrings: dailyTimeblockDateStrings,
+	};
 
 	await fs.promises.writeFile(
 		path.join(metadataDir, 'daily-timeblocks.json'),

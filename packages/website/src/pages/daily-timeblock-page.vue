@@ -6,19 +6,19 @@ import { useRoute, useRouter } from 'vue-router';
 import type { DailyTimeblockParts } from '~/utils/daily-timeblock.js';
 import {
 	fetchDailyTimeblock,
-	getDailyTimeblockDateStrings,
+	getDailyTimeblocksMetadata,
 } from '~/utils/daily-timeblock.js';
 import { getMarkdownInstance } from '~/utils/markdown.js';
 
 const route = useRoute();
 const router = useRouter();
 const dateString = route.params.dateString?.toString();
-const dailyTimeblockDateStrings = await getDailyTimeblockDateStrings();
+const dailyTimeblocksMetadata = await getDailyTimeblocksMetadata();
 
 async function getDailyTimeblockMarkdownFiles(): Promise<DailyTimeblockParts> {
 	if (
 		dateString === undefined ||
-		!dailyTimeblockDateStrings.includes(dateString)
+		!dailyTimeblocksMetadata.dateStrings.includes(dateString)
 	) {
 		await router.replace('/404');
 		return {} as DailyTimeblockParts;
