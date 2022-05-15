@@ -3,7 +3,7 @@ import { join } from 'desm';
 import markdownItAnchor from 'markdown-it-anchor';
 import markdownItTaskCheckbox from 'markdown-it-task-checkbox';
 import { defineConfig } from 'vite';
-import jsImports from 'vite-plugin-js-imports';
+import jsImports from 'rollup-plugin-js-imports';
 import Markdown from 'vite-plugin-md';
 import WindiCSS from 'vite-plugin-windicss';
 
