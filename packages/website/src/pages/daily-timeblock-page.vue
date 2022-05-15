@@ -13,7 +13,7 @@ import { getMarkdownInstance } from '~/utils/markdown.js';
 const route = useRoute();
 const router = useRouter();
 const dateString = route.params.dateString?.toString();
-const dailyTimeblockDateStrings = getDailyTimeblockDateStrings();
+const dailyTimeblockDateStrings = await getDailyTimeblockDateStrings();
 
 async function getDailyTimeblockMarkdownFiles(): Promise<DailyTimeblockParts> {
 	if (

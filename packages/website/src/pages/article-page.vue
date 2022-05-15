@@ -1,31 +1,27 @@
 <script setup lang="ts">
 import 'github-markdown-css/github-markdown.css';
 
+import type { ArticleData } from '@leonzalion-blog/content';
 import dateFormat from 'dateformat';
 import dayjs from 'dayjs';
 import type { Component } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
-import type { Article } from '~/types/article.js';
-import { getArticlesMap, importArticle } from '~/utils/article.js';
+import { fetchArticle } from '~/utils/article.js';
 
 const route = useRoute();
 const articleSlug = route.params.slug?.toString();
 
 let ArticleMarkdownComponent: Component;
 let articleNotFound = $ref(false);
-let article: Article = undefined!;
+let article: ArticleData = undefined!;
 
 if (articleSlug === undefined) {
 	const router = useRouter();
 	await router.replace('/404');
 } else {
 	try {
-		ArticleMarkdownComponent = await importArticle(articleSlug);
-		article = getArticlesMap()[articleSlug]!;
-		if (article === undefined) {
-			articleNotFound = true;
-		}
+		article = await fetchArticle({ articleSlug });
 	} catch {
 		articleNotFound = true;
 	}

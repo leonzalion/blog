@@ -5,9 +5,11 @@ import { sort } from 'fast-sort';
 
 import { getDailyTimeblockDateStrings } from '~/utils/daily-timeblock.js';
 
-const dailyTimeblockDateStrings = sort(getDailyTimeblockDateStrings()).by({
-	desc: (dateString) => new Date(dateString).getTime(),
-});
+const dailyTimeblockDateStrings = sort(await getDailyTimeblockDateStrings()).by(
+	{
+		desc: (dateString) => new Date(dateString).getTime(),
+	}
+);
 </script>
 
 <template>

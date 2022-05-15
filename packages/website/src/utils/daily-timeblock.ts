@@ -1,8 +1,5 @@
 import ky from 'ky';
 
-// eslint-disable-next-line import/extensions
-import dailyTimeblockDateStrings from '~data/daily-timeblocks';
-
 export interface DailyTimeblockParts {
 	'daily-plans': string;
 	'quarterly-plans': string;
@@ -17,7 +14,7 @@ export async function fetchDailyTimeblock({
 }: {
 	dateString: string;
 }) {
-	const url = `/daily-timeblocks/${dateString}.json`;
+	const url = `/content/daily-timeblocks/${dateString}.json`;
 
 	const response = await ky.get(url);
 	const dailyTimeblockParts = (await response.json()) as DailyTimeblockParts;
@@ -40,6 +37,10 @@ export async function fetchDailyTimeblock({
 	return dailyTimeblockParts;
 }
 
-export function getDailyTimeblockDateStrings() {
-	return dailyTimeblockDateStrings;
+export async function getDailyTimeblockDateStrings() {
+	const dailyTimeblockMetadata = await ky
+		.get('/content/metadata/daily-timeblock.json')
+		.json<{ fileNames: string[] }>();
+
+	return dailyTimeblockMetadata.fileNames;
 }

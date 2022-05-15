@@ -1,3 +1,4 @@
 {
-	"name": "@leonzalion-blog/content"
+	"name": "@leonzalion-blog/content",
+	"types": "types.d.ts"
 }

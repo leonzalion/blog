@@ -4,10 +4,10 @@ import { sort } from 'fast-sort';
 import ArticleListItem from '~/components/article-list-item.vue';
 import { getArticlesMap } from '~/utils/article.js';
 
-const articlesMap = getArticlesMap();
+const articlesMap = await getArticlesMap();
 
-const articles = sort(Object.values(articlesMap)).desc(
-	(article) => article.dateCreated
+const articles = sort(Object.values(articlesMap.fileNames)).desc(
+	(article) => article
 );
 </script>
 

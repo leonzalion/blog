@@ -11,6 +11,7 @@
 		"tc": "vue-tsc --noEmit"
 	},
 	"dependencies": {
+		"@leonzalion-blog/content": "link:../content",
 		"@mdi/js": "^6.6.96",
 		"@vueuse/head": "^0.7.6",
 		"camelcase": "^6.3.0",

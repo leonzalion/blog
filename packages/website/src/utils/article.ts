@@ -1,16 +1,18 @@
-import type { Component } from 'vue';
+import type { ArticleData, ArticleListing } from '@leonzalion-blog/content';
+import ky from 'ky';
 
-// eslint-disable-next-line import/extensions
-import articlesMap from '~data/articles';
+export async function fetchArticle({ articleSlug }: { articleSlug: string }) {
+	const url = `/content/article/${articleSlug}.json`;
 
-export async function importArticle(articleSlug: string) {
-	const { default: mdComponent } = (await import(
-		`../assets/data/articles/${articleSlug}.md`
-	)) as { default: Component };
+	const articleData = await ky.get(url).json<ArticleData>();
 
-	return mdComponent;
+	return articleData;
 }
 
-export function getArticlesMap() {
+export async function getArticlesMap() {
+	const articlesMap = await ky
+		.get('/content/metadata/articles.json')
+		.json<Record<string, ArticleListing>>();
+
 	return articlesMap;
 }
