@@ -34,6 +34,3 @@ async function buildWebsite() {
 
 await buildWebsite();
 await generateContentMetadata();
-
-// Copy content to folders
-await fs.promises.cp('packages/content', 'dist/content', { recursive: true });
