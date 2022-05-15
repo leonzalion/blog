@@ -10,7 +10,7 @@ export async function compileDailyTimeblocksForNetlifyCMS() {
 	);
 	const dailyTimeblocksDir = path.join(
 		monorepoDir,
-		'packages/daily-timeblocks'
+		'packages/daily-timeblocks/src'
 	);
 
 	const dailyTimeblockDirNames = await fs.promises.readdir(dailyTimeblocksDir);
@@ -31,6 +31,7 @@ export async function compileDailyTimeblocksForNetlifyCMS() {
 
 			const dailyTimeblock: Record<string, string> = {};
 			dailyTimeblock.date = dailyTimeblockDirName;
+			dailyTimeblock.dateString = dailyTimeblockDirName;
 			await Promise.all(
 				dailyTimeblockDirFileNames.map(async (dailyTimeblockDirFileName) => {
 					const dailyTimeblockDirFilePath = path.join(
