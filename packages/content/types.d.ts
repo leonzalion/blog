@@ -11,7 +11,7 @@ export interface ArticleData extends ArticleListing {
 /**
 	Map of article slugs to article listings
 */
-export type ArticleMetadata = Record<string, ArticleListing>;
+export type ArticlesMetadata = Record<string, ArticleListing>;
 
 export interface DailyTimeblock {
 	dailyPlans: string;
@@ -24,7 +24,7 @@ export interface DailyTimeblock {
 /**
 	Array of date strings
 */
-export type DailyTimeblockMetadata = string[];
+export type DailyTimeblocksMetadata = string[];
 
 export interface TasksData {
 	dateString: string;

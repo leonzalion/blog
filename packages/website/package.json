@@ -8,7 +8,7 @@
 		"prepare": "lion-git-hooks",
 		"lint": "eslint --cache --fix .",
 		"prettier": "prettier --write .",
-		"tc": "vue-tsc --noEmit"
+		"typecheck": "vue-tsc --noEmit"
 	},
 	"dependencies": {
 		"@leonzalion-blog/content": "link:../content",

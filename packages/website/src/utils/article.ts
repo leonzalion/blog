@@ -1,4 +1,4 @@
-import type { ArticleData, ArticleListing } from '@leonzalion-blog/content';
+import type { ArticleData, ArticlesMetadata } from '@leonzalion-blog/content';
 import ky from 'ky';
 
 export async function fetchArticle({ articleSlug }: { articleSlug: string }) {
@@ -9,10 +9,10 @@ export async function fetchArticle({ articleSlug }: { articleSlug: string }) {
 	return articleData;
 }
 
-export async function getArticlesMap() {
+export async function getArticlesMetadata() {
 	const articlesMap = await ky
 		.get('/content/metadata/articles.json')
-		.json<Record<string, ArticleListing>>();
+		.json<ArticlesMetadata>();
 
 	return articlesMap;
 }

@@ -36,7 +36,7 @@ const streamPlayerExpandButtonClass = $computed(() => {
 
 let isResizeDragging = $ref(false);
 
-function onResizeMouseDown(event: MouseEvent) {
+function onResizeMouseDown(_event: MouseEvent) {
 	isResizeDragging = true;
 }
 

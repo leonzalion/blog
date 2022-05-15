@@ -2,12 +2,12 @@
 import { sort } from 'fast-sort';
 
 import ArticleListItem from '~/components/article-list-item.vue';
-import { getArticlesMap } from '~/utils/article.js';
+import { getArticlesMetadata } from '~/utils/article.js';
 
-const articlesMap = await getArticlesMap();
+const articlesMetadata = await getArticlesMetadata();
 
-const articles = sort(Object.values(articlesMap.fileNames)).desc(
-	(article) => article
+const articles = sort(Object.values(Object.values(articlesMetadata))).desc(
+	(article) => article.dateCreated
 );
 </script>
 
