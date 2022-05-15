@@ -58,4 +58,6 @@ export async function getNotionTasks() {
 				.join(''),
 		});
 	}
+
+	return tasks;
 }
