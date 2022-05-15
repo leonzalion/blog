@@ -5,11 +5,11 @@ importers:
   .:
     specifiers:
       dotenv-cli: ^5.1.0
-      lionconfig: ^1.6.14
+      lionconfig: ^1.6.15
       typescript: ^4.6.4
     devDependencies:
       dotenv-cli: 5.1.0
-      lionconfig: 1.6.14_typescript@4.6.4
+      lionconfig: 1.6.15_typescript@4.6.4
       typescript: 4.6.4
 
   packages/content:
@@ -5254,8 +5254,8 @@ packages:
       tslib: 2.4.0
       typescript: 4.6.4
 
-  /lionconfig/1.6.14_typescript@4.6.4:
-    resolution: {integrity: sha512-D/y3E4EEDW2EF4m7+PHU7+UIX/m/hQ9S3aQaPrcBnOCY2yXMO2hlWg6mQEF4flBCSAoYiWQWVKi90YtTPz7Scw==}
+  /lionconfig/1.6.15_typescript@4.6.4:
+    resolution: {integrity: sha512-2WSQrEI5h07C4q7MnD/x2Svb/wORROerge1pQIX6uGClPJ8uv1nal/Jy0x0SDoup4TosMX+XgILebNlt8misuA==}
     hasBin: true
     dependencies:
       '@commitlint/cli': 16.3.0_@swc+core@1.2.183

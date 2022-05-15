@@ -17,8 +17,14 @@ async function generateArticlesMetadata(): Promise<void> {
 
 	const articleMetadata = {} as ArticlesMetadata;
 
-	const articleSlugs = await fs.promises.readdir(articlesDir);
-	for (const articleSlug of articleSlugs) {
+	const articleFolderNames = await fs.promises.readdir(articlesDir);
+	for (const articleFolderName of articleFolderNames) {
+		if (articleFolderName === '.gitkeep') {
+			continue;
+		}
+
+		const articleSlug = articleFolderName;
+
 		const { title, dateCreated, slug } = JSON.parse(
 			fs.readFileSync(path.join(articlesDir, articleSlug), 'utf8')
 		) as ArticleData;
@@ -38,6 +44,10 @@ async function generateTasksMetadata(): Promise<void> {
 
 	const taskFileNames = await fs.promises.readdir(tasksDir);
 	for (const tasksFileName of taskFileNames) {
+		if (tasksFileName === '.gitkeep') {
+			continue;
+		}
+
 		const taskFilePath = path.join(tasksDir, tasksFileName);
 
 		const { content, dateString } = JSON.parse(
@@ -60,9 +70,9 @@ async function generateDailyTimeblocksMetadata(): Promise<void> {
 	);
 
 	const dailyTimeblockFileNames = await fs.promises.readdir(dailyTimeblocksDir);
-	const dailyTimeblockDateStrings = dailyTimeblockFileNames.map(
-		(fileName) => path.parse(fileName).name
-	);
+	const dailyTimeblockDateStrings = dailyTimeblockFileNames
+		.filter((fileName) => fileName !== '.gitkeep')
+		.map((fileName) => path.parse(fileName).name);
 	const dailyTimeblocksMetadata: DailyTimeblocksMetadata = {
 		dateStrings: dailyTimeblockDateStrings,
 	};
