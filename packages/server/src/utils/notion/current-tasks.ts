@@ -4,8 +4,6 @@ import { got } from 'got';
 import { getTodayDateString } from '~/utils/date.js';
 import { retrieveGithubFiles } from '~/utils/github/files.js';
 
-export async function getCurrentTasksOnNotion(): Promise<NotionTask[]> {}
-
 export async function getCurrentTasksOnGithub(): Promise<NotionTask[]> {
 	const todayDateString = getTodayDateString();
 	try {
