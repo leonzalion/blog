@@ -10,12 +10,18 @@ if (process.env.GITHUB_BOT_TOKEN === undefined) {
 const monorepoDir = getProjectDir(import.meta.url, { monorepoRoot: true });
 const netlifyDistDir = path.join(monorepoDir, 'dist');
 process.chdir(netlifyDistDir);
-await execa('git', ['init']);
-await execa('git', ['add', '.']);
-await execa('git', ['commit', '-m', 'netlify deploy']);
-await execa('git', [
-	'push',
-	'--force',
-	`https://${process.env.GITHUB_BOT_TOKEN}@github.com/leonzalion/blog.git`,
-	'netlify',
-]);
+await execa('git', ['init'], { stdio: 'inherit' });
+await execa('git', ['add', '.'], { stdio: 'inherit' });
+await execa('git', ['commit', '-m', 'netlify deploy'], { stdio: 'inherit' });
+await execa(
+	'git',
+	[
+		'push',
+		'--force',
+		`https://${process.env.GITHUB_BOT_TOKEN}@github.com/leonzalion/blog.git`,
+		'main:netlify',
+	],
+	{
+		stdio: 'inherit',
+	}
+);

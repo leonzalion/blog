@@ -2,7 +2,8 @@
 	"name": "@leonzalion-blog/netlify-scripts",
 	"type": "module",
 	"scripts": {
-		"netlify-build": "pnpm run-bin build"
+		"build": "dotenv -e ../../.env pnpm run-bin build",
+		"push": "dotenv -e ../../.env pnpm run-bin push"
 	},
 	"dependencies": {
 		"execa": "^6.1.0",
