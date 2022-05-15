@@ -4,10 +4,6 @@ import * as path from 'node:path';
 import { monorepoDir } from './paths.js';
 
 export async function compileDailyTimeblocksForNetlifyCMS() {
-	const dailyTimeblocksNetlifyCMSDir = path.join(
-		monorepoDir,
-		'packages/website/public/netlify-cms-assets/daily-timeblocks'
-	);
 	const dailyTimeblocksDir = path.join(
 		monorepoDir,
 		'packages/daily-timeblocks/src'
@@ -49,8 +45,12 @@ export async function compileDailyTimeblocksForNetlifyCMS() {
 				})
 			);
 
+			const compiledDailyTimeblocksDir = path.join(
+				monorepoDir,
+				'packages/daily-timeblocks/generated'
+			);
 			const compiledDailyTimeblockPath = path.join(
-				dailyTimeblocksNetlifyCMSDir,
+				compiledDailyTimeblocksDir,
 				`${dailyTimeblockDirName}.json`
 			);
 			await fs.promises.writeFile(

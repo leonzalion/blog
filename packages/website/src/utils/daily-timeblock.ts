@@ -17,7 +17,7 @@ export async function fetchDailyTimeblock({
 }: {
 	dateString: string;
 }) {
-	const url = `/netlify-cms-assets/daily-timeblocks/${dateString}.json`;
+	const url = `/daily-timeblocks/${dateString}.json`;
 
 	const response = await ky.get(url);
 	const dailyTimeblockParts = (await response.json()) as DailyTimeblockParts;
