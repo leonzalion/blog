@@ -25,9 +25,9 @@ export async function getArticlesMetadata() {
 	let articlesMetadata: ArticlesMetadata;
 
 	if (import.meta.env.DEV) {
-		articlesMetadata = (await import(
+		({ default: articlesMetadata } = (await import(
 			'../../public/content/metadata/articles.json'
-		)) as ArticlesMetadata;
+		)) as { default: ArticlesMetadata });
 	} else {
 		articlesMetadata = await ky
 			.get('/content/metadata/articles.json')
