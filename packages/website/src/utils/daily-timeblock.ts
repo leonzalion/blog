@@ -1,47 +1,56 @@
-import type { DailyTimeblocksMetadata } from '@leonzalion-blog/content';
+import type {
+	DailyTimeblockData,
+	DailyTimeblocksMetadata,
+} from '@leonzalion-blog/content';
 import ky from 'ky';
-
-export interface DailyTimeblockParts {
-	'daily-plans': string;
-	'quarterly-plans': string;
-	date: string;
-	thoughts: string;
-	timeblocks: string;
-	'weekly-plans': string;
-}
 
 export async function fetchDailyTimeblock({
 	dateString,
 }: {
 	dateString: string;
-}) {
-	const url = `https://blog.leonzalion.com/content/daily-timeblocks/${dateString}.json`;
+}): Promise<DailyTimeblockData> {
+	let dailyTimeblockData: DailyTimeblockData;
 
-	const response = await ky.get(url);
-	const dailyTimeblockParts = (await response.json()) as DailyTimeblockParts;
+	if (import.meta.env.DEV) {
+		dailyTimeblockData = await import(
+			`../../public/content/daily-timeblocks/json/${dateString}.json`
+		);
+	} else {
+		const url = `/content/daily-timeblocks/json/${dateString}.json`;
 
-	const removeHeader = (part: keyof DailyTimeblockParts) => {
-		dailyTimeblockParts[part] = dailyTimeblockParts[part]
-			.split('\n')
-			.slice(1)
-			.join('\n');
-	};
+		dailyTimeblockData = await ky.get(url).json<DailyTimeblockData>();
 
-	for (const part of Object.keys(dailyTimeblockParts) as Array<
-		keyof DailyTimeblockParts
-	>) {
-		if (part !== 'daily-plans' && part !== 'date') {
-			removeHeader(part);
+		const removeHeader = (part: keyof DailyTimeblockData) => {
+			dailyTimeblockData[part] = dailyTimeblockData[part]
+				.split('\n')
+				.slice(1)
+				.join('\n');
+		};
+
+		for (const part of Object.keys(dailyTimeblockData) as Array<
+			keyof DailyTimeblockData
+		>) {
+			if (part !== 'dailyPlans' && part !== 'dateString') {
+				removeHeader(part);
+			}
 		}
 	}
 
-	return dailyTimeblockParts;
+	return dailyTimeblockData;
 }
 
-export async function getDailyTimeblocksMetadata() {
-	const dailyTimeblockMetadata = await ky
-		.get('/content/metadata/daily-timeblock.json')
-		.json<DailyTimeblocksMetadata>();
+export async function getDailyTimeblocksMetadata(): Promise<DailyTimeblocksMetadata> {
+	let dailyTimeblockMetadata: DailyTimeblocksMetadata;
+
+	if (import.meta.env.DEV) {
+		dailyTimeblockMetadata = (await import(
+			'../../public/content/metadata/daily-timeblocks.json'
+		)) as DailyTimeblocksMetadata;
+	} else {
+		dailyTimeblockMetadata = await ky
+			.get('/content/metadata/daily-timeblock.json')
+			.json<DailyTimeblocksMetadata>();
+	}
 
 	return dailyTimeblockMetadata;
 }

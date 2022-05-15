@@ -13,7 +13,8 @@ export interface ArticleData extends ArticleListing {
 */
 export type ArticlesMetadata = Record<string, ArticleListing>;
 
-export interface DailyTimeblock {
+export interface DailyTimeblockData {
+	dateString: string;
 	dailyPlans: string;
 	quarterlyPlans: string;
 	thoughts: string;

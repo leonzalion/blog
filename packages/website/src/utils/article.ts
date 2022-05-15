@@ -1,18 +1,38 @@
 import type { ArticleData, ArticlesMetadata } from '@leonzalion-blog/content';
 import ky from 'ky';
 
-export async function fetchArticle({ articleSlug }: { articleSlug: string }) {
-	const url = `https://blog.leonzalion.com/content/article/${articleSlug}.json`;
+export async function fetchArticle({
+	articleSlug,
+}: {
+	articleSlug: string;
+}): Promise<ArticleData> {
+	let articleData: ArticleData;
 
-	const articleData = await ky.get(url).json<ArticleData>();
+	if (import.meta.env.DEV) {
+		articleData = (await import(
+			`../../public/content/articles/json/${articleSlug}.json`
+		)) as ArticleData;
+	} else {
+		const url = `/content/articles/json/${articleSlug}.json`;
+
+		articleData = await ky.get(url).json<ArticleData>();
+	}
 
 	return articleData;
 }
 
 export async function getArticlesMetadata() {
-	const articlesMap = await ky
-		.get('https://blog.leonzalion.com/content/metadata/articles.json')
-		.json<ArticlesMetadata>();
+	let articlesMetadata: ArticlesMetadata;
 
-	return articlesMap;
+	if (import.meta.env.DEV) {
+		articlesMetadata = (await import(
+			'../../public/content/metadata/articles.json'
+		)) as ArticlesMetadata;
+	} else {
+		articlesMetadata = await ky
+			.get('/content/metadata/articles.json')
+			.json<ArticlesMetadata>();
+	}
+
+	return articlesMetadata;
 }
