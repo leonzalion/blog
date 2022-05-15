@@ -2,8 +2,8 @@
 import 'github-markdown-css/github-markdown.css';
 
 import type { ArticleData } from '@leonzalion-blog/content';
+import { dayjs } from '@leonzalion-blog/date-utils';
 import dateFormat from 'dateformat';
-import dayjs from 'dayjs';
 import type { Component } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
