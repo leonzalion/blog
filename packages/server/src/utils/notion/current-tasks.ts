@@ -1,15 +1,13 @@
+import type { NotionTask } from '@leonzalion-blog/content-scripts';
 import { Client } from '@notionhq/client';
 import { got } from 'got';
 import * as process from 'node:process';
 import type { ValueOf } from 'type-fest';
 
-import type { NotionTask } from '~/types/notion.js';
 import { getTodayDateString } from '~/utils/date.js';
 import { retrieveGithubFiles } from '~/utils/github/files.js';
 
-export async function getCurrentTasksOnNotion(): Promise<NotionTask[]> {
-
-}
+export async function getCurrentTasksOnNotion(): Promise<NotionTask[]> {}
 
 export async function getCurrentTasksOnGithub(): Promise<NotionTask[]> {
 	const todayDateString = getTodayDateString();
