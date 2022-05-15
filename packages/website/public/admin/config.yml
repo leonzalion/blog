@@ -10,7 +10,7 @@ collections:
     label: "Daily Timeblocks"
     format: "json"
     extension: "json"
-    folder: "content/daily-timeblocks"
+    folder: "content/daily-timeblocks/json"
     slug: "{{year}}-{{month}}-{{day}}"
     identifier_field: date-string
     delete: false
@@ -32,7 +32,7 @@ collections:
     label: "Articles"
     format: "json"
     extension: "json"
-    folder: "content/articles"
+    folder: "content/articles/json"
     identifier_field: slug
     delete: false
     create: false
@@ -46,7 +46,7 @@ collections:
     label: "Tasks"
     format: "json"
     extension: "json"
-    folder: "content/tasks"
+    folder: "content/tasks/json"
     identifier_field: date-string
     delete: false
     create: false
