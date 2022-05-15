@@ -43,6 +43,7 @@ jobs:
 
       - name: Build website for Netlify
         run: |
+          git config --global init.defaultBranch main
           git config --global user.email "contact@leonzalion.com"
           git config --global user.name "leonzalion-bot"
           pnpm --filter @leonzalion-blog/netlify-scripts exec run-bin build
