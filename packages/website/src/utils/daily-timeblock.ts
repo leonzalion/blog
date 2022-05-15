@@ -15,7 +15,7 @@ export async function fetchDailyTimeblock({
 }: {
 	dateString: string;
 }) {
-	const url = `/content/daily-timeblocks/${dateString}.json`;
+	const url = `https://blog.leonzalion.com/content/daily-timeblocks/${dateString}.json`;
 
 	const response = await ky.get(url);
 	const dailyTimeblockParts = (await response.json()) as DailyTimeblockParts;
