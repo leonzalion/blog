@@ -18,10 +18,10 @@
 	```
 */
 
+import { generateContentMetadata } from '@leonzalion-blog/content-scripts';
 import { execaCommand } from 'execa';
 import { chProjectDir } from 'lion-system';
 import * as fs from 'node:fs';
-import * as path from 'node:path';
 
 chProjectDir(import.meta.url, { monorepoRoot: true });
 
@@ -33,6 +33,7 @@ async function buildWebsite() {
 }
 
 await buildWebsite();
+await generateContentMetadata();
 
-
-await createNetlifyCMSPackages();
+// Copy content to folders
+await fs.promises.cp('packages/content', 'dist/content');

@@ -5,11 +5,11 @@ importers:
   .:
     specifiers:
       dotenv-cli: ^5.1.0
-      lionconfig: ^1.6.13
+      lionconfig: ^1.6.14
       typescript: ^4.6.4
     devDependencies:
       dotenv-cli: 5.1.0
-      lionconfig: 1.6.13_typescript@4.6.4
+      lionconfig: 1.6.14_typescript@4.6.4
       typescript: 4.6.4
 
   packages/content:
@@ -34,11 +34,13 @@ importers:
 
   packages/netlify-scripts:
     specifiers:
+      '@leonzalion-blog/content-scripts': link:../content-scripts/dist
       '@types/is-ci': ^3.0.0
       '@types/node': ^17.0.33
       execa: ^6.1.0
       lion-system: ^1.3.27
     dependencies:
+      '@leonzalion-blog/content-scripts': link:../content-scripts/dist
       execa: 6.1.0
       lion-system: 1.3.32
     devDependencies:
@@ -5248,8 +5250,8 @@ packages:
       tslib: 2.4.0
       typescript: 4.6.4
 
-  /lionconfig/1.6.13_typescript@4.6.4:
-    resolution: {integrity: sha512-oXcB2KhBJBOxaZFBEXQOll+khKBJNz0h0ZBFg5FeBpNrdYb+gkoq/AGXYAmhH42eCmVoapY4Kj2vptWeElzSPg==}
+  /lionconfig/1.6.14_typescript@4.6.4:
+    resolution: {integrity: sha512-D/y3E4EEDW2EF4m7+PHU7+UIX/m/hQ9S3aQaPrcBnOCY2yXMO2hlWg6mQEF4flBCSAoYiWQWVKi90YtTPz7Scw==}
     hasBin: true
     dependencies:
       '@commitlint/cli': 16.3.0_@swc+core@1.2.183
