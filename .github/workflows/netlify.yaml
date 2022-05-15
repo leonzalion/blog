@@ -2,9 +2,6 @@ name: Netlify Deploy Workflow
 
 on:
   push:
-    paths-ignore:
-      - packages/daily-timeblocks/**
-      - website/public/netlify-cms-assets/**
     branches:
       - main
 
