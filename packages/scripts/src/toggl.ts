@@ -19,5 +19,5 @@ const response = await got.get(
 	}
 );
 
-const data = JSON.parse(response.body) as {};
-
+const data = JSON.parse(response.body) as Record<string, unknown>;
+console.log(data);
