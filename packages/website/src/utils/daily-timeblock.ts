@@ -12,9 +12,9 @@ export async function fetchDailyTimeblock({
 	let dailyTimeblockData: DailyTimeblockData;
 
 	if (import.meta.env.DEV) {
-		dailyTimeblockData = await import(
+		dailyTimeblockData = (await import(
 			`../../public/content/daily-timeblocks/json/${dateString}.json`
-		);
+		)) as DailyTimeblockData;
 	} else {
 		const url = `/content/daily-timeblocks/json/${dateString}.json`;
 
