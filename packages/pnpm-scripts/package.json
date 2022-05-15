@@ -1,0 +1,17 @@
+{
+	"name": "@leonzalion-blog/pnpm-scripts",
+	"type": "module",
+	"scripts": {
+		"prepare-script": "run-if-env NODE_ENV!=production node-ts ./src/prepare.ts"
+	},
+	"dependencies": {
+		"execa": "^6.1.0",
+		"inquirer": "^8.2.2",
+		"inquirer-press-to-continue": "^1.0.9",
+		"lion-system": "^1.3.32",
+		"open": "^8.4.0"
+	},
+	"devDependencies": {
+		"@types/inquirer": "^8.2.1"
+	}
+}

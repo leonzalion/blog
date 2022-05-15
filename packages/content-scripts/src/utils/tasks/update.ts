@@ -1,9 +1,8 @@
 import type { NotionTask } from '@leonzalion-blog/content';
-import dayjs from 'dayjs';
+import { dayjs, getTodayDateString } from '@leonzalion-blog/date-utils';
 import { Buffer } from 'node:buffer';
 
 import type { GitTreeItem } from '~/types/github.js';
-import { getTodayDateString } from '~/utils/date.js';
 
 import { getOctokit } from '../github/octokit.js';
 

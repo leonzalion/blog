@@ -11,7 +11,7 @@
 		"url": "https://leonzalion.com"
 	},
 	"scripts": {
-		"prepare": "lion-git-hooks",
+		"prepare": "pnpm --filter=@precommit/pnpm-scripts run prepare-script",
 		"prettier": "pnpm recursive run prettier",
 		"lint": "pnpm recursive run lint",
 		"dev:website": "pnpm --filter=@leonzalion-blog/website run dev",
@@ -23,5 +23,8 @@
 		"dotenv-cli": "^5.1.0",
 		"lionconfig": "^1.6.17",
 		"typescript": "^4.6.4"
+	},
+	"dependencies": {
+		"run-if": "^0.0.6"
 	}
 }

@@ -8,13 +8,17 @@
 		- <the bundled HTML/CSS/JS assets that are sent to browsers>
 	- content/
 		- articles/
-			- <a list of generated JSON files representing the blog articles>
+			- json/
+				- <a list of generated JSON files representing the blog articles>
 		- tasks/
-			- <a list of generated JSON files representing my tasks>
+			- json/
+				- <a list of generated JSON files representing my tasks>
 		- daily-timeblocks/
-			- <a list of generated JSON files representing my daily timeblocks>
+			- json/
+				- <a list of generated JSON files representing my daily timeblocks>
 		- uploads/
-			- <various media uploads (e.g. images) associated with content>
+			- json/
+				- <various media uploads (e.g. images) associated with content>
 	```
 */
 
