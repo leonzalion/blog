@@ -42,7 +42,7 @@ async function createNetlifyCMSPackages() {
 			const distPackageDir = path.join('dist/content', netlifyCMSPackage);
 			await fs.promises.mkdir(distPackageDir, { recursive: true });
 			await fs.promises.cp(
-				path.join('packages', netlifyCMSPackage, 'generated'),
+				path.join('packages/content', netlifyCMSPackage, 'generated'),
 				distPackageDir,
 				{
 					recursive: true,
@@ -51,7 +51,9 @@ async function createNetlifyCMSPackages() {
 		})
 	);
 
-	await fs.promises.mkdir('dist/content/uploads', { recursive: true });
+	await fs.promises.cp('packages/content/uploads', 'dist/content/uploads', {
+		recursive: true,
+	});
 }
 
 await createNetlifyCMSPackages();
