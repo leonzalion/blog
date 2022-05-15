@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { ArticleListing } from '@leonzalion-blog/content';
+import { dayjs } from '@leonzalion-blog/date-utils';
 import dateFormat from 'dateformat';
-import dayjs from 'dayjs';
 
 const { article } = defineProps<{
 	article: ArticleListing;

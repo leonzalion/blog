@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { dayjs } from '@leonzalion-blog/date-utils';
 import dateFormat from 'dateformat';
-import dayjs from 'dayjs';
 import { sort } from 'fast-sort';
 
 import { getDailyTimeblocksMetadata } from '~/utils/daily-timeblock.js';

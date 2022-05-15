@@ -1,9 +1,12 @@
-import dayjs from 'dayjs';
+import dayjsOriginal from 'dayjs';
 import timezone from 'dayjs/plugin/timezone.js';
 import utc from 'dayjs/plugin/utc.js';
+// Needed for type safety
+import 'dayjs/plugin/timezone.js';
+import 'dayjs/plugin/utc.js';
 
-dayjs.extend(utc);
-dayjs.extend(timezone);
-dayjs.tz.setDefault('America/Toronto');
+dayjsOriginal.extend(utc);
+dayjsOriginal.extend(timezone);
+dayjsOriginal.tz.setDefault('America/Toronto');
 
-export { dayjs };
+export const dayjs = dayjsOriginal;
