@@ -6,7 +6,7 @@ import {
 } from '~/utils/notion/current-tasks.js';
 import { updateNotionTasksOnGithub } from '~/utils/notion/update-github.js';
 
-export async function syncNotionTasks() {
+export async function syncTasksFromNotion() {
 	const currentTasksOnNotion = await getCurrentTasksOnNotion();
 	const currentTasksOnGithub = await getCurrentTasksOnGithub();
 

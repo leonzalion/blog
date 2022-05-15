@@ -62,20 +62,29 @@ export async function getCurrentTasksOnNotion(): Promise<NotionTask[]> {
 
 export async function getCurrentTasksOnGithub(): Promise<NotionTask[]> {
 	const todayDateString = getTodayDateString();
-	const todayTasksResponse = await retrieveGithubFiles(
-		`packages/tasks/generated/${todayDateString}.json`
-	);
+	try {
+		const todayTasksResponse = await retrieveGithubFiles(
+			`packages/tasks/generated/${todayDateString}.json`
+		);
 
-	if (Array.isArray(todayTasksResponse)) {
-		throw new TypeError('Expected a path to a file, not a folder');
+		if (Array.isArray(todayTasksResponse)) {
+			throw new TypeError('Expected a path to a file, not a folder');
+		}
+
+		if (todayTasksResponse.download_url === null) {
+			throw new Error('`download_url` was not present on `todayTasksResponse`');
+		}
+
+		const todayTasks = await got(todayTasksResponse.download_url).json<
+			NotionTask[]
+		>();
+		return todayTasks;
+	} catch (error: unknown) {
+		const err = error as { status: number };
+		if (err.status === 404) {
+			return [];
+		} else {
+			throw error;
+		}
 	}
-
-	if (todayTasksResponse.download_url === null) {
-		throw new Error('`download_url` was not present on `todayTasksResponse`');
-	}
-
-	const todayTasks = await got(todayTasksResponse.download_url).json<
-		NotionTask[]
-	>();
-	return todayTasks;
 }

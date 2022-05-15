@@ -27,6 +27,7 @@ export async function updateNotionTasksOnGithub({
 	});
 	const baseTree = getRefResponse.data.object.sha;
 
+	console.info('Creating the blob...');
 	const notionTaskBlobResponse = await octokit.rest.git.createBlob({
 		owner,
 		repo,
@@ -54,7 +55,7 @@ export async function updateNotionTasksOnGithub({
 
 	console.info('Creating the commit...');
 	const commitResponse = await octokit.rest.git.createCommit({
-		message: `[automated] Update stats on ${dayjs()
+		message: `[automated] Sync tasks from Notion on ${dayjs()
 			.tz()
 			.format('YYYY-MM-DD h:mm A')}`,
 		owner,
