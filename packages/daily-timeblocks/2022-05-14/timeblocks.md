@@ -1,29 +1,9 @@
 # Saturday, May 14, 2022
 
-## Timeblocks
+I didn't make a timeblock for today and decided to just tackle the first few items on my todolist without setting a time frame for each.
 
-```timeblock
-7:00 - 7:30   | Morning Routine
-7:30 - 10:00  | Move/Change all my emails to the new reactive emails specification
-10:00 - 12:00 |
-```
+Some of the things I got done:
 
-## Routines
-
-### Morning Routine
-
-```timeblock
-7:00        | Wake Up
-7:00 - 7:15 | Brush Teeth, Make Bed, Place Kindle on Pillow
-7:15 - 7:30 | Breakfast
-```
-
-### Evening Routine
-
-```timeblock
-22:00 - 22:25 | Check email; Create timeblock for next day
-22:25 - 22:30 | Clear desk; Plug in devices
-22:30 - 22:45 | Brush teeth; Quick shower
-22:45 - 23:15 | Reading
-23:15         | Bedtime; experiment with playing Weightless
-```
+- [x] Finish migrating all tasks to Notion with deadlines and labels (will implement the Notion API soon)
+- [x] Rename `@leonzalion/configs` and add documentation.
+- [x] Finished `vue3-spinners` and `compile-vue-sfc` (this took pretty much the entire day)
