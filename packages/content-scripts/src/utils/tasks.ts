@@ -1,7 +1,7 @@
+import type { NotionTask } from '@leonzalion-blog/content';
 import process from 'node:process';
 import type { ValueOf } from 'type-fest';
 
-import type { NotionTask } from '~/types/notion.js';
 import { getNotionClient } from '~/utils/notion.js';
 
 export async function getTasksFromNotion() {

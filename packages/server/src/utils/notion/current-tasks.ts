@@ -1,8 +1,5 @@
-import type { NotionTask } from '@leonzalion-blog/content-scripts';
-import { Client } from '@notionhq/client';
+import type { NotionTask } from '@leonzalion-blog/content';
 import { got } from 'got';
-import * as process from 'node:process';
-import type { ValueOf } from 'type-fest';
 
 import { getTodayDateString } from '~/utils/date.js';
 import { retrieveGithubFiles } from '~/utils/github/files.js';

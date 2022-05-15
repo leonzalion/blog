@@ -78,6 +78,7 @@ importers:
 
   packages/server:
     specifiers:
+      '@leonzalion-blog/content': link:../content
       '@leonzalion-blog/content-scripts': link:../content-scripts/dist
       '@types/node': ^17.0.33
       '@types/node-schedule': ^2.1.0
@@ -90,6 +91,7 @@ importers:
       onetime: ^6.0.0
       type-fest: ^2.12.2
     dependencies:
+      '@leonzalion-blog/content': link:../content
       '@leonzalion-blog/content-scripts': link:../content-scripts/dist
       dayjs: 1.11.2
       fast-deep-equal: 3.1.3

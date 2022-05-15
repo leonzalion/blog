@@ -35,3 +35,10 @@ export interface TasksData {
 	Map of date strings to task data.
 */
 export type TasksMetadata = Record<string, TasksData>;
+
+export interface NotionTask {
+	description: string;
+	completed: boolean;
+	deadline?: string;
+	deadlineNotes: string;
+}
