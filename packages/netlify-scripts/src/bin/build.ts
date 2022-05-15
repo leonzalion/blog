@@ -3,19 +3,16 @@
 
 	Creates the following folder structure:
 	```
-	packages/
-		- website/
-			- dist/
-				- <the bundled HTML/CSS/JS assets that are sent to browsers>
-		- articles/
-			- generated/
-				- <a list of generated JSON files representing the blog articles>
-		- tasks/
-			- generated/
-				- <a list of generated JSON files representing my tasks>
+	- index.html
+	- assets/
+		- <the bundled HTML/CSS/JS assets that are sent to browsers>
+	- content/
 		- daily-timeblocks/
-			- generated/
-				- <a list of generated JSON files representing my daily timeblocks>
+			- <a list of generated JSON files representing the blog articles>
+		- tasks/
+			- <a list of generated JSON files representing my tasks>
+		- daily-timeblocks/
+			- <a list of generated JSON files representing my daily timeblocks>
 	```
 */
 
@@ -26,35 +23,32 @@ import * as path from 'node:path';
 
 chProjectDir(import.meta.url, { monorepoRoot: true });
 
-// Create a temporary global `dist/` folder where the final folder structure will go
 fs.rmSync('dist', { recursive: true, force: true });
-fs.mkdirSync('dist', { recursive: true });
 
 async function buildWebsite() {
 	await fs.promises.mkdir('dist/packages/website', { recursive: true });
 	await execaCommand('pnpm build:website', { stdio: 'inherit' });
-	await fs.promises.rename(
-		'packages/website/dist',
-		'dist/packages/website/dist'
-	);
+	await fs.promises.rename('packages/website/dist', 'dist');
 }
 
+await buildWebsite();
+
 async function createNetlifyCMSPackages() {
-	const netlifyCMSPackages = [
-		'packages/articles/generated',
-		'packages/daily-timeblocks/generated',
-		'packages/tasks/generated',
-	];
+	const netlifyCMSPackages = ['articles', 'daily-timeblocks', 'tasks'];
 
 	await Promise.all(
 		netlifyCMSPackages.map(async (netlifyCMSPackage) => {
-			const distPackageDir = path.join('dist', netlifyCMSPackage);
+			const distPackageDir = path.join('dist/content', netlifyCMSPackage);
 			await fs.promises.mkdir(distPackageDir, { recursive: true });
-			await fs.promises.cp(netlifyCMSPackage, distPackageDir, {
-				recursive: true,
-			});
+			await fs.promises.cp(
+				path.join('packages', netlifyCMSPackage, 'generated'),
+				distPackageDir,
+				{
+					recursive: true,
+				}
+			);
 		})
 	);
 }
 
-await Promise.all([buildWebsite(), createNetlifyCMSPackages()]);
+await createNetlifyCMSPackages();
