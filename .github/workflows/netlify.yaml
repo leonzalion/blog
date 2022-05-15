@@ -44,18 +44,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build frontend
-        run: pnpm build:website
-
-      - name: Deploy to Netlify 🚀
-        uses: nwtgck/actions-netlify@v1.2
-        with:
-          publish-dir: ./packages/website/dist
-          production-branch: main
-          deploy-message: "Deploy from GitHub Actions"
-          production-deploy: true
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          enable-commit-comment: false
-        env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      - name: Build website for Netlify
+        run: |
+          pnpm --filter @leonzalion-blog/netlify-scripts run-bin build
+          pnpm --filter @leonzalion-blog/netlify-scripts run-bin push
