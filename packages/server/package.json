@@ -7,7 +7,7 @@
 		"sync-toggl": "dotenv -e ../../.env pnpm run-bin sync-toggl"
 	},
 	"dependencies": {
-		"@notionhq/client": "^1.0.4",
+		"@leonzalion-blog/content-scripts": "link:../content-scripts/dist",
 		"dayjs": "^1.11.1",
 		"fast-deep-equal": "^3.1.3",
 		"fastify": "^3.29.0",

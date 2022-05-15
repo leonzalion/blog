@@ -1,13 +1,11 @@
 import deepEqual from 'fast-deep-equal';
 
-import {
-	getCurrentTasksOnGithub,
-	getCurrentTasksOnNotion,
-} from '~/utils/notion/current-tasks.js';
+import { getTasksFromNotion } from '@leonzalion-blog/content-scripts';
+import { getCurrentTasksOnGithub } from '~/utils/notion/current-tasks.js';
 import { updateNotionTasksOnGithub } from '~/utils/notion/update-github.js';
 
 export async function syncTasksFromNotion() {
-	const currentTasksOnNotion = await getCurrentTasksOnNotion();
+	const currentTasksOnNotion = await getTasksFromNotion();
 	const currentTasksOnGithub = await getCurrentTasksOnGithub();
 
 	if (!deepEqual(currentTasksOnGithub, currentTasksOnNotion)) {

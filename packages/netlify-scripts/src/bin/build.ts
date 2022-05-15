@@ -34,26 +34,5 @@ async function buildWebsite() {
 
 await buildWebsite();
 
-async function createNetlifyCMSPackages() {
-	const netlifyCMSPackages = ['articles', 'daily-timeblocks', 'tasks'];
-
-	await Promise.all(
-		netlifyCMSPackages.map(async (netlifyCMSPackage) => {
-			const distPackageDir = path.join('dist/content', netlifyCMSPackage);
-			await fs.promises.mkdir(distPackageDir, { recursive: true });
-			await fs.promises.cp(
-				path.join('packages/content', netlifyCMSPackage, 'generated'),
-				distPackageDir,
-				{
-					recursive: true,
-				}
-			);
-		})
-	);
-
-	await fs.promises.cp('packages/content/uploads', 'dist/content/uploads', {
-		recursive: true,
-	});
-}
 
 await createNetlifyCMSPackages();
