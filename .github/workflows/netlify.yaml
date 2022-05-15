@@ -46,5 +46,5 @@ jobs:
 
       - name: Build website for Netlify
         run: |
-          pnpm --filter @leonzalion-blog/netlify-scripts run-bin build
-          pnpm --filter @leonzalion-blog/netlify-scripts run-bin push
+          pnpm --filter @leonzalion-blog/netlify-scripts exec run-bin build
+          pnpm --filter @leonzalion-blog/netlify-scripts exec run-bin push
