@@ -11,22 +11,12 @@ collections:
     format: "json"
     extension: "json"
     folder: "content/daily-timeblocks/json"
-    slug: "{{year}}-{{month}}-{{day}}"
-    identifier_field: date-string
+    identifier_field: dateString
     delete: false
     create: false
     fields:
-      - { label: "Date String", name: "date-string", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Daily Plans", name: "daily-plans", widget: "markdown" }
-      - {
-          label: "Quarterly Plans",
-          name: "quarterly-plans",
-          widget: "markdown",
-        }
-      - { label: "Thoughts", name: "thoughts", widget: "markdown" }
-      - { label: "Timeblocks", name: "timeblocks", widget: "markdown" }
-      - { label: "Weekly Plans", name: "weekly-plans", widget: "markdown" }
+      - { label: "Date String", name: "dateString", widget: "string" }
+      - { label: "Content", name: "content", widget: "markdown" }
 
   - name: "articles"
     label: "Articles"
@@ -47,16 +37,16 @@ collections:
     format: "json"
     extension: "json"
     folder: "content/task-list-snapshots/json"
-    identifier_field: date-string
+    identifier_field: dateString
     delete: false
     create: false
     fields:
       - label: "Date String"
-        name: "date-string"
+        name: "dateString"
         widget: "string"
 
       - label: "Tasks"
-        name: "list"
+        name: "tasks"
         widget: "markdown"
 
         fields:
