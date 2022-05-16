@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import 'github-markdown-css/github-markdown.css';
 
-import type { ArticleData } from '@leonzalion-blog/content';
+import type { ArticleEntryData } from '@leonzalion-blog/content';
 import { dayjs } from '@leonzalion-blog/date-utils';
 import dateFormat from 'dateformat';
 import type { Component } from 'vue';
@@ -14,7 +14,7 @@ const articleSlug = route.params.slug?.toString();
 
 let ArticleMarkdownComponent: Component;
 let articleNotFound = $ref(false);
-let article: ArticleData = undefined!;
+let article: ArticleEntryData = undefined!;
 
 if (articleSlug === undefined) {
 	const router = useRouter();

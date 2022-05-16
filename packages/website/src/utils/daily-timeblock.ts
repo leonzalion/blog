@@ -1,5 +1,5 @@
 import type {
-	DailyTimeblockData,
+	DailyTimeblockEntryData,
 	DailyTimeblocksMetadata,
 } from '@leonzalion-blog/content';
 import ky from 'ky';
@@ -8,32 +8,17 @@ export async function fetchDailyTimeblock({
 	dateString,
 }: {
 	dateString: string;
-}): Promise<DailyTimeblockData> {
-	let dailyTimeblockData: DailyTimeblockData;
+}): Promise<DailyTimeblockEntryData> {
+	let dailyTimeblockData: DailyTimeblockEntryData;
 
 	if (import.meta.env.DEV) {
 		dailyTimeblockData = (await import(
 			`../../public/content/daily-timeblocks/json/${dateString}.json`
-		)) as DailyTimeblockData;
+		)) as DailyTimeblockEntryData;
 	} else {
 		const url = `/content/daily-timeblocks/json/${dateString}.json`;
 
-		dailyTimeblockData = await ky.get(url).json<DailyTimeblockData>();
-
-		const removeHeader = (part: keyof DailyTimeblockData) => {
-			dailyTimeblockData[part] = dailyTimeblockData[part]
-				.split('\n')
-				.slice(1)
-				.join('\n');
-		};
-
-		for (const part of Object.keys(dailyTimeblockData) as Array<
-			keyof DailyTimeblockData
-		>) {
-			if (part !== 'dailyPlans' && part !== 'dateString') {
-				removeHeader(part);
-			}
-		}
+		dailyTimeblockData = await ky.get(url).json<DailyTimeblockEntryData>();
 	}
 
 	return dailyTimeblockData;

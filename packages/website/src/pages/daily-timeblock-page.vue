@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import 'github-markdown-css/github-markdown.css';
 
+import type { DailyTimeblockEntryData } from '@leonzalion-blog/content';
 import { useRoute, useRouter } from 'vue-router';
 
-import type { DailyTimeblockParts } from '~/utils/daily-timeblock.js';
 import {
 	fetchDailyTimeblock,
 	getDailyTimeblocksMetadata,
@@ -15,13 +15,13 @@ const router = useRouter();
 const dateString = route.params.dateString?.toString();
 const dailyTimeblocksMetadata = await getDailyTimeblocksMetadata();
 
-async function getDailyTimeblockMarkdownFiles(): Promise<DailyTimeblockParts> {
+async function getDailyTimeblockMarkdownFiles(): Promise<DailyTimeblockEntryData> {
 	if (
 		dateString === undefined ||
 		!dailyTimeblocksMetadata.dateStrings.includes(dateString)
 	) {
 		await router.replace('/404');
-		return {} as DailyTimeblockParts;
+		return {} as DailyTimeblockEntryData;
 	} else {
 		const dailyTimeblockParts = await fetchDailyTimeblock({
 			dateString,

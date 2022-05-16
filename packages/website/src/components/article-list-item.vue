@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { ArticleListing } from '@leonzalion-blog/content';
+import type { ArticleEntry } from '@leonzalion-blog/content';
 import { dayjs } from '@leonzalion-blog/date-utils';
 import dateFormat from 'dateformat';
 
 const { article } = defineProps<{
-	article: ArticleListing;
+	article: ArticleEntry;
 }>();
 </script>
 
