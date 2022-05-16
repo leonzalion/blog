@@ -1,4 +1,4 @@
-import type { TaskListSnapshotData } from '@leonzalion-blog/content';
+import type { TaskListSnapshot } from '@leonzalion-blog/content';
 import { dayjs } from '@leonzalion-blog/date-utils';
 import { Buffer } from 'node:buffer';
 
@@ -7,7 +7,7 @@ import type { GitTreeItem } from '~/types/github.js';
 import { getOctokit } from '../github/octokit.js';
 
 export async function updateGithubTaskListSnapshot(
-	taskListSnapshot: TaskListSnapshotData
+	taskListSnapshot: TaskListSnapshot
 ): Promise<string> {
 	const octokit = getOctokit();
 

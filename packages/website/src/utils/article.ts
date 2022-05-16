@@ -1,5 +1,5 @@
 import type {
-	ArticleEntryData,
+	Article,
 	ArticlesMetadata,
 } from '@leonzalion-blog/content';
 import ky from 'ky';
@@ -8,20 +8,20 @@ export async function fetchArticle({
 	articleSlug,
 }: {
 	articleSlug: string;
-}): Promise<ArticleEntryData> {
-	let articleData: ArticleEntryData;
+}): Promise<Article> {
+	let article: Article;
 
 	if (import.meta.env.DEV) {
-		articleData = (await import(
+		article = (await import(
 			`../../public/content/articles/json/${articleSlug}.json`
-		)) as ArticleEntryData;
+		)) as Article;
 	} else {
 		const url = `/content/articles/json/${articleSlug}.json`;
 
-		articleData = await ky.get(url).json<ArticleEntryData>();
+		article = await ky.get(url).json<Article>();
 	}
 
-	return articleData;
+	return article;
 }
 
 export async function getArticlesMetadata() {

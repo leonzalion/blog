@@ -1,4 +1,4 @@
-import type { TaskData, TaskListSnapshotData } from '@leonzalion-blog/content';
+import type { Task, TaskListSnapshot } from '@leonzalion-blog/content';
 import got from 'got';
 import type { ValueOf } from 'type-fest';
 
@@ -20,7 +20,7 @@ export async function getTaskListFromNotion() {
 		},
 	});
 
-	const notionTasks: TaskData[] = [];
+	const notionTasks: Task[] = [];
 	for (const taskResult of tasksQueryData.results) {
 		if (!('properties' in taskResult)) {
 			continue;
@@ -58,7 +58,7 @@ export async function getTaskListSnapshotFromGithub({
 	dateString,
 }: {
 	dateString: string;
-}): Promise<TaskListSnapshotData | undefined> {
+}): Promise<TaskListSnapshot | undefined> {
 	try {
 		const taskListSnapshotResponse = await retrieveGithubFiles(
 			`packages/content/task-list-snapshots/json/${dateString}.json`
@@ -74,7 +74,7 @@ export async function getTaskListSnapshotFromGithub({
 
 		const taskListSnapshot = await got(
 			taskListSnapshotResponse.download_url
-		).json<TaskListSnapshotData>();
+		).json<TaskListSnapshot>();
 
 		return taskListSnapshot;
 	} catch (error: unknown) {

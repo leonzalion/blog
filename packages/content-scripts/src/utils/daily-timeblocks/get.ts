@@ -1,7 +1,4 @@
-import type {
-	DailyTimeblockEntryData,
-	DailyTimeblocksData,
-} from '@leonzalion-blog/content';
+import type { DailyTimeblock } from '@leonzalion-blog/content';
 import { dayjs } from '@leonzalion-blog/date-utils';
 import got from 'got';
 import type { ValueOf } from 'type-fest';
@@ -13,7 +10,7 @@ export async function getDailyTimeblockFromNotion({
 	dateString,
 }: {
 	dateString: string;
-}): Promise<DailyTimeblockEntryData> {
+}): Promise<DailyTimeblock> {
 	const notion = getNotionClient();
 	const notionToMarkdown = getNotionToMarkdown();
 	const databaseId = '0d683d5ae2194fbe9a76424b61c85d62';
@@ -22,7 +19,7 @@ export async function getDailyTimeblockFromNotion({
 		database_id: databaseId,
 	});
 
-	const notionDailyTimeblocks: DailyTimeblocksData = {};
+	const notionDailyTimeblocks: Record<string, DailyTimeblock> = {};
 	for (const dailyTimeblockPage of dailyTimeblocksQueryData.results) {
 		if (!('properties' in dailyTimeblockPage)) {
 			continue;
@@ -65,7 +62,7 @@ export async function getDailyTimeblockFromGithub({
 	dateString,
 }: {
 	dateString: string;
-}): Promise<DailyTimeblocksData | undefined> {
+}): Promise<DailyTimeblock | undefined> {
 	try {
 		const dailyTimeblockResponse = await retrieveGithubFiles(
 			`packages/content/daily-timeblocks/json/${dateString}.json`
@@ -81,7 +78,8 @@ export async function getDailyTimeblockFromGithub({
 
 		const todayTasks = await got(
 			dailyTimeblockResponse.download_url
-		).json<DailyTimeblocksData>();
+		).json<DailyTimeblock>();
+
 		return todayTasks;
 	} catch (error: unknown) {
 		const err = error as { status: number };

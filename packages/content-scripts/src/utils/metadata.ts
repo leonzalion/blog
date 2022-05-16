@@ -1,8 +1,8 @@
 import type {
-	ArticleEntryData,
+	Article,
 	ArticlesMetadata,
 	DailyTimeblocksMetadata,
-	TaskListSnapshotData,
+	TaskListSnapshot,
 	TaskListSnapshotsMetadata,
 } from '@leonzalion-blog/content';
 import * as fs from 'node:fs';
@@ -27,7 +27,7 @@ async function generateArticlesMetadata(): Promise<void> {
 
 		const { title, dateCreated, slug } = JSON.parse(
 			fs.readFileSync(path.join(articlesDir, articleSlug), 'utf8')
-		) as ArticleEntryData;
+		) as Article;
 
 		articleMetadata[articleSlug] = { title, dateCreated, slug };
 	}
@@ -58,7 +58,7 @@ async function generateTaskListSnapshotsMetadata(): Promise<void> {
 
 		const { dateString } = JSON.parse(
 			fs.readFileSync(taskListSnapshotPath, 'utf8')
-		) as TaskListSnapshotData;
+		) as TaskListSnapshot;
 
 		taskListSnapshotsMetadata[dateString] = {
 			dateString,

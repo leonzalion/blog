@@ -1,47 +1,49 @@
-export interface ArticleEntry {
+/*
+	A "listing" specifies the data that is given about a content type when a minimal information is needed to display basic information on a list.
+
+	If the content type is not suffixed, it represents all the data that is associated with the content type.
+
+	"metadata" describes the structure of `content/metadata/<content-type>.json`, which contains listings for all entries of the content
+*/
+
+export interface ArticleListing {
 	slug: string;
 	title: string;
 	dateCreated: Date;
 }
 
-export interface ArticleEntryData extends ArticleEntry {
+export interface Article extends ArticleListing {
 	content: string;
 }
 
 /**
 	Map of article slugs to article listings
 */
-export type ArticlesMetadata = Record<string, ArticleEntry>;
+export type ArticlesMetadata = Record<string, ArticleListing>;
 
-export interface DailyTimeblockEntryData {
+export interface DailyTimeblock {
 	dateString: string;
 	content: string;
 }
 
-export type DailyTimeblocksData = Record<string, DailyTimeblockEntryData>;
-
-/**
-	Array of date strings
-*/
 export type DailyTimeblocksMetadata = { dateStrings: string[] };
 
-export interface TaskListSnapshotEntry {
-	dateString: string;
-}
-
-/**
-	Each date string is associate with a task list snapshot.
-*/
-export type TaskListSnapshotsMetadata = Record<string, TaskListSnapshotEntry>;
-
-export interface TaskData {
+export interface Task {
 	description: string;
 	completed: boolean;
 	deadline?: string;
 	deadlineNotes: string;
 }
 
-export type TaskListSnapshotData = {
+export interface TaskListSnapshotListing {
 	dateString: string;
-	tasks: TaskData[];
-};
+}
+
+export interface TaskListSnapshot extends TaskListSnapshotListing {
+	tasks: Task[];
+}
+
+/**
+	Each date string is associate with a task list snapshot.
+*/
+export type TaskListSnapshotsMetadata = Record<string, TaskListSnapshotListing>;
