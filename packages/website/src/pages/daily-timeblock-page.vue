@@ -15,7 +15,7 @@ const router = useRouter();
 const dateString = route.params.dateString?.toString();
 const dailyTimeblocksMetadata = await getDailyTimeblocksMetadata();
 
-async function getDailyTimeblockMarkdownFiles(): Promise<DailyTimeblockEntryData> {
+async function getDailyTimeblockData(): Promise<DailyTimeblockEntryData> {
 	if (
 		dateString === undefined ||
 		!dailyTimeblocksMetadata.dateStrings.includes(dateString)
@@ -23,35 +23,26 @@ async function getDailyTimeblockMarkdownFiles(): Promise<DailyTimeblockEntryData
 		await router.replace('/404');
 		return {} as DailyTimeblockEntryData;
 	} else {
-		const dailyTimeblockParts = await fetchDailyTimeblock({
+		const dailyTimeblock = await fetchDailyTimeblock({
 			dateString,
 		});
 
-		return dailyTimeblockParts;
+		return dailyTimeblock;
 	}
 }
 
-const dailyTimeblockMarkdownFiles =
-	(await getDailyTimeblockMarkdownFiles()) ?? {};
+const dailyTimeblockData = (await getDailyTimeblockData()) ?? {};
 
 const md = getMarkdownInstance();
 </script>
 
 <template>
 	<div
-		v-if="Object.keys(dailyTimeblockMarkdownFiles).length > 0"
+		v-if="Object.keys(dailyTimeblockData).length > 0"
 		class="column items-center"
 	>
 		<div class="max-w-5xl w-full px-8 pb-4 overflow-x-scroll markdown-body">
-			<div v-html="md.render(dailyTimeblockMarkdownFiles['daily-plans'])"></div>
-			<div v-html="md.render(dailyTimeblockMarkdownFiles['timeblocks'])"></div>
-			<div
-				v-html="md.render(dailyTimeblockMarkdownFiles['weekly-plans'])"
-			></div>
-			<div
-				v-html="md.render(dailyTimeblockMarkdownFiles['quarterly-plans'])"
-			></div>
-			<div v-html="md.render(dailyTimeblockMarkdownFiles['thoughts'])"></div>
+			<div v-html="md.render(dailyTimeblockData.content)"></div>
 		</div>
 	</div>
 </template>

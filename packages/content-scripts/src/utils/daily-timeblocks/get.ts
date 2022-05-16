@@ -4,10 +4,13 @@ import type {
 } from '@leonzalion-blog/content';
 import { dayjs } from '@leonzalion-blog/date-utils';
 import got from 'got';
+import { NotionToMarkdown } from 'notion-to-md';
 import type { ValueOf } from 'type-fest';
 
 import { retrieveGithubFiles } from '~/utils/github/files.js';
 import { getNotionClient } from '~/utils/notion.js';
+
+const n2m = new NotionToMarkdown({ notionClient: getNotionClient() });
 
 export async function getDailyTimeblockFromNotion({
 	dateString,
@@ -22,14 +25,14 @@ export async function getDailyTimeblockFromNotion({
 	});
 
 	const notionDailyTimeblocks: DailyTimeblocksData = {};
-	for (const dailyTimeblockResult of dailyTimeblocksQueryData.results) {
-		if (!('properties' in dailyTimeblockResult)) {
+	for (const dailyTimeblockPage of dailyTimeblocksQueryData.results) {
+		if (!('properties' in dailyTimeblockPage)) {
 			continue;
 		}
 
 		type Properties<
-			T extends ValueOf<typeof dailyTimeblockResult.properties>['type']
-		> = ValueOf<typeof dailyTimeblockResult.properties> & { type: T };
+			T extends ValueOf<typeof dailyTimeblockPage.properties>['type']
+		> = ValueOf<typeof dailyTimeblockPage.properties> & { type: T };
 
 		interface NotionDailyTimeblockProperties {
 			'Full Date String': Properties<'title'>;
@@ -37,17 +40,17 @@ export async function getDailyTimeblockFromNotion({
 		}
 
 		const properties =
-			dailyTimeblockResult.properties as unknown as NotionDailyTimeblockProperties;
+			dailyTimeblockPage.properties as unknown as NotionDailyTimeblockProperties;
 
-		const dateString = dayjs(
-			properties['Full Date String'].title[0]?.plain_text
-		).format('YYYY-MM-DD');
+		// eslint-disable-next-line no-await-in-loop
+		const mdBlocks = await n2m.pageToMarkdown(dailyTimeblockPage.id);
+		const content = n2m.toMarkdownString(mdBlocks);
+
+		const dateString = dayjs(properties.Date.date?.start).format('YYYY-MM-DD');
 
 		notionDailyTimeblocks[dateString] = {
-			content: properties['Full Date String'].title
-				.map((part) => part.plain_text)
-				.join(''),
 			dateString,
+			content,
 		};
 	}
 
