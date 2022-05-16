@@ -26,7 +26,16 @@ export async function compileArticlesIntoJson() {
 				'utf8'
 			);
 			const { content, data } = matter(contentMarkdown);
-			const { dateCreated, title, slug } = data as Omit<Article, 'content'>;
+			const { dateCreated, title, slug, published } = data as Omit<
+				Article,
+				'content'
+			> & { published: boolean };
+
+			// Don't compile the article if it isn't marked as ready to be published
+			if (!published) {
+				return;
+			}
+
 			const article: Article = {
 				content,
 				dateCreated,
