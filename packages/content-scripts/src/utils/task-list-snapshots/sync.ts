@@ -1,13 +1,23 @@
+import { getTodayDateString } from '@leonzalion-blog/date-utils';
 import deepEqual from 'fast-deep-equal';
 
-import { getTasksFromGithub, getTasksFromNotion } from './get.js';
-import { updateNotionTasksOnGithub } from './update.js';
+import {
+	getTaskListFromNotion,
+	getTaskListSnapshotFromGithub,
+} from '~/utils/task-list-snapshots/get.js';
+import { updateGithubTaskListSnapshot } from '~/utils/task-list-snapshots/update.js';
 
 export async function syncTasksFromNotion() {
-	const currentTasksOnNotion = await getTasksFromNotion();
-	const currentTasksOnGithub = await getTasksFromGithub();
+	const todayDateString = getTodayDateString();
+	const currentTasksOnNotion = await getTaskListFromNotion();
+	const githubTaskListSnapshot = await getTaskListSnapshotFromGithub({
+		dateString: todayDateString,
+	});
 
-	if (!deepEqual(currentTasksOnGithub, currentTasksOnNotion)) {
-		await updateNotionTasksOnGithub({ notionTasks: currentTasksOnNotion });
+	if (!deepEqual(githubTaskListSnapshot?.tasks, currentTasksOnNotion)) {
+		await updateGithubTaskListSnapshot({
+			dateString: todayDateString,
+			tasks: currentTasksOnNotion,
+		});
 	}
 }

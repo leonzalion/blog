@@ -1,4 +1,7 @@
-import type { DailyTimeblocksData } from '@leonzalion-blog/content';
+import type {
+	DailyTimeblockEntryData,
+	DailyTimeblocksData,
+} from '@leonzalion-blog/content';
 import { dayjs } from '@leonzalion-blog/date-utils';
 import got from 'got';
 import type { ValueOf } from 'type-fest';
@@ -6,7 +9,11 @@ import type { ValueOf } from 'type-fest';
 import { retrieveGithubFiles } from '~/utils/github/files.js';
 import { getNotionClient } from '~/utils/notion.js';
 
-export async function getDailyTimeblocksFromNotion(): Promise<DailyTimeblocksData> {
+export async function getDailyTimeblockFromNotion({
+	dateString,
+}: {
+	dateString: string;
+}): Promise<DailyTimeblockEntryData> {
 	const notion = getNotionClient();
 	const databaseId = '0d683d5ae2194fbe9a76424b61c85d62';
 
@@ -44,7 +51,11 @@ export async function getDailyTimeblocksFromNotion(): Promise<DailyTimeblocksDat
 		};
 	}
 
-	return notionDailyTimeblocks;
+	if (notionDailyTimeblocks[dateString] === undefined) {
+		throw new Error(`Notion Timeblock with date ${dateString} not found.`);
+	}
+
+	return notionDailyTimeblocks[dateString]!;
 }
 
 export async function getDailyTimeblockFromGithub({
