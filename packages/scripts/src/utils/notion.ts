@@ -1,15 +1,9 @@
+import type { TaskData } from '@leonzalion-blog/content';
 import { Client } from '@notionhq/client';
 import process from 'node:process';
 import type { ValueOf } from 'type-fest';
 
-interface Task {
-	description: string;
-	completed: boolean;
-	deadline?: string;
-	deadlineNotes: string;
-}
-
-export async function getNotionTasks() {
+export async function getNotionTasks(): Promise<TaskData[]> {
 	const notion = new Client({ auth: process.env.NOTION_KEY });
 	const databaseId = process.env.NOTION_DATABASE_ID;
 

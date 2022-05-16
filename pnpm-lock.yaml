@@ -90,6 +90,7 @@ importers:
 
   packages/scripts:
     specifiers:
+      '@leonzalion-blog/content': link:../content
       '@leonzalion-blog/date-utils': link:../date-utils/dist
       '@notionhq/client': ^1.0.4
       '@types/inquirer': ^8.2.1
@@ -102,6 +103,7 @@ importers:
       mdast-util-from-markdown: ^1.2.0
       type-fest: ^2.12.2
     dependencies:
+      '@leonzalion-blog/content': link:../content
       '@leonzalion-blog/date-utils': link:../date-utils/dist
       '@notionhq/client': 1.0.4
       chmodrp: 1.0.2

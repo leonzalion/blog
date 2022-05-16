@@ -12,6 +12,7 @@
 		"compile-daily-timeblocks": "node-ts ./src/bin/compile-daily-timeblocks.ts"
 	},
 	"dependencies": {
+		"@leonzalion-blog/content": "link:../content",
 		"@leonzalion-blog/date-utils": "link:../date-utils/dist",
 		"@notionhq/client": "^1.0.4",
 		"chmodrp": "^1.0.2",

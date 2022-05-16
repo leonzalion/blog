@@ -6,7 +6,6 @@ import * as path from 'node:path';
 import { getNotionTasks } from '~/utils/notion.js';
 
 const monorepoDir = getProjectDir(import.meta.url, { monorepoRoot: true });
-
 const notionTasks = await getNotionTasks();
 
 const generatedTasksDir = path.join(
