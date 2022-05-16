@@ -5,14 +5,14 @@ importers:
   .:
     specifiers:
       dotenv-cli: ^5.1.0
-      lionconfig: ^1.6.21
+      lionconfig: ^1.6.22
       run-if: ^0.0.6
       typescript: ^4.6.4
     dependencies:
       run-if: 0.0.6
     devDependencies:
       dotenv-cli: 5.1.0
-      lionconfig: 1.6.21_typescript@4.6.4
+      lionconfig: 1.6.22_typescript@4.6.4
       typescript: 4.6.4
 
   packages/content:
@@ -28,6 +28,7 @@ importers:
       fast-deep-equal: ^3.1.3
       got: ^12.0.4
       gray-matter: ^4.0.3
+      ldebug: ^0.1.2
       lion-system: ^1.3.33
       notion-to-md: ^2.3.3
       octokit: ^1.7.1
@@ -41,6 +42,7 @@ importers:
       fast-deep-equal: 3.1.3
       got: 12.0.4
       gray-matter: 4.0.3
+      ldebug: 0.1.2
       lion-system: 1.3.33
       notion-to-md: 2.3.3
       octokit: 1.7.1
@@ -133,6 +135,7 @@ importers:
       desm: ^1.2.0
       execa: ^6.1.0
       got: ^12.0.4
+      ldebug: ^0.1.2
       lion-system: ^1.3.33
       node-schedule: ^2.1.0
       octokit: ^1.7.1
@@ -143,6 +146,7 @@ importers:
       '@leonzalion-blog/content-scripts': link:../content-scripts/dist
       '@leonzalion-blog/date-utils': link:../date-utils/dist
       got: 12.0.4
+      ldebug: 0.1.2
       node-schedule: 2.1.0
       octokit: 1.7.1
       onetime: 6.0.0
@@ -1847,6 +1851,10 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
+  /any-promise/1.3.0:
+    resolution: {integrity: sha512-7UvmKalWRt1wgjL1RrGxoSJW/0QZFIegpeGvZG9kjp8vrRu55XTHbwnqq2GpXm9uLbcuhxm3IqX9OB4MZR1b2A==}
+    dev: false
+
   /anymatch/3.1.2:
     resolution: {integrity: sha512-P43ePfOAIupkguHUycrc4qJ9kz8ZiuOUijaETwX7THt0Y/GNK7v0aa8rY816xWjZ7rJdA5XdMcpVFTKMq+RvWg==}
     engines: {node: '>= 8'}
@@ -2314,6 +2322,20 @@ packages:
       restore-cursor: 4.0.0
     dev: false
 
+  /cli-highlighter/1.0.0:
+    resolution: {integrity: sha512-J7sYjWADTTMfOqYb6X9JXJTCWNdqR4W6lQSvSzL1hX4Y4XedKS4wjVOhLN93mxsejjqplkoFX0HZ4gs9ufd9pw==}
+    hasBin: true
+    dependencies:
+      chalk: 5.0.1
+      commander: 9.2.0
+      highlight.js: 11.5.1
+      mz: 2.7.0
+      onetime: 6.0.0
+      outdent: 0.8.0
+      parse5: 6.0.1
+      parse5-htmlparser2-tree-adapter: 6.0.1
+    dev: false
+
   /cli-spinners/2.6.1:
     resolution: {integrity: sha512-x/5fWmGMnbKQAaNwN+UZlV79qBLM9JFnJuJ03gIi5whrob0xV0ofNVHy9DhwGdsMJQc2OKv0oGmLzvaqvAVv+g==}
     engines: {node: '>=6'}
@@ -2408,7 +2430,6 @@ packages:
   /commander/9.2.0:
     resolution: {integrity: sha512-e2i4wANQiSXgnrBlIatyHtP1odfUp0BbV5Y5nEGbxtIrStkEOAAzCUirvLBNXHLr7kwLvJl6V+4V3XV9x7Wd9w==}
     engines: {node: ^12.20.0 || >=14}
-    dev: true
 
   /commondir/1.0.1:
     resolution: {integrity: sha1-3dgA2gxmEnOTzKWVDqloo6rxJTs=}
@@ -4331,6 +4352,11 @@ packages:
     hasBin: true
     dev: false
 
+  /highlight.js/11.5.1:
+    resolution: {integrity: sha512-LKzHqnxr4CrD2YsNoIf/o5nJ09j4yi/GcH5BnYz9UnVpZdS4ucMgvP61TDty5xJcFGRjnH4DpujkS9bHT3hq0Q==}
+    engines: {node: '>=12.0.0'}
+    dev: false
+
   /hosted-git-info/2.8.9:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
 
@@ -5063,6 +5089,10 @@ packages:
     resolution: {integrity: sha1-nbe1lJatPzz+8wp1FC0tkwrXJlE=}
     dev: true
 
+  /json-stringify-pretty-compact/3.0.0:
+    resolution: {integrity: sha512-Rc2suX5meI0S3bfdZuA7JMFBGkJ875ApfVyq2WHELjBiiG22My/l7/8zPpH/CfFVQHuVLd8NLR0nv6vi0BYYKA==}
+    dev: false
+
   /json-stringify-safe/5.0.1:
     resolution: {integrity: sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=}
     dev: true
@@ -5180,6 +5210,14 @@ packages:
     dependencies:
       package-json: 6.5.0
     dev: true
+
+  /ldebug/0.1.2:
+    resolution: {integrity: sha512-q4EE67a83jpl5Ko6NnZFpLqBaANl3aytpTKBRA9DUSAdG50N4bQOtEsqOZZh0vZSJFDMyMefCBZpZ2p9cgn4Yg==}
+    dependencies:
+      cli-highlighter: 1.0.0
+      json-stringify-pretty-compact: 3.0.0
+      just-zip-it: 3.0.2
+    dev: false
 
   /levn/0.3.0:
     resolution: {integrity: sha1-OwmSTt+fCDwEkP3UwLxEIeBHZO4=}
@@ -5301,8 +5339,8 @@ packages:
       tslib: 2.4.0
       typescript: 4.6.4
 
-  /lionconfig/1.6.21_typescript@4.6.4:
-    resolution: {integrity: sha512-Vohy7FDTzldLSjZpYpoBEI7+rUu+JkZO97dyW1YxiYoBlUlg6vLa9x4kdlO/TVgJlZrmW5dcpUOrAs9cwKnkWg==}
+  /lionconfig/1.6.22_typescript@4.6.4:
+    resolution: {integrity: sha512-z0QWbwX7FMxW72/XPJKhCCmql3hvLPIB3IDi7pkLkJBz4Eud4OHyBDgcc5TIJ1BJHlzLyfoP8Q8aMNTjXLwGeQ==}
     hasBin: true
     dependencies:
       '@commitlint/cli': 16.3.0_@swc+core@1.2.185
@@ -6137,6 +6175,14 @@ packages:
     engines: {node: '>=12.0.0'}
     dev: true
 
+  /mz/2.7.0:
+    resolution: {integrity: sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==}
+    dependencies:
+      any-promise: 1.3.0
+      object-assign: 4.1.1
+      thenify-all: 1.6.0
+    dev: false
+
   /nanoid/3.3.4:
     resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -6290,6 +6336,11 @@ packages:
     resolution: {integrity: sha512-p7p/7ltzPDiBs6DqxOrIbtRdwxxVRBj5ROukeNb9RgA+fawhrz5n2hpNz8DDmYR//tviJSj7nUnlppGmONkjiQ==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /object-assign/4.1.1:
+    resolution: {integrity: sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=}
+    engines: {node: '>=0.10.0'}
+    dev: false
 
   /object-inspect/1.12.0:
     resolution: {integrity: sha512-Ho2z80bVIvJloH+YzRmpZVQe87+qASmBUKZDWgx9cu+KDrX2ZDH/3tMy+gXbZETVGs2M8YdxObOh7XAtim9Y0g==}
@@ -6648,6 +6699,12 @@ packages:
 
   /parse-unit/1.0.1:
     resolution: {integrity: sha1-fhu21b7zh0wo45JSaiVBFwKR7s8=}
+    dev: false
+
+  /parse5-htmlparser2-tree-adapter/6.0.1:
+    resolution: {integrity: sha512-qPuWvbLgvDGilKc5BoicRovlT4MtYT6JfJyBOMDsKoiT+GiuP5qyrPCnR9HcPECIJJmZh5jRndyNThnhhb/vlA==}
+    dependencies:
+      parse5: 6.0.1
     dev: false
 
   /parse5/6.0.1:
@@ -7592,6 +7649,19 @@ packages:
   /text-table/0.2.0:
     resolution: {integrity: sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=}
     dev: true
+
+  /thenify-all/1.6.0:
+    resolution: {integrity: sha1-GhkY1ALY/D+Y+/I02wvMjMEOlyY=}
+    engines: {node: '>=0.8'}
+    dependencies:
+      thenify: 3.3.1
+    dev: false
+
+  /thenify/3.3.1:
+    resolution: {integrity: sha512-RVZSIV5IG10Hk3enotrhvz0T9em6cyHBLkH/YAZuKqd8hRkKhSfCGIcP2KUY0EPxndzANBmNllzWPwak+bheSw==}
+    dependencies:
+      any-promise: 1.3.0
+    dev: false
 
   /through/2.3.8:
     resolution: {integrity: sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=}

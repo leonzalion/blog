@@ -19,7 +19,7 @@
 	},
 	"devDependencies": {
 		"dotenv-cli": "^5.1.0",
-		"lionconfig": "^1.6.21",
+		"lionconfig": "^1.6.22",
 		"typescript": "^4.6.4"
 	},
 	"dependencies": {
