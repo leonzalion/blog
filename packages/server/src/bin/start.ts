@@ -1,9 +1,7 @@
 import '~/utils/init.js';
 
+import { syncTasksFromNotion } from '@leonzalion-blog/content-scripts';
 import schedule from 'node-schedule';
-
-import { syncTasksFromNotion } from '~/utils/notion/sync-tasks.js';
-import { syncTogglData } from '~/utils/toggl/sync.js';
 
 // Runs once every 5 minutes
 schedule.scheduleJob('0/5 * * * *', async () => {

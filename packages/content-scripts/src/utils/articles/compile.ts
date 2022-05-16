@@ -1,6 +1,6 @@
 import type { Article, DailyTimeblock } from '@leonzalion-blog/content';
 import { dayjs } from '@leonzalion-blog/date-utils';
-import * as matter from 'gray-matter';
+import matter from 'gray-matter';
 import { Buffer } from 'node:buffer';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
