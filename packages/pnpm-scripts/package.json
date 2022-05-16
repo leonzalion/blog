@@ -8,7 +8,7 @@
 		"execa": "^6.1.0",
 		"inquirer": "^8.2.2",
 		"inquirer-press-to-continue": "^1.0.9",
-		"lion-system": "^1.3.33",
+		"lion-system": "^1.3.34",
 		"open": "^8.4.0"
 	},
 	"devDependencies": {
