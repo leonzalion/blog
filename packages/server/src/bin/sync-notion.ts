@@ -1,5 +1,3 @@
-import '~/utils/init.js';
-
 import {
 	syncDailyTimeblockFromNotion,
 	syncTasksFromNotion,
