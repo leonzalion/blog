@@ -33,7 +33,7 @@ export async function getDailyTimeblocksMetadata(): Promise<DailyTimeblocksMetad
 		)) as DailyTimeblocksMetadata;
 	} else {
 		dailyTimeblockMetadata = await ky
-			.get('/content/metadata/daily-timeblock.json')
+			.get('/content/metadata/daily-timeblocks.json')
 			.json<DailyTimeblocksMetadata>();
 	}
 
