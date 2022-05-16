@@ -4,13 +4,10 @@ import type {
 } from '@leonzalion-blog/content';
 import { dayjs } from '@leonzalion-blog/date-utils';
 import got from 'got';
-import { NotionToMarkdown } from 'notion-to-md';
 import type { ValueOf } from 'type-fest';
 
 import { retrieveGithubFiles } from '~/utils/github/files.js';
-import { getNotionClient } from '~/utils/notion.js';
-
-const n2m = new NotionToMarkdown({ notionClient: getNotionClient() });
+import { getNotionClient, getNotionToMarkdown } from '~/utils/notion.js';
 
 export async function getDailyTimeblockFromNotion({
 	dateString,
@@ -18,6 +15,7 @@ export async function getDailyTimeblockFromNotion({
 	dateString: string;
 }): Promise<DailyTimeblockEntryData> {
 	const notion = getNotionClient();
+	const notionToMarkdown = getNotionToMarkdown();
 	const databaseId = '0d683d5ae2194fbe9a76424b61c85d62';
 
 	const dailyTimeblocksQueryData = await notion.databases.query({
@@ -43,8 +41,10 @@ export async function getDailyTimeblockFromNotion({
 			dailyTimeblockPage.properties as unknown as NotionDailyTimeblockProperties;
 
 		// eslint-disable-next-line no-await-in-loop
-		const mdBlocks = await n2m.pageToMarkdown(dailyTimeblockPage.id);
-		const content = n2m.toMarkdownString(mdBlocks);
+		const mdBlocks = await notionToMarkdown.pageToMarkdown(
+			dailyTimeblockPage.id
+		);
+		const content = notionToMarkdown.toMarkdownString(mdBlocks);
 
 		const dateString = dayjs(properties.Date.date?.start).format('YYYY-MM-DD');
 
