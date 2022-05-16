@@ -4,15 +4,14 @@ import 'github-markdown-css/github-markdown.css';
 import type { Article } from '@leonzalion-blog/content';
 import { dayjs } from '@leonzalion-blog/date-utils';
 import dateFormat from 'dateformat';
-import type { Component } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 import { fetchArticle } from '~/utils/article.js';
+import { getMarkdownInstance } from '~/utils/markdown.js';
 
 const route = useRoute();
 const articleSlug = route.params.slug?.toString();
 
-let ArticleMarkdownComponent: Component;
 let articleNotFound = $ref(false);
 let article: Article = undefined!;
 
@@ -26,6 +25,8 @@ if (articleSlug === undefined) {
 		articleNotFound = true;
 	}
 }
+
+const md = getMarkdownInstance();
 </script>
 
 <template>
@@ -38,7 +39,7 @@ if (articleSlug === undefined) {
 					{{ dateFormat(dayjs(article.dateCreated).toDate(), 'longDate') }}
 				</div>
 			</div>
-			<ArticleMarkdownComponent />
+			<div class="markdown-body" v-html="md.render(article.content)"></div>
 		</div>
 	</div>
 </template>
