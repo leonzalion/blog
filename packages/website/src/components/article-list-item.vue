@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import type { Article } from '@leonzalion-blog/content';
+import type { ArticleListing } from '@leonzalion-blog/content';
 import { dayjs } from '@leonzalion-blog/date-utils';
 import dateFormat from 'dateformat';
 
-const { article } = defineProps<{
-	article: Article;
+const { articleListing } = defineProps<{
+	articleListing: ArticleListing;
 }>();
 </script>
 
 <template>
 	<router-link
-		:key="article.title"
-		:to="`/article/${article.slug}`"
+		:key="articleListing.title"
+		:to="`/article/${articleListing.slug}`"
 		class="group"
 	>
 		<div class="row items-center">
@@ -19,9 +19,11 @@ const { article } = defineProps<{
 				class="w-[4px] group-hover:(w-[5px] bg-gray-400) bg-gray-300 mr-2 self-stretch transition-all"
 			></div>
 			<div class="column">
-				<span class="text-lg">{{ article.title }}</span>
+				<span class="text-lg">{{ articleListing.title }}</span>
 				<span class="italic text-xs text-gray-500">
-					{{ dateFormat(dayjs(article.dateCreated).toDate(), 'longDate') }}
+					{{
+						dateFormat(dayjs(articleListing.dateCreated).toDate(), 'longDate')
+					}}
 				</span>
 			</div>
 		</div>
