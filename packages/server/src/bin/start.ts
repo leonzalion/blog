@@ -1,12 +1,18 @@
-import '~/utils/init.js';
-
-import { syncTasksFromNotion } from '@leonzalion-blog/content-scripts';
+import {
+	syncDailyTimeblockFromNotion,
+	syncTasksFromNotion,
+} from '@leonzalion-blog/content-scripts';
 import schedule from 'node-schedule';
+
+import { syncTogglData } from '~/utils/toggl.js';
 
 // Runs once every 5 minutes
 schedule.scheduleJob('0/5 * * * *', async () => {
 	console.info('Syncing Notion tasks...');
 	await syncTasksFromNotion();
+
+	console.info('Syncing Notion daily timeblocks...');
+	await syncDailyTimeblockFromNotion();
 });
 
 // Runs once every minute

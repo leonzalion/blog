@@ -1,0 +1,10 @@
+# fly.toml file generated for blog-auto-updater on 2022-05-16T13:15:06-04:00
+
+app = "blog-auto-updater"
+
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[build]
+  builder = "heroku/buildpacks:20"
