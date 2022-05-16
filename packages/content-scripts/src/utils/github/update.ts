@@ -49,7 +49,7 @@ export async function updateGithubFile({
 		mode: '100644',
 	});
 
-	console.info('Creating the tree...');
+	debug(() => 'Creating the tree...');
 	const createTreeResponse = await octokit.rest.git.createTree({
 		owner,
 		repo,
