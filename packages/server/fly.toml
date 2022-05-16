@@ -1,4 +1,4 @@
-app = "leonzalion-blog-server"
+app = "leonzalion-blog-auto-updater"
 
 [build]
   dockerfile = "./dockerfiles/Dockerfile"
