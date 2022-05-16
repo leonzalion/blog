@@ -12,7 +12,6 @@
 	},
 	"scripts": {
 		"prepare": "pnpm --filter=@leonzalion-blog/pnpm-scripts run prepare-script",
-		"gen": "pnpm --filter=@leonzalion-blog/server exec run-bin sync-notion",
 		"prettier": "pnpm recursive run prettier",
 		"lint": "pnpm recursive run lint",
 		"dev:website": "pnpm --filter=@leonzalion-blog/website run dev",

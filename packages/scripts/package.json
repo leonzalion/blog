@@ -13,6 +13,7 @@
 	},
 	"dependencies": {
 		"@leonzalion-blog/content": "link:../content",
+		"@leonzalion-blog/content-scripts": "link:../content-scripts/dist",
 		"@leonzalion-blog/date-utils": "link:../date-utils/dist",
 		"@notionhq/client": "^1.0.4",
 		"chmodrp": "^1.0.2",

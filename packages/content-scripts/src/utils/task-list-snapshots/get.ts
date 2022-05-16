@@ -1,6 +1,5 @@
 import type { TaskData, TaskListSnapshotData } from '@leonzalion-blog/content';
 import got from 'got';
-import { NotionToMarkdown } from 'notion-to-md';
 import type { ValueOf } from 'type-fest';
 
 import { retrieveGithubFiles } from '~/utils/github/files.js';

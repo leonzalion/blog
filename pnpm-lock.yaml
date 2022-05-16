@@ -93,6 +93,7 @@ importers:
   packages/scripts:
     specifiers:
       '@leonzalion-blog/content': link:../content
+      '@leonzalion-blog/content-scripts': link:../content-scripts/dist
       '@leonzalion-blog/date-utils': link:../date-utils/dist
       '@notionhq/client': ^1.0.4
       '@types/inquirer': ^8.2.1
@@ -106,6 +107,7 @@ importers:
       type-fest: ^2.12.2
     dependencies:
       '@leonzalion-blog/content': link:../content
+      '@leonzalion-blog/content-scripts': link:../content-scripts/dist
       '@leonzalion-blog/date-utils': link:../date-utils/dist
       '@notionhq/client': 1.0.4
       chmodrp: 1.0.2
