@@ -1,4 +1,4 @@
 app = "leonzalion-blog-server"
 
 [build]
-  dockerfile = "./packages/server/dockerfiles/Dockerfile"
+  dockerfile = "./dockerfiles/Dockerfile"
