@@ -7,3 +7,4 @@ exec('pnpm --filter=@leonzalion-blog/date-utils build', { stdio: 'inherit' });
 exec('pnpm --filter=@leonzalion-blog/content-scripts build', {
 	stdio: 'inherit',
 });
+exec('pnpm run gen', { stdio: 'inherit' });
