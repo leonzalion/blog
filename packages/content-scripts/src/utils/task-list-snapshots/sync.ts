@@ -14,7 +14,10 @@ export async function syncTasksFromNotion() {
 		dateString: todayDateString,
 	});
 
-	if (!deepEqual(githubTaskListSnapshot?.tasks, currentTasksOnNotion)) {
+	if (
+		JSON.stringify(githubTaskListSnapshot?.tasks) !==
+		JSON.stringify(currentTasksOnNotion)
+	) {
 		await updateGithubTaskListSnapshot({
 			dateString: todayDateString,
 			tasks: currentTasksOnNotion,

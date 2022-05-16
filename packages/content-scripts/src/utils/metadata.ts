@@ -26,7 +26,7 @@ async function generateArticlesMetadata(): Promise<void> {
 		const articleSlug = path.parse(articleJsonFile).name;
 
 		const { title, dateCreated, slug } = JSON.parse(
-			fs.readFileSync(path.join(articlesDir, articleSlug), 'utf8')
+			fs.readFileSync(path.join(articlesDir, articleJsonFile), 'utf8')
 		) as Article;
 
 		articleMetadata[articleSlug] = { title, dateCreated, slug };

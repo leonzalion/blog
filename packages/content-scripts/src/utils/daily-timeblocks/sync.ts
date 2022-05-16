@@ -1,5 +1,4 @@
 import { getTodayDateString } from '@leonzalion-blog/date-utils';
-import deepEqual from 'fast-deep-equal';
 
 import {
 	getDailyTimeblockFromGithub,
@@ -16,7 +15,10 @@ export async function syncDailyTimeblockFromNotion() {
 		dateString: todayDateString,
 	});
 
-	if (!deepEqual(notionDailyTimeblock, githubDailyTimeblock)) {
+	if (
+		JSON.stringify(notionDailyTimeblock) !==
+		JSON.stringify(githubDailyTimeblock)
+	) {
 		await updateGithubDailyTimeblock(notionDailyTimeblock);
 	}
 }

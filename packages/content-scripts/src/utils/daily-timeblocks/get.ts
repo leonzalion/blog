@@ -1,7 +1,5 @@
 import type { DailyTimeblock } from '@leonzalion-blog/content';
-import { dayjs } from '@leonzalion-blog/date-utils';
 import got from 'got';
-import type { ValueOf } from 'type-fest';
 
 import { retrieveGithubFiles } from '~/utils/github/files.js';
 import { getNotionClient, getNotionToMarkdown } from '~/utils/notion.js';
@@ -17,45 +15,33 @@ export async function getDailyTimeblockFromNotion({
 
 	const dailyTimeblocksQueryData = await notion.databases.query({
 		database_id: databaseId,
+		filter: {
+			property: 'Date',
+			date: {
+				equals: dateString,
+			},
+		},
 	});
 
-	const notionDailyTimeblocks: Record<string, DailyTimeblock> = {};
-	for (const dailyTimeblockPage of dailyTimeblocksQueryData.results) {
-		if (!('properties' in dailyTimeblockPage)) {
-			continue;
-		}
-
-		type Properties<
-			T extends ValueOf<typeof dailyTimeblockPage.properties>['type']
-		> = ValueOf<typeof dailyTimeblockPage.properties> & { type: T };
-
-		interface NotionDailyTimeblockProperties {
-			'Full Date String': Properties<'title'>;
-			Date: Properties<'date'>;
-		}
-
-		const properties =
-			dailyTimeblockPage.properties as unknown as NotionDailyTimeblockProperties;
-
-		// eslint-disable-next-line no-await-in-loop
-		const mdBlocks = await notionToMarkdown.pageToMarkdown(
-			dailyTimeblockPage.id
+	if (dailyTimeblocksQueryData.results.length > 1) {
+		throw new Error(
+			`Expected only one timeblock for the date string \`${dateString}\``
 		);
-		const content = notionToMarkdown.toMarkdownString(mdBlocks);
-
-		const dateString = dayjs(properties.Date.date?.start).format('YYYY-MM-DD');
-
-		notionDailyTimeblocks[dateString] = {
-			dateString,
-			content,
-		};
 	}
 
-	if (notionDailyTimeblocks[dateString] === undefined) {
+	const dailyTimeblockPage = dailyTimeblocksQueryData.results[0];
+
+	if (dailyTimeblockPage === undefined) {
 		throw new Error(`Notion Timeblock with date ${dateString} not found.`);
 	}
 
-	return notionDailyTimeblocks[dateString]!;
+	const mdBlocks = await notionToMarkdown.pageToMarkdown(dailyTimeblockPage.id);
+	const content = notionToMarkdown.toMarkdownString(mdBlocks);
+
+	return {
+		content,
+		dateString,
+	};
 }
 
 export async function getDailyTimeblockFromGithub({
