@@ -1,9 +1,9 @@
 import type {
-	ArticleData,
+	ArticleEntryData,
 	ArticlesMetadata,
 	DailyTimeblocksMetadata,
-	TasksData,
-	TasksMetadata,
+	TaskListSnapshotData,
+	TaskListSnapshotsMetadata,
 } from '@leonzalion-blog/content';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
@@ -27,7 +27,7 @@ async function generateArticlesMetadata(): Promise<void> {
 
 		const { title, dateCreated, slug } = JSON.parse(
 			fs.readFileSync(path.join(articlesDir, articleSlug), 'utf8')
-		) as ArticleData;
+		) as ArticleEntryData;
 
 		articleMetadata[articleSlug] = { title, dateCreated, slug };
 	}
@@ -38,28 +38,36 @@ async function generateArticlesMetadata(): Promise<void> {
 	);
 }
 
-async function generateTasksMetadata(): Promise<void> {
-	const tasksDir = path.join(contentPackageDir, 'tasks/json');
-	const tasksMetadata = {} as TasksMetadata;
+async function generateTaskListSnapshotsMetadata(): Promise<void> {
+	const taskListSnapshotsDir = path.join(
+		contentPackageDir,
+		'task-list-snapshots/json'
+	);
+	const taskListSnapshotsMetadata = {} as TaskListSnapshotsMetadata;
 
-	const taskFileNames = await fs.promises.readdir(tasksDir);
-	for (const tasksFileName of taskFileNames) {
-		if (tasksFileName === '.gitkeep') {
+	const taskListSnapshotNames = await fs.promises.readdir(taskListSnapshotsDir);
+	for (const taskListSnapshotName of taskListSnapshotNames) {
+		if (taskListSnapshotName === '.gitkeep') {
 			continue;
 		}
 
-		const taskFilePath = path.join(tasksDir, tasksFileName);
+		const taskListSnapshotPath = path.join(
+			taskListSnapshotsDir,
+			taskListSnapshotName
+		);
 
-		const { content, dateString } = JSON.parse(
-			fs.readFileSync(taskFilePath, 'utf8')
-		) as TasksData;
+		const { dateString } = JSON.parse(
+			fs.readFileSync(taskListSnapshotPath, 'utf8')
+		) as TaskListSnapshotData;
 
-		tasksMetadata[dateString] = { content, dateString };
+		taskListSnapshotsMetadata[dateString] = {
+			dateString,
+		};
 	}
 
 	await fs.promises.writeFile(
-		path.join(metadataDir, 'tasks.json'),
-		JSON.stringify(tasksMetadata)
+		path.join(metadataDir, 'task-list-snapshots.json'),
+		JSON.stringify(taskListSnapshotsMetadata)
 	);
 }
 
@@ -86,7 +94,7 @@ async function generateDailyTimeblocksMetadata(): Promise<void> {
 export async function generateContentMetadata() {
 	await Promise.all([
 		generateArticlesMetadata(),
-		generateTasksMetadata(),
+		generateTaskListSnapshotsMetadata(),
 		generateDailyTimeblocksMetadata(),
 	]);
 }

@@ -1,19 +1,13 @@
-import type { NotionTask } from '@leonzalion-blog/content';
-import { getTodayDateString } from '@leonzalion-blog/date-utils';
+import type { TaskData, TaskListSnapshotData } from '@leonzalion-blog/content';
 import got from 'got';
-import process from 'node:process';
 import type { ValueOf } from 'type-fest';
 
 import { retrieveGithubFiles } from '~/utils/github/files.js';
 import { getNotionClient } from '~/utils/notion.js';
 
-export async function getTasksFromNotion() {
+export async function getTaskListFromNotion() {
 	const notion = getNotionClient();
-	const databaseId = process.env.NOTION_DATABASE_ID;
-
-	if (databaseId === undefined) {
-		throw new Error('NOTION_DATABASE_ID was not found in environment.');
-	}
+	const databaseId = '6ebb1d947ba74c72a9c7f0fd6921db57';
 
 	const tasksQueryData = await notion.databases.query({
 		database_id: databaseId,
@@ -26,7 +20,7 @@ export async function getTasksFromNotion() {
 		},
 	});
 
-	const notionTasks: NotionTask[] = [];
+	const notionTasks: TaskData[] = [];
 	for (const taskResult of tasksQueryData.results) {
 		if (!('properties' in taskResult)) {
 			continue;
@@ -60,29 +54,33 @@ export async function getTasksFromNotion() {
 	return notionTasks;
 }
 
-export async function getTasksFromGithub(): Promise<NotionTask[]> {
-	const todayDateString = getTodayDateString();
+export async function getTaskListSnapshotFromGithub({
+	dateString,
+}: {
+	dateString: string;
+}): Promise<TaskListSnapshotData | undefined> {
 	try {
-		const todayTasksResponse = await retrieveGithubFiles(
-			`packages/content/tasks/json/${todayDateString}.json`
+		const taskListSnapshotResponse = await retrieveGithubFiles(
+			`packages/content/task-list-snapshots/json/${dateString}.json`
 		);
 
-		if (Array.isArray(todayTasksResponse)) {
+		if (Array.isArray(taskListSnapshotResponse)) {
 			throw new TypeError('Expected a path to a file, not a folder');
 		}
 
-		if (todayTasksResponse.download_url === null) {
+		if (taskListSnapshotResponse.download_url === null) {
 			throw new Error('`download_url` was not present on `todayTasksResponse`');
 		}
 
-		const todayTasks = await got(todayTasksResponse.download_url).json<
-			NotionTask[]
-		>();
-		return todayTasks;
+		const taskListSnapshot = await got(
+			taskListSnapshotResponse.download_url
+		).json<TaskListSnapshotData>();
+
+		return taskListSnapshot;
 	} catch (error: unknown) {
 		const err = error as { status: number };
 		if (err.status === 404) {
-			return [];
+			return undefined;
 		} else {
 			throw error;
 		}
