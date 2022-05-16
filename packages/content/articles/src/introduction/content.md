@@ -1,6 +1,7 @@
 ---
 title: Introduction
 dateCreated: '2022-05-02'
+published: true
 ---
 
 Hello, world!

@@ -42,14 +42,36 @@ collections:
       - { label: "Date Created", name: "date-created", widget: "datetime" }
       - { label: "Content", name: "content", widget: "markdown" }
 
-  - name: "tasks"
-    label: "Tasks"
+  - name: "task-list-snapshots"
+    label: "Task List Snapshots"
     format: "json"
     extension: "json"
-    folder: "content/tasks/json"
+    folder: "content/task-list-snapshots/json"
     identifier_field: date-string
     delete: false
     create: false
     fields:
-      - { label: "Date String", name: "date-string", widget: "string" }
-      - { label: "Content", name: "content", widget: "markdown" }
+      - label: "Date String"
+        name: "date-string"
+        widget: "string"
+
+      - label: "Tasks"
+        name: "list"
+        widget: "markdown"
+
+        fields:
+          - name: "Description"
+            label: "description"
+            widget: "string"
+
+          - name: "Completed"
+            label: "completed"
+            widget: "boolean"
+
+          - name: "Deadline"
+            label: "deadline"
+            widget: "string"
+
+          - name: "Deadline Notes"
+            label: "deadline-notes"
+            widget: "string"

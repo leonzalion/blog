@@ -1,45 +1,47 @@
-export interface ArticleListing {
+export interface ArticleEntry {
 	slug: string;
 	title: string;
 	dateCreated: Date;
 }
 
-export interface ArticleData extends ArticleListing {
+export interface ArticleEntryData extends ArticleEntry {
 	content: string;
 }
 
 /**
 	Map of article slugs to article listings
 */
-export type ArticlesMetadata = Record<string, ArticleListing>;
+export type ArticlesMetadata = Record<string, ArticleEntry>;
 
-export interface DailyTimeblockData {
+export interface DailyTimeblockEntryData {
 	dateString: string;
-	dailyPlans: string;
-	quarterlyPlans: string;
-	thoughts: string;
-	timeblocks: string;
-	weeklyPlans: string;
+	content: string;
 }
+
+export type DailyTimeblocksData = Record<string, DailyTimeblockEntryData>;
 
 /**
 	Array of date strings
 */
 export type DailyTimeblocksMetadata = { dateStrings: string[] };
 
-export interface TasksData {
+export interface TaskListSnapshotEntry {
 	dateString: string;
-	content: string;
 }
 
 /**
-	Map of date strings to task data.
+	Each date string is associate with a task list snapshot.
 */
-export type TasksMetadata = Record<string, TasksData>;
+export type TaskListSnapshotsMetadata = Record<string, TaskListSnapshotEntry>;
 
-export interface NotionTask {
+export interface TaskData {
 	description: string;
 	completed: boolean;
 	deadline?: string;
 	deadlineNotes: string;
 }
+
+export type TaskListSnapshotData = {
+	dateString: string;
+	tasks: TaskData[];
+};
