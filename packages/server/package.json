@@ -16,6 +16,7 @@
 		"@leonzalion-blog/content-scripts": "link:../content-scripts/dist",
 		"@leonzalion-blog/date-utils": "link:../date-utils/dist",
 		"got": "^12.0.4",
+		"ldebug": "^0.1.2",
 		"node-schedule": "^2.1.0",
 		"octokit": "^1.7.1",
 		"onetime": "^6.0.0",

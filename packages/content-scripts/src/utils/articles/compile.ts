@@ -10,6 +10,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 
 import type { GitTreeItem } from '~/types/github.js';
+import { debug } from '~/utils/debug.js';
 import { contentPackageDir } from '~/utils/paths.js';
 
 import { getOctokit } from '../github/octokit.js';
@@ -61,7 +62,7 @@ export async function updateGithubDailyTimeblock(
 	const repo = 'blog';
 	const branchToUpdate = 'dev';
 
-	console.info('Retrieving the current branch ref...');
+	debug(() => 'Retrieving the current branch ref...');
 	const getRefResponse = await octokit.rest.git.getRef({
 		owner,
 		repo,
@@ -69,7 +70,7 @@ export async function updateGithubDailyTimeblock(
 	});
 	const baseTree = getRefResponse.data.object.sha;
 
-	console.info('Creating the blob...');
+	debug(() => 'Creating the blob...');
 	const notionTaskBlobResponse = await octokit.rest.git.createBlob({
 		owner,
 		repo,
@@ -86,7 +87,7 @@ export async function updateGithubDailyTimeblock(
 		mode: '100644',
 	});
 
-	console.info('Creating the tree...');
+	debug(() => 'Creating the tree...');
 	const createTreeResponse = await octokit.rest.git.createTree({
 		owner,
 		repo,
@@ -94,7 +95,7 @@ export async function updateGithubDailyTimeblock(
 		base_tree: baseTree,
 	});
 
-	console.info('Creating the commit...');
+	debug(() => 'Creating the commit...');
 	const commitResponse = await octokit.rest.git.createCommit({
 		message: `[automated] Sync daily timeblock ${
 			dailyTimeblock.dateString
@@ -105,7 +106,7 @@ export async function updateGithubDailyTimeblock(
 		parents: [baseTree],
 	});
 
-	console.info('Updating the ref...');
+	debug(() => 'Updating the ref...');
 	await octokit.rest.git.updateRef({
 		owner,
 		repo,
