@@ -24,9 +24,9 @@ The blog is built using a custom build script that creates a directory structure
   - articles/
     - json/
       - <a list of generated JSON files representing the blog articles>
-  - tasks/
+  - task-list-snapshots/
     - json/
-      - <a list of generated JSON files representing my tasks>
+      - <a list of generated JSON files representing my task list snapshots>
   - daily-timeblocks/
     - json/
       - <a list of generated JSON files representing my daily timeblocks>
