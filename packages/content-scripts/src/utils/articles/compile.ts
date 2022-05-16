@@ -1,4 +1,8 @@
-import type { Article, DailyTimeblock } from '@leonzalion-blog/content';
+import type {
+	Article,
+	ArticleFileMatter,
+	DailyTimeblock,
+} from '@leonzalion-blog/content';
 import { dayjs } from '@leonzalion-blog/date-utils';
 import matter from 'gray-matter';
 import { Buffer } from 'node:buffer';
@@ -26,10 +30,7 @@ export async function compileArticlesIntoJson() {
 				'utf8'
 			);
 			const { content, data } = matter(contentMarkdown);
-			const { dateCreated, title, slug, published } = data as Omit<
-				Article,
-				'content'
-			> & { published: boolean };
+			const { dateCreated, title, published } = data as ArticleFileMatter;
 
 			// Don't compile the article if it isn't marked as ready to be published
 			if (!published) {
@@ -40,7 +41,7 @@ export async function compileArticlesIntoJson() {
 				content,
 				dateCreated,
 				title,
-				slug,
+				slug: articleSlug,
 			};
 
 			await fs.promises.writeFile(

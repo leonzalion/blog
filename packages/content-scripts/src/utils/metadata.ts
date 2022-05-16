@@ -17,13 +17,13 @@ async function generateArticlesMetadata(): Promise<void> {
 
 	const articleMetadata = {} as ArticlesMetadata;
 
-	const articleFolderNames = await fs.promises.readdir(articlesDir);
-	for (const articleFolderName of articleFolderNames) {
-		if (articleFolderName === '.gitkeep') {
+	const articleJsonFiles = await fs.promises.readdir(articlesDir);
+	for (const articleJsonFile of articleJsonFiles) {
+		if (articleJsonFile === '.gitkeep') {
 			continue;
 		}
 
-		const articleSlug = articleFolderName;
+		const articleSlug = path.parse(articleJsonFile).name;
 
 		const { title, dateCreated, slug } = JSON.parse(
 			fs.readFileSync(path.join(articlesDir, articleSlug), 'utf8')

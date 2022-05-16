@@ -1,1 +1,3 @@
-{"internet-intention.json":{"title":"Internet Intention","dateCreated":null},"introduction.json":{"title":"Introduction","dateCreated":"2022-05-02"}}
+{
+	"introduction.json": { "title": "Introduction", "dateCreated": "2022-05-02" }
+}

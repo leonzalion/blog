@@ -9,11 +9,17 @@
 export interface ArticleListing {
 	slug: string;
 	title: string;
-	dateCreated: Date;
+	dateCreated: string;
 }
 
 export interface Article extends ArticleListing {
 	content: string;
+}
+
+export interface ArticleFileMatter {
+	title: string;
+	dateCreated: string;
+	published: boolean;
 }
 
 /**
