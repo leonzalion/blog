@@ -10,8 +10,7 @@ RUN npm --global install pnpm
 FROM base AS dev
 
 RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store pnpm install --frozen-lockfile
-
-# ↑ Using `--invert-match` to discard annoying output
+RUN pnpm --filter=@leonzalion-blog/server build
 
 # Resetting back to no dependencies installed, and deleting all source folders because we don't need source files. This way whatever files are built are left behind.
 FROM dev AS assets
