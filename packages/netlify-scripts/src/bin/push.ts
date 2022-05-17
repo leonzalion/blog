@@ -1,5 +1,5 @@
 import { execa } from 'execa';
-import { getProjectDir } from 'lion-system';
+import { getProjectDir } from 'lionconfig';
 import * as path from 'node:path';
 import process from 'node:process';
 

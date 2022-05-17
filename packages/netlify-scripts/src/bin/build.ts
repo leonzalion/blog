@@ -24,7 +24,7 @@
 
 import { generateContentMetadata } from '@leonzalion-blog/content-scripts';
 import { execaCommand } from 'execa';
-import { chProjectDir } from 'lion-system';
+import { chProjectDir } from 'lionconfig';
 import * as fs from 'node:fs';
 
 chProjectDir(import.meta.url, { monorepoRoot: true });
