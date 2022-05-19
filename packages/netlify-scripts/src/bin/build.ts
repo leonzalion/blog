@@ -22,12 +22,13 @@
 	```
 */
 
-import { generateContentMetadata } from '@leonzalion-blog/content-scripts';
+import { writeContentMetadata } from '@leonzalion-blog/content-scripts';
 import { execaCommand } from 'execa';
-import { chProjectDir } from 'lionconfig';
+import { getProjectDir } from 'lion-utils';
 import * as fs from 'node:fs';
+import process from 'node:process';
 
-chProjectDir(import.meta.url, { monorepoRoot: true });
+process.chdir(getProjectDir(import.meta.url, { monorepoRoot: true }));
 
 fs.rmSync('dist', { recursive: true, force: true });
 
@@ -37,4 +38,4 @@ async function buildWebsite() {
 }
 
 await buildWebsite();
-await generateContentMetadata();
+await writeContentMetadata();

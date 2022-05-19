@@ -1,7 +1,7 @@
 import Markdown from 'markdown-it';
 import markdownItAnchor from 'markdown-it-anchor';
 import markdownItPrism from 'markdown-it-prism';
-// @ts-expect-error
+// @ts-expect-error: No typings
 import markdownItTaskCheckbox from 'markdown-it-task-checkbox';
 import onetime from 'onetime';
 
