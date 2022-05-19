@@ -1,5 +1,5 @@
 import { execaCommandSync } from 'execa';
-import { getProjectDir } from 'lion-system';
+import { getProjectDir } from 'lionconfig';
 
 const monorepoDir = getProjectDir(import.meta.url, { monorepoRoot: true });
 
