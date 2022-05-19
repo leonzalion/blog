@@ -6,7 +6,11 @@ import {
 } from '~/utils/task-list-snapshots/get.js';
 import { updateGithubTaskListSnapshot } from '~/utils/task-list-snapshots/update.js';
 
-export async function syncTasksFromNotion() {
+export async function syncTasksFromNotion({
+	contentDir,
+}: {
+	contentDir: string;
+}) {
 	const todayDateString = getTodayDateString();
 	const currentTasksOnNotion = await getTaskListFromNotion();
 	const githubTaskListSnapshot = await getTaskListSnapshotFromGithub({
@@ -18,8 +22,11 @@ export async function syncTasksFromNotion() {
 		JSON.stringify(currentTasksOnNotion)
 	) {
 		await updateGithubTaskListSnapshot({
-			dateString: todayDateString,
-			tasks: currentTasksOnNotion,
+			contentDir,
+			taskListSnapshot: {
+				dateString: todayDateString,
+				tasks: currentTasksOnNotion,
+			},
 		});
 	}
 }

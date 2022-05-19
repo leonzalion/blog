@@ -6,7 +6,11 @@ import {
 } from '~/utils/daily-timeblocks/get.js';
 import { updateGithubDailyTimeblock } from '~/utils/daily-timeblocks/update.js';
 
-export async function syncDailyTimeblockFromNotion() {
+export async function syncDailyTimeblockFromNotion({
+	contentDir,
+}: {
+	contentDir: string;
+}) {
 	const todayDateString = getTodayDateString();
 	const notionDailyTimeblock = await getDailyTimeblockFromNotion({
 		dateString: todayDateString,
@@ -18,8 +22,11 @@ export async function syncDailyTimeblockFromNotion() {
 	if (
 		githubDailyTimeblock === undefined ||
 		JSON.stringify(notionDailyTimeblock) !==
-		JSON.stringify(githubDailyTimeblock)
+			JSON.stringify(githubDailyTimeblock)
 	) {
-		await updateGithubDailyTimeblock(notionDailyTimeblock);
+		await updateGithubDailyTimeblock({
+			contentDir,
+			dailyTimeblock: notionDailyTimeblock,
+		});
 	}
 }

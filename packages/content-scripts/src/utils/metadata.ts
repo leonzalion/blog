@@ -8,12 +8,12 @@ import type {
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 
-import { contentPackageDir } from '~/utils/paths.js';
-
-const metadataDir = path.join(contentPackageDir, 'metadata');
-
-export async function generateArticlesMetadata(): Promise<ArticlesMetadata> {
-	const articlesDir = path.join(contentPackageDir, 'articles/json');
+export async function generateArticlesMetadata({
+	contentDir,
+}: {
+	contentDir: string;
+}): Promise<ArticlesMetadata> {
+	const articlesDir = path.join(contentDir, 'articles/json');
 
 	const articleMetadata = {} as ArticlesMetadata;
 
@@ -35,9 +35,13 @@ export async function generateArticlesMetadata(): Promise<ArticlesMetadata> {
 	return articleMetadata;
 }
 
-export async function generateTaskListSnapshotsMetadata(): Promise<TaskListSnapshotsMetadata> {
+export async function generateTaskListSnapshotsMetadata({
+	contentDir,
+}: {
+	contentDir: string;
+}): Promise<TaskListSnapshotsMetadata> {
 	const taskListSnapshotsDir = path.join(
-		contentPackageDir,
+		contentDir,
 		'task-list-snapshots/json'
 	);
 	const taskListSnapshotsMetadata = {} as TaskListSnapshotsMetadata;
@@ -65,11 +69,12 @@ export async function generateTaskListSnapshotsMetadata(): Promise<TaskListSnaps
 	return taskListSnapshotsMetadata;
 }
 
-export async function generateDailyTimeblocksMetadata(): Promise<DailyTimeblocksMetadata> {
-	const dailyTimeblocksDir = path.join(
-		contentPackageDir,
-		'daily-timeblocks/json'
-	);
+export async function generateDailyTimeblocksMetadata({
+	contentDir,
+}: {
+	contentDir: string;
+}): Promise<DailyTimeblocksMetadata> {
+	const dailyTimeblocksDir = path.join(contentDir, 'daily-timeblocks/json');
 
 	const dailyTimeblockFileNames = await fs.promises.readdir(dailyTimeblocksDir);
 	const dailyTimeblockDateStrings = dailyTimeblockFileNames
@@ -82,12 +87,18 @@ export async function generateDailyTimeblocksMetadata(): Promise<DailyTimeblocks
 	return dailyTimeblocksMetadata;
 }
 
-export async function writeContentMetadata() {
+export async function writeContentMetadata({
+	contentDir,
+}: {
+	contentDir: string;
+}) {
+	const metadataDir = path.join(contentDir, 'metadata');
+
 	const [articlesMetadata, taskListSnapshotsMetadata, dailyTimeblocksMetadata] =
 		await Promise.all([
-			generateArticlesMetadata(),
-			generateTaskListSnapshotsMetadata(),
-			generateDailyTimeblocksMetadata(),
+			generateArticlesMetadata({ contentDir }),
+			generateTaskListSnapshotsMetadata({ contentDir }),
+			generateDailyTimeblocksMetadata({ contentDir }),
 		]);
 
 	await fs.promises.writeFile(
