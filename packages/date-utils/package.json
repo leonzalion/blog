@@ -9,7 +9,6 @@
 		"dayjs": "^1.11.2"
 	},
 	"devDependencies": {
-		"execa": "^6.1.0",
-		"lion-system": "^1.3.34"
+		"execa": "^6.1.0"
 	}
 }

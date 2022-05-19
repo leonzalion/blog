@@ -1,4 +1,4 @@
-import { getProjectDir } from 'lion-system';
+import { getProjectDir } from 'lionconfig';
 import * as path from 'node:path';
 
 export const monorepoDir = getProjectDir(import.meta.url, {

@@ -1,6 +1,6 @@
 import { join } from 'desm';
 import { execaSync } from 'execa';
-import { getProjectDir } from 'lion-system';
+import { getProjectDir } from 'lionconfig';
 
 const monorepoDir = getProjectDir(import.meta.url, { monorepoRoot: true });
 const serverDockerfilePath = join(import.meta.url, '../dockerfiles/Dockerfile');

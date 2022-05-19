@@ -16,6 +16,7 @@ export async function syncDailyTimeblockFromNotion() {
 	});
 
 	if (
+		githubDailyTimeblock === undefined ||
 		JSON.stringify(notionDailyTimeblock) !==
 		JSON.stringify(githubDailyTimeblock)
 	) {
