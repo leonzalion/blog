@@ -1,7 +1,7 @@
 import {
-	generateContentMetadata,
 	syncDailyTimeblockFromNotion,
 	syncTasksFromNotion,
+	writeContentMetadata,
 } from '~/index.js';
 import { compileArticlesIntoJson } from '~/utils/articles/compile.js';
 
@@ -20,6 +20,6 @@ console.info('Compiling articles into JSON...');
 await compileArticlesIntoJson();
 
 console.info('Generating content metadata...');
-await generateContentMetadata();
+await writeContentMetadata();
 
 console.info('Content successfully synced!');

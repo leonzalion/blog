@@ -5,14 +5,16 @@ importers:
   .:
     specifiers:
       dotenv-cli: ^5.1.0
-      lionconfig: ^1.7.9
+      lion-utils: ^0.1.2
+      lionconfig: ^1.7.11
       run-if: ^0.0.6
       typescript: ^4.6.4
     dependencies:
+      lion-utils: 0.1.2
       run-if: 0.0.6
     devDependencies:
       dotenv-cli: 5.1.0
-      lionconfig: 1.7.9_typescript@4.6.4
+      lionconfig: 1.7.11_typescript@4.6.4
       typescript: 4.6.4
 
   packages/content:
@@ -21,7 +23,7 @@ importers:
   packages/content-scripts:
     specifiers:
       '@leonzalion-blog/content': link:../content
-      '@leonzalion-blog/date-utils': link:../date-utils/dist
+      '@leonzalion-blog/date-utils': link:../date-utils
       '@notionhq/client': ^1.0.4
       '@types/node': ^17.0.33
       execa: ^6.1.0
@@ -29,19 +31,21 @@ importers:
       got: ^12.0.4
       gray-matter: ^4.0.3
       ldebug: ^0.1.2
+      lion-utils: ^0.1.2
       notion-to-md: ^2.3.3
       octokit: ^1.7.1
       onetime: ^6.0.0
       type-fest: ^2.12.2
     dependencies:
       '@leonzalion-blog/content': link:../content
-      '@leonzalion-blog/date-utils': link:../date-utils/dist
+      '@leonzalion-blog/date-utils': link:../date-utils
       '@notionhq/client': 1.0.4
       execa: 6.1.0
       fast-deep-equal: 3.1.3
       got: 12.0.4
       gray-matter: 4.0.3
       ldebug: 0.1.2
+      lion-utils: 0.1.2
       notion-to-md: 2.3.3
       octokit: 1.7.1
       onetime: 6.0.0
@@ -60,13 +64,15 @@ importers:
 
   packages/netlify-scripts:
     specifiers:
-      '@leonzalion-blog/content-scripts': link:../content-scripts/dist
+      '@leonzalion-blog/content-scripts': link:../content-scripts
       '@types/is-ci': ^3.0.0
       '@types/node': ^17.0.33
       execa: ^6.1.0
+      lion-utils: ^0.1.2
     dependencies:
-      '@leonzalion-blog/content-scripts': link:../content-scripts/dist
+      '@leonzalion-blog/content-scripts': link:../content-scripts
       execa: 6.1.0
+      lion-utils: 0.1.2
     devDependencies:
       '@types/is-ci': 3.0.0
       '@types/node': 17.0.33
@@ -89,8 +95,8 @@ importers:
   packages/scripts:
     specifiers:
       '@leonzalion-blog/content': link:../content
-      '@leonzalion-blog/content-scripts': link:../content-scripts/dist
-      '@leonzalion-blog/date-utils': link:../date-utils/dist
+      '@leonzalion-blog/content-scripts': link:../content-scripts
+      '@leonzalion-blog/date-utils': link:../date-utils
       '@notionhq/client': ^1.0.4
       '@types/inquirer': ^8.2.1
       chmodrp: ^1.0.2
@@ -102,8 +108,8 @@ importers:
       type-fest: ^2.12.2
     dependencies:
       '@leonzalion-blog/content': link:../content
-      '@leonzalion-blog/content-scripts': link:../content-scripts/dist
-      '@leonzalion-blog/date-utils': link:../date-utils/dist
+      '@leonzalion-blog/content-scripts': link:../content-scripts
+      '@leonzalion-blog/date-utils': link:../date-utils
       '@notionhq/client': 1.0.4
       chmodrp: 1.0.2
       dotenv: 16.0.1
@@ -118,8 +124,8 @@ importers:
   packages/server:
     specifiers:
       '@leonzalion-blog/content': link:../content
-      '@leonzalion-blog/content-scripts': link:../content-scripts/dist
-      '@leonzalion-blog/date-utils': link:../date-utils/dist
+      '@leonzalion-blog/content-scripts': link:../content-scripts
+      '@leonzalion-blog/date-utils': link:../date-utils
       '@types/node': ^17.0.33
       '@types/node-schedule': ^2.1.0
       desm: ^1.2.0
@@ -129,16 +135,18 @@ importers:
       node-schedule: ^2.1.0
       octokit: ^1.7.1
       onetime: ^6.0.0
+      tmp-promise: ^3.0.3
       type-fest: ^2.12.2
     dependencies:
       '@leonzalion-blog/content': link:../content
-      '@leonzalion-blog/content-scripts': link:../content-scripts/dist
-      '@leonzalion-blog/date-utils': link:../date-utils/dist
+      '@leonzalion-blog/content-scripts': link:../content-scripts
+      '@leonzalion-blog/date-utils': link:../date-utils
       got: 12.0.4
       ldebug: 0.1.2
       node-schedule: 2.1.0
       octokit: 1.7.1
       onetime: 6.0.0
+      tmp-promise: 3.0.3
       type-fest: 2.12.2
     devDependencies:
       '@types/node': 17.0.33
@@ -149,7 +157,7 @@ importers:
   packages/website:
     specifiers:
       '@leonzalion-blog/content': link:../content
-      '@leonzalion-blog/date-utils': link:../date-utils/dist
+      '@leonzalion-blog/date-utils': link:../date-utils
       '@mdi/js': ^6.6.96
       '@types/dateformat': ^5.0.0
       '@types/jquery': ^3.5.14
@@ -188,7 +196,7 @@ importers:
       windicss: ^3.5.1
     dependencies:
       '@leonzalion-blog/content': link:../content
-      '@leonzalion-blog/date-utils': link:../date-utils/dist
+      '@leonzalion-blog/date-utils': link:../date-utils
       '@mdi/js': 6.6.96
       '@vueuse/head': 0.7.6_vue@3.2.33
       camelcase: 6.3.0
@@ -1982,7 +1990,6 @@ packages:
 
   /balanced-match/1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
-    dev: true
 
   /base64-js/1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
@@ -2052,7 +2059,6 @@ packages:
     dependencies:
       balanced-match: 1.0.2
       concat-map: 0.0.1
-    dev: true
 
   /brace-expansion/2.0.1:
     resolution: {integrity: sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==}
@@ -2461,7 +2467,6 @@ packages:
 
   /concat-map/0.0.1:
     resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
-    dev: true
 
   /config-chain/1.1.13:
     resolution: {integrity: sha512-qj+f8APARXHrM0hraqXYb2/bOVSV4PvJQlNZ/DVj0QrmNM2q2euizkeuVckQ57J+W0mRH6Hvi+k50M4Jul2VRQ==}
@@ -2823,7 +2828,6 @@ packages:
   /detect-indent/7.0.0:
     resolution: {integrity: sha512-/6kJlmVv6RDFPqaHC/ZDcU8bblYcoph2dUQ3kB47QqhkUEqXe3VZPELK9BaEMrC73qu+wn0AQ7iSteceN+yuMw==}
     engines: {node: '>=12.20'}
-    dev: true
 
   /detect-libc/2.0.1:
     resolution: {integrity: sha512-463v3ZeIrcWtdgIg6vI6XUncguvr2TnGl4SzDXinkt9mSLpBJKXT3mW6xT3VQdDN11+WVs29pgvivTc4Lp8v+w==}
@@ -2880,7 +2884,6 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       type-fest: 2.12.2
-    dev: true
 
   /dotenv-cli/5.1.0:
     resolution: {integrity: sha512-NoEZAlKo9WVrG0b3i9mBxdD6INdDuGqdgR74t68t8084QcI077/1MnPerRW1odl+9uULhcdnQp2U0pYVppKHOA==}
@@ -4041,7 +4044,6 @@ packages:
     dependencies:
       locate-path: 7.1.0
       path-exists: 5.0.0
-    dev: true
 
   /flat-cache/3.0.4:
     resolution: {integrity: sha512-dm9s5Pw7Jc0GvMYbshN6zchCA9RgQlzzEZX3vylR9IqFfS8XciblUXOKfW6SiuJ0e13eDYZoZV5wdrev7P3Nwg==}
@@ -4103,7 +4105,6 @@ packages:
 
   /fs.realpath/1.0.0:
     resolution: {integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=}
-    dev: true
 
   /fsevents/2.3.2:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
@@ -4232,7 +4233,6 @@ packages:
       minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
-    dev: true
 
   /global-dirs/0.1.1:
     resolution: {integrity: sha1-sxnA3UYH81PzvpzKTHL8FIxJ9EU=}
@@ -4572,7 +4572,6 @@ packages:
     dependencies:
       once: 1.4.0
       wrappy: 1.0.2
-    dev: true
 
   /inherits/2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
@@ -5365,10 +5364,9 @@ packages:
       detect-indent: 7.0.0
       dot-prop: 7.2.0
       pkg-up: 4.0.0
-    dev: true
 
-  /lionconfig/1.7.9_typescript@4.6.4:
-    resolution: {integrity: sha512-g7q3zQmZI1eKhW9i4sA1OFPuC3zGIh76Ly5aYA1SPGt3TZN10gmIVwwb6xn8YhJEK96iCm6k4hYalFPTk8e47A==}
+  /lionconfig/1.7.11_typescript@4.6.4:
+    resolution: {integrity: sha512-13SVBh36+4qtK8aE4foMV3ZlRqKlyz7tL3wSW8A/k3EBbezMlBKK2B6hxfXODF/9tSftiMgD7345bch2b8wAow==}
     hasBin: true
     requiresBuild: true
     dependencies:
@@ -5575,7 +5573,6 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       p-locate: 6.0.0
-    dev: true
 
   /lodash-es/4.17.21:
     resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
@@ -6156,7 +6153,6 @@ packages:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
     dependencies:
       brace-expansion: 1.1.11
-    dev: true
 
   /minimatch/5.1.0:
     resolution: {integrity: sha512-9TPBGGak4nHfGZsPBohm9AWg6NoT7QTCehS3BIJABslyZbzxfV78QM2Y6+i741OPZIafFAaiiEMh5OyIrJPgtg==}
@@ -6611,7 +6607,6 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       yocto-queue: 1.0.0
-    dev: true
 
   /p-locate/2.0.0:
     resolution: {integrity: sha1-IKAQOyIqcMj9OcwuWAaA893l7EM=}
@@ -6646,7 +6641,6 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       p-limit: 4.0.0
-    dev: true
 
   /p-map/2.1.0:
     resolution: {integrity: sha512-y3b8Kpd8OAN444hxfBbFfj1FY/RjtTd8tzYwhUqNYXx0fXx2iX4maP4Qr6qhIKbQXI02wTLAda4fYUbDagTUFw==}
@@ -6784,12 +6778,10 @@ packages:
   /path-exists/5.0.0:
     resolution: {integrity: sha512-RjhtfwJOxzcFmNOi6ltcbcu4Iu+FL3zEj83dk4kAS+fVpTxXLO1b38RvJgT/0QwvV/L3aY9TAnyv0EOqW4GoMQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-    dev: true
 
   /path-is-absolute/1.0.1:
     resolution: {integrity: sha1-F0uSaHNVNP+8es5r9TpanhtcX18=}
     engines: {node: '>=0.10.0'}
-    dev: true
 
   /path-key/3.1.1:
     resolution: {integrity: sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==}
@@ -6888,7 +6880,6 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       find-up: 6.3.0
-    dev: true
 
   /plimit-lit/1.2.6:
     resolution: {integrity: sha512-EuVnKyDeFgr58aidKf2G7DI41r23bxphlvBKAZ8e8dT9of0Ez2g9w6JbJGUP1YBNC2yG9+ZCCbjLj4yS1P5Gzw==}
@@ -7282,7 +7273,6 @@ packages:
     hasBin: true
     dependencies:
       glob: 7.2.3
-    dev: true
 
   /rollup-plugin-bundle-esm/0.1.1:
     resolution: {integrity: sha512-KAVVVtr/eYVxTtfCDNFpP//CuhNbfD+Mgxppqk1Rpk3xwoAyd3tN2gk8NIwVoWmX80pdVJtaWOZxGJ4xxixDSA==}
@@ -7762,7 +7752,6 @@ packages:
     resolution: {integrity: sha512-RwM7MoPojPxsOBYnyd2hy0bxtIlVrihNs9pj5SUvY8Zz1sQcQG2tG1hSr8PDxfgEB8RNKDhqbIlroIarSNDNsQ==}
     dependencies:
       tmp: 0.2.1
-    dev: true
 
   /tmp/0.0.33:
     resolution: {integrity: sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw==}
@@ -7775,7 +7764,6 @@ packages:
     engines: {node: '>=8.17.0'}
     dependencies:
       rimraf: 3.0.2
-    dev: true
 
   /to-absolute-glob/2.0.2:
     resolution: {integrity: sha1-GGX0PZ50sIItufFFt4z/fQ98hJs=}
@@ -8612,4 +8600,3 @@ packages:
   /yocto-queue/1.0.0:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
-    dev: true

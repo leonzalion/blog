@@ -2,9 +2,22 @@ import {
 	syncDailyTimeblockFromNotion,
 	syncTasksFromNotion,
 } from '@leonzalion-blog/content-scripts';
+import { execa } from 'execa';
+import process from 'node:process';
 import schedule from 'node-schedule';
+import tmp from 'tmp-promise';
 
 import { syncTogglData } from '~/utils/toggl.js';
+
+if (process.env.NODE_ENV === 'production') {
+	const localRepoDir = await tmp.dir();
+	// Make a local copy of the repo in a temp folder if it doesn't exist
+	await execa('git', [
+		'clone',
+		'https://github.com/leonzalion/blog',
+		localRepoDir.path,
+	]);
+}
 
 await syncDailyTimeblockFromNotion();
 await syncTogglData();

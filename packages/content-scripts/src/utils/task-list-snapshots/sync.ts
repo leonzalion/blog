@@ -1,5 +1,4 @@
 import { getTodayDateString } from '@leonzalion-blog/date-utils';
-import deepEqual from 'fast-deep-equal';
 
 import {
 	getTaskListFromNotion,

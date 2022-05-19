@@ -3,6 +3,9 @@
 FROM node:16.14.2 AS base
 WORKDIR /root/monorepo
 
+# Git is needed for a local clone of the repo for metadata generation
+RUN apt-get -y install git
+
 COPY . .
 RUN npm --global install pnpm
 
