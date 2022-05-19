@@ -5,14 +5,14 @@ importers:
   .:
     specifiers:
       dotenv-cli: ^5.1.0
-      lionconfig: ^1.7.7
+      lionconfig: ^1.7.9
       run-if: ^0.0.6
       typescript: ^4.6.4
     dependencies:
       run-if: 0.0.6
     devDependencies:
       dotenv-cli: 5.1.0
-      lionconfig: 1.7.7_typescript@4.6.4
+      lionconfig: 1.7.9_typescript@4.6.4
       typescript: 4.6.4
 
   packages/content:
@@ -5359,8 +5359,16 @@ packages:
       pkg-dir: 6.0.1
     dev: true
 
-  /lionconfig/1.7.7_typescript@4.6.4:
-    resolution: {integrity: sha512-MTYSMe03iye51aLg9wpop1/Qd7+8QHgVoeXNhO4LPuANwGHyS3vN1PR9QRo+QK5PooaOx2zWsWiefmmWY8gOkw==}
+  /lion-utils/0.1.2:
+    resolution: {integrity: sha512-dnh/DSySAw3/jfFEdS4ILjSv37NQfWiLfn/u9e82ZNzbhdwhiC4qgU/P726qFzCGCwnFCAj/9InF4UkdFK3Gaw==}
+    dependencies:
+      detect-indent: 7.0.0
+      dot-prop: 7.2.0
+      pkg-up: 4.0.0
+    dev: true
+
+  /lionconfig/1.7.9_typescript@4.6.4:
+    resolution: {integrity: sha512-g7q3zQmZI1eKhW9i4sA1OFPuC3zGIh76Ly5aYA1SPGt3TZN10gmIVwwb6xn8YhJEK96iCm6k4hYalFPTk8e47A==}
     hasBin: true
     requiresBuild: true
     dependencies:
@@ -5408,6 +5416,7 @@ packages:
       is-ci: 3.0.1
       lint-staged: 12.4.1
       lion-git-hooks: 1.0.13
+      lion-utils: 0.1.2
       lionp: 1.0.31
       log-symbols: 5.1.0
       markdownlint-cli: 0.31.1
@@ -5429,7 +5438,7 @@ packages:
       type-fest: 2.12.2
       update-notifier: 5.1.0
       webpack: /ignoredep/25.9999.0
-      xo: 0.49.0_xy2wfswyosdkrkv42tcvgczcum
+      xo: 0.49.0_ignoredep@25.9999.0
     transitivePeerDependencies:
       - '@swc/wasm'
       - enquirer
@@ -8490,18 +8499,21 @@ packages:
     resolution: {integrity: sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==}
     dev: false
 
-  /xo/0.49.0_xy2wfswyosdkrkv42tcvgczcum:
+  /xo/0.49.0_ignoredep@25.9999.0:
     resolution: {integrity: sha512-dDj1bYy3LJ/8C2XItw/lFVckZtO68C2YCx9TR8xfSLVcmael3y0SkeFse/3OMUPMvG5jG44bQ2CAI6wFTpRqVg==}
     engines: {node: '>=12.20'}
     hasBin: true
     dependencies:
       '@eslint/eslintrc': 1.2.3
+      '@typescript-eslint/eslint-plugin': 5.25.0_qo2hgs5jt7x2a3p77h2rutcdae
+      '@typescript-eslint/parser': 5.25.0_hcfsmds2fshutdssjqluwm76uu
       arrify: 3.0.0
       cosmiconfig: 7.0.1
       define-lazy-prop: 3.0.0
       eslint: 8.15.0
       eslint-config-prettier: 8.5.0_eslint@8.15.0
       eslint-config-xo: 0.41.0_eslint@8.15.0
+      eslint-config-xo-typescript: 0.51.1_yzs3qpc2wcbzszomgbzxrqnara
       eslint-formatter-pretty: 4.1.0
       eslint-import-resolver-webpack: 0.13.2_vaezxk2hyfnncf5nd77py7moyy
       eslint-plugin-ava: 13.2.0_eslint@8.15.0
@@ -8529,7 +8541,6 @@ packages:
       to-absolute-glob: 2.0.2
       typescript: 4.6.4
     transitivePeerDependencies:
-      - '@typescript-eslint/parser'
       - eslint-import-resolver-typescript
       - supports-color
       - webpack
