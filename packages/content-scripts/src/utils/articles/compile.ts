@@ -11,16 +11,19 @@ import * as path from 'node:path';
 
 import type { GitTreeItem } from '~/types/github.js';
 import { debug } from '~/utils/debug.js';
-import { contentPackageDir } from '~/utils/paths.js';
 
 import { getOctokit } from '../github/octokit.js';
 
 /**
 	Reads from `packages/content/articles/src` and compiles the entries into `packages/content/articles/json`
 */
-export async function compileArticlesIntoJson() {
-	const articlesSrcDir = path.join(contentPackageDir, 'articles/src');
-	const articlesJsonDir = path.join(contentPackageDir, 'articles/json');
+export async function compileArticlesIntoJson({
+	contentDir,
+}: {
+	contentDir: string;
+}) {
+	const articlesSrcDir = path.join(contentDir, 'articles/src');
+	const articlesJsonDir = path.join(contentDir, 'articles/json');
 
 	const articleSlugs = await fs.promises.readdir(articlesSrcDir);
 	await Promise.all(
