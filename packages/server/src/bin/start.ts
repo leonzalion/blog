@@ -44,14 +44,24 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 console.info('Synchronizing daily timeblocks from Notion...');
-await syncDailyTimeblockFromNotion({
-	dateString: getTodayDateString(),
-	contentDir,
-});
-await syncDailyTimeblockFromNotion({
-	dateString: getTomorrowDateString(),
-	contentDir,
-});
+try {
+	await syncDailyTimeblockFromNotion({
+		dateString: getTodayDateString(),
+		contentDir,
+	});
+} catch (error: unknown) {
+	console.error(error);
+}
+
+try {
+	await syncDailyTimeblockFromNotion({
+		dateString: getTomorrowDateString(),
+		contentDir,
+	});
+} catch (error: unknown) {
+	console.error(error);
+}
+
 await syncTogglData();
 
 // Runs once every 5 minutes
