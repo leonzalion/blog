@@ -2,6 +2,10 @@ import {
 	syncDailyTimeblockFromNotion,
 	syncTasksFromNotion,
 } from '@leonzalion-blog/content-scripts';
+import {
+	getTodayDateString,
+	getTomorrowDateString,
+} from '@leonzalion-blog/date-utils';
 import { execa } from 'execa';
 import { getProjectDir } from 'lion-utils';
 import path from 'node:path';
@@ -41,6 +45,11 @@ if (process.env.NODE_ENV === 'production') {
 
 console.info('Synchronizing daily timeblocks from Notion...');
 await syncDailyTimeblockFromNotion({
+	dateString: getTodayDateString(),
+	contentDir,
+});
+await syncDailyTimeblockFromNotion({
+	dateString: getTomorrowDateString(),
 	contentDir,
 });
 await syncTogglData();
@@ -56,7 +65,14 @@ schedule.scheduleJob('0/5 * * * *', async () => {
 
 	try {
 		console.info('Syncing Notion daily timeblocks...');
-		await syncDailyTimeblockFromNotion({ contentDir });
+		await syncDailyTimeblockFromNotion({
+			contentDir,
+			dateString: getTodayDateString(),
+		});
+		await syncDailyTimeblockFromNotion({
+			contentDir,
+			dateString: getTomorrowDateString(),
+		});
 	} catch (error: unknown) {
 		console.error(
 			`Error syncing Notion daily timeblocks: ${JSON.stringify(error)}`
