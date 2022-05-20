@@ -1,3 +1,4 @@
+import { getTodayDateString } from '@leonzalion-blog/date-utils';
 import { getProjectDir } from 'lion-utils';
 import * as path from 'node:path';
 
@@ -18,7 +19,10 @@ await syncTasksFromNotion({ contentDir });
 
 try {
 	console.info('Syncing daily timeblock from Notion...');
-	await syncDailyTimeblockFromNotion({ contentDir });
+	await syncDailyTimeblockFromNotion({
+		contentDir,
+		dateString: getTodayDateString(),
+	});
 } catch (error: unknown) {
 	// The daily timeblock might not exist; ignore
 	console.error(error);

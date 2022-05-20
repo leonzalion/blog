@@ -1,5 +1,3 @@
-import { getTodayDateString } from '@leonzalion-blog/date-utils';
-
 import {
 	getDailyTimeblockFromGithub,
 	getDailyTimeblockFromNotion,
@@ -8,17 +6,18 @@ import { updateGithubDailyTimeblock } from '~/utils/daily-timeblocks/update.js';
 
 export async function syncDailyTimeblockFromNotion({
 	contentDir,
+	dateString,
 }: {
 	contentDir: string;
+	dateString: string;
 }) {
-	const todayDateString = getTodayDateString();
 	console.info('Retrieving daily timeblock from Notion...');
 	const notionDailyTimeblock = await getDailyTimeblockFromNotion({
-		dateString: todayDateString,
+		dateString,
 	});
 	console.info('Retrieving daily timeblock from GitHub...');
 	const githubDailyTimeblock = await getDailyTimeblockFromGithub({
-		dateString: todayDateString,
+		dateString,
 	});
 
 	if (
