@@ -2,7 +2,7 @@
 	"name": "@leonzalion-blog/netlify-scripts",
 	"type": "module",
 	"scripts": {
-		"build-website": "dotenv -e ../../.env pnpm run-bin build",
+		"build-website": "dotenv -e ../../.env pnpm run-bin build-website",
 		"push": "dotenv -e ../../.env pnpm run-bin push"
 	},
 	"dependencies": {
