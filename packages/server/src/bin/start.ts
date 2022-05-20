@@ -74,18 +74,30 @@ schedule.scheduleJob('0/5 * * * *', async () => {
 	}
 
 	try {
-		console.info('Syncing Notion daily timeblocks...');
+		console.info('Syncing Notion daily timeblock...');
 		await syncDailyTimeblockFromNotion({
 			contentDir,
 			dateString: getTodayDateString(),
 		});
+	} catch (error: unknown) {
+		console.error(
+			`Error syncing Notion daily timeblock ${getTodayDateString()}: ${JSON.stringify(
+				error
+			)}`
+		);
+	}
+
+	try {
+		console.info('Syncing Notion daily timeblock...');
 		await syncDailyTimeblockFromNotion({
 			contentDir,
 			dateString: getTomorrowDateString(),
 		});
 	} catch (error: unknown) {
 		console.error(
-			`Error syncing Notion daily timeblocks: ${JSON.stringify(error)}`
+			`Error syncing Notion daily timeblock ${getTomorrowDateString()}: ${JSON.stringify(
+				error
+			)}`
 		);
 	}
 });
