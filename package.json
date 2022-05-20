@@ -11,7 +11,7 @@
 		"url": "https://leonzalion.com"
 	},
 	"scripts": {
-		"prepare": "run-if NODE_ENV!=production lionconfig && pnpm --filter=@leonzalion-blog/pnpm-scripts run prepare-script",
+		"prepare": "run-if-env NODE_ENV!=production lionconfig && pnpm --filter=@leonzalion-blog/pnpm-scripts run prepare-script",
 		"dev:website": "pnpm --filter=@leonzalion-blog/website run dev",
 		"build:website": "pnpm --filter=@leonzalion-blog/website run build",
 		"create-daily-timeblock": "pnpm --filter=@leonzalion-blog/scripts run create-daily-timeblock",
