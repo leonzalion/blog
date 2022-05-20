@@ -7,8 +7,8 @@
 		"build": "node-ts ./scripts/build.ts"
 	},
 	"dependencies": {
-		"@leonzalion-blog/content": "link:../content",
-		"@leonzalion-blog/date-utils": "link:../date-utils",
+		"@leonzalion-blog/content": "workspace:*",
+		"@leonzalion-blog/date-utils": "workspace:*",
 		"@notionhq/client": "^1.0.4",
 		"execa": "^6.1.0",
 		"fast-deep-equal": "^3.1.3",
