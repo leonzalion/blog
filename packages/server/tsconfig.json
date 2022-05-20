@@ -1,7 +1,6 @@
 {
 	"extends": "lionconfig/tsconfig.json",
 	"compilerOptions": {
-		"composite": true,
 		"outDir": "dist",
 		"rootDir": "src",
 		"baseUrl": ".",
@@ -9,13 +8,5 @@
 			"~/*": ["./src/*"]
 		}
 	},
-	"include": ["./src"],
-	"references": [
-		{
-			"path": "../content-scripts"
-		},
-		{
-			"path": "../date-utils"
-		}
-	]
+	"include": ["./src"]
 }
