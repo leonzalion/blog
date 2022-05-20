@@ -1,4 +1,6 @@
 import type { DailyTimeblock } from '@leonzalion-blog/content';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 
 import { updateGithubFile } from '~/utils/github/update.js';
 import { generateDailyTimeblocksMetadata } from '~/utils/metadata.js';
@@ -12,6 +14,14 @@ export async function updateGithubDailyTimeblock({
 }): Promise<void> {
 	const dailyTimeblockJson = JSON.stringify(dailyTimeblock);
 	const message = `Synchronized daily timeblock ${dailyTimeblock.dateString}`;
+
+	await fs.promises.writeFile(
+		path.join(
+			contentDir,
+			`daily-timeblocks/json/${dailyTimeblock.dateString}.json`
+		),
+		dailyTimeblockJson
+	);
 	await updateGithubFile({
 		branch: 'dev',
 		content: dailyTimeblockJson,
@@ -30,6 +40,10 @@ export async function updateGithubDailyTimeblock({
 		contentDir,
 	});
 	const dailyTimeblocksMetadataJson = JSON.stringify(dailyTimeblocksMetadata);
+	await fs.promises.writeFile(
+		path.join(contentDir, `metadata/daily-timeblocks.json`),
+		dailyTimeblocksMetadataJson
+	);
 	await updateGithubFile({
 		filePath: `packages/content/metadata/daily-timeblocks.json`,
 		branch: 'dev',
