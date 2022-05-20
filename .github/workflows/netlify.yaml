@@ -46,6 +46,7 @@ jobs:
           git config --global init.defaultBranch main
           git config --global user.email "contact@leonzalion.com"
           git config --global user.name "leonzalion-bot"
+          pnpm build
           pnpm --filter @leonzalion-blog/netlify-scripts run build-website
           pnpm --filter @leonzalion-blog/netlify-scripts exec run-bin push
         env:
