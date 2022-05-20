@@ -26,7 +26,7 @@ export async function syncDailyTimeblockFromNotion({
 			JSON.stringify(githubDailyTimeblock)
 	) {
 		console.info(
-			'Daily timeblock on Notion was different than daily timeblock on GitHub; updating the daily timeblock on GitHub...'
+			`Daily timeblock ${dateString} on Notion was different than daily timeblock on GitHub; updating the daily timeblock on GitHub...`
 		);
 		await updateGithubDailyTimeblock({
 			contentDir,
@@ -34,7 +34,7 @@ export async function syncDailyTimeblockFromNotion({
 		});
 	} else {
 		console.info(
-			'Daily timeblock on GitHub is up to date with daily timeblock on Notion. No changes were made.'
+			`Daily timeblock ${dateString} on GitHub is up to date with daily timeblock on Notion. No changes were made.`
 		);
 	}
 }
