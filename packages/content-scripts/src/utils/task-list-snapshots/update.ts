@@ -1,4 +1,6 @@
 import type { TaskListSnapshot } from '@leonzalion-blog/content';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 
 import { updateGithubFile } from '~/utils/github/update.js';
 import { generateTaskListSnapshotsMetadata } from '~/utils/metadata.js';
@@ -13,6 +15,14 @@ export async function updateGithubTaskListSnapshot({
 	const taskListSnapshotJson = JSON.stringify(taskListSnapshot);
 
 	const message = `Synchronized task list snapshot for ${taskListSnapshot.dateString}`;
+
+	await fs.promises.writeFile(
+		path.join(
+			contentDir,
+			`task-list-snapshots/json/${taskListSnapshot.dateString}.json`
+		),
+		taskListSnapshotJson
+	);
 	await updateGithubFile({
 		filePath: `packages/content/task-list-snapshots/json/${taskListSnapshot.dateString}.json`,
 		branch: 'dev',
@@ -32,6 +42,10 @@ export async function updateGithubTaskListSnapshot({
 	});
 	const taskListSnapshotsMetadataJson = JSON.stringify(
 		taskListSnapshotsMetadata
+	);
+	await fs.promises.writeFile(
+		path.join(contentDir, `metadata/task-list-snapshots.json`),
+		taskListSnapshotsMetadataJson
 	);
 	await updateGithubFile({
 		filePath: `packages/content/metadata/task-list-snapshots.json`,
