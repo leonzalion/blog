@@ -1,8 +1,8 @@
 {
 	"name": "@leonzalion-blog/content-scripts",
 	"type": "module",
-	"main": "./src/index.ts",
-	"exports": "./src/index.ts",
+	"main": "./dist/index.js",
+	"exports": "./dist/index.js",
 	"scripts": {
 		"build": "node-ts ./scripts/build.ts",
 		"sync-content": "dotenv -e ../../.env run-bin sync-content"
