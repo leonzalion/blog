@@ -27,6 +27,6 @@ ENV NODE_ENV=production
 # Copy the built files
 COPY --from=assets /root/monorepo .
 
-RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store pnpm install --prod --frozen-lockfile
+RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store pnpm install --prod
 
 CMD ["node", "packages/server/dist/bin/start.js"]
