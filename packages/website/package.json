@@ -8,8 +8,8 @@
 		"typecheck": "vue-tsc --noEmit"
 	},
 	"dependencies": {
-		"@leonzalion-blog/content": "link:../content",
-		"@leonzalion-blog/date-utils": "link:../date-utils",
+		"@leonzalion-blog/content": "workspace:*",
+		"@leonzalion-blog/date-utils": "workspace:*",
 		"@mdi/js": "^6.6.96",
 		"@vueuse/head": "^0.7.6",
 		"camelcase": "^6.3.0",
