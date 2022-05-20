@@ -34,6 +34,7 @@ if (process.env.NODE_ENV === 'production') {
 	]);
 }
 
+console.info('Synchronizing daily timeblocks from Notion...')
 await syncDailyTimeblockFromNotion({
 	contentDir,
 });
@@ -43,7 +44,7 @@ await syncTogglData();
 schedule.scheduleJob('0/5 * * * *', async () => {
 	try {
 		console.info('Syncing Notion tasks...');
-		await syncTasksFromNotion();
+		await syncTasksFromNotion({ contentDir });
 	} catch (error: unknown) {
 		console.error(`Error syncing Notion tasks: ${JSON.stringify(error)}`);
 	}
