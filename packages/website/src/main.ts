@@ -4,6 +4,7 @@ import VueIcon from 'simple-vue-icon';
 import { ViteSSG } from 'vite-ssg';
 
 import { routes } from '~/router.js';
+import 'nprogress/'
 
 import App from './app.vue';
 

@@ -159,11 +159,14 @@ importers:
       '@leonzalion-blog/content': link:../content
       '@leonzalion-blog/date-utils': link:../date-utils
       '@mdi/js': ^6.6.96
+      '@types/animejs': ^3.1.4
       '@types/dateformat': ^5.0.0
       '@types/jquery': ^3.5.14
       '@types/markdown-it': ^12.2.3
+      '@types/nprogress': ^0.2.0
       '@vitejs/plugin-vue': ^2.3.2
       '@vueuse/head': ^0.7.6
+      animejs: ^3.2.1
       camelcase: ^6.3.0
       dateformat: ^5.0.3
       desm: ^1.2.0
@@ -178,6 +181,7 @@ importers:
       markdown-it-expandable: ^1.0.2
       markdown-it-prism: ^2.2.4
       markdown-it-task-checkbox: ^1.0.6
+      nprogress: ^0.2.0
       onetime: ^6.0.0
       outdent: ^0.8.0
       pinia: ^2.0.14
@@ -199,6 +203,7 @@ importers:
       '@leonzalion-blog/date-utils': link:../date-utils
       '@mdi/js': 6.6.96
       '@vueuse/head': 0.7.6_vue@3.2.33
+      animejs: 3.2.1
       camelcase: 6.3.0
       dateformat: 5.0.3
       fast-sort: 3.1.3
@@ -212,6 +217,7 @@ importers:
       markdown-it-expandable: 1.0.2_markdown-it@13.0.1
       markdown-it-prism: 2.2.4
       markdown-it-task-checkbox: 1.0.6
+      nprogress: 0.2.0
       onetime: 6.0.0
       outdent: 0.8.0
       pinia: 2.0.14_ytvqwwdyss532bvoq2clv4ed5m
@@ -222,9 +228,11 @@ importers:
       vue-router: 4.0.15_vue@3.2.33
       vue3-spinners: 1.2.1_vue@3.2.33
     devDependencies:
+      '@types/animejs': 3.1.4
       '@types/dateformat': 5.0.0
       '@types/jquery': 3.5.14
       '@types/markdown-it': 12.2.3
+      '@types/nprogress': 0.2.0
       '@vitejs/plugin-vue': 2.3.3_vite@2.9.9+vue@3.2.33
       desm: 1.2.0
       rollup-plugin-js-imports: 1.2.1
@@ -1240,6 +1248,10 @@ packages:
     resolution: {integrity: sha512-eZxlbI8GZscaGS7kkc/trHTT5xgrjH3/1n2JDwusC9iahPKWMRvRjJSAN5mCXviuTGQ/lHnhvv8Q1YTpnfz9gA==}
     dev: true
 
+  /@types/animejs/3.1.4:
+    resolution: {integrity: sha512-WUjeFT2SXd6intfE6cg6eL1jk/JL88JqM2gC4WqO4iHLmbCvHUq6aoLK13lGpDWs4FtS2PHoYraJZ0dEx99Dyg==}
+    dev: true
+
   /@types/aws-lambda/8.10.97:
     resolution: {integrity: sha512-BZk3qO4R2KN8Ts3eR6CW1n8LI46UOgv1KoDZjo8J9vOQvDeX/rsrv1H0BpEAMcSqZ1mLwTEyAMtlua5tlSn0kw==}
     dev: false
@@ -1384,6 +1396,10 @@ packages:
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
+    dev: true
+
+  /@types/nprogress/0.2.0:
+    resolution: {integrity: sha512-1cYJrqq9GezNFPsWTZpFut/d4CjpZqA0vhqDUPFWYKF1oIyBz5qnoYMzR+0C/T96t3ebLAC1SSnwrVOm5/j74A==}
     dev: true
 
   /@types/parse-json/4.0.0:
@@ -1794,6 +1810,10 @@ packages:
       json-schema-traverse: 0.4.1
       uri-js: 4.4.1
     dev: true
+
+  /animejs/3.2.1:
+    resolution: {integrity: sha512-sWno3ugFryK5nhiDm/2BKeFCpZv7vzerWUcUPyAZLDhMek3+S/p418ldZJbJXo5ZUOpfm2kP2XRO4NJcULMy9A==}
+    dev: false
 
   /ansi-align/3.0.1:
     resolution: {integrity: sha512-IOfwwBF5iczOjp/WeY4YxyjqAFMQoZufdQWDd19SEExbVLNXqvpzSJ/M7Za4/sCPmQ0+GRquoA7bGcINcxew6w==}
@@ -6367,6 +6387,10 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       path-key: 4.0.0
+
+  /nprogress/0.2.0:
+    resolution: {integrity: sha1-y480xTIT2JVyP8urkH6UIq28r7E=}
+    dev: false
 
   /nth-check/2.0.1:
     resolution: {integrity: sha512-it1vE95zF6dTT9lBsYbxvqh0Soy4SPowchj0UBGj/V6cTPnXXtQOPUbhZ6CmGzAD/rW22LQK6E96pcdJXk4A4w==}
