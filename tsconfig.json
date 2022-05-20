@@ -1,0 +1,14 @@
+{
+	"files": [],
+	"references": [
+		{
+			"path": "./packages/date-utils"
+		},
+		{
+			"path": "./packages/content-scripts"
+		},
+		{
+			"path": "./packages/server"
+		}
+	]
+}
