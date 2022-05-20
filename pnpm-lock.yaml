@@ -22,8 +22,8 @@ importers:
 
   packages/content-scripts:
     specifiers:
-      '@leonzalion-blog/content': workspace:*
-      '@leonzalion-blog/date-utils': workspace:*
+      '@leonzalion-blog/content': link:../content
+      '@leonzalion-blog/date-utils': link:../date-utils
       '@notionhq/client': ^1.0.4
       '@types/node': ^17.0.33
       execa: ^6.1.0
@@ -64,7 +64,7 @@ importers:
 
   packages/netlify-scripts:
     specifiers:
-      '@leonzalion-blog/content-scripts': workspace:*
+      '@leonzalion-blog/content-scripts': link:../content-scripts
       '@types/is-ci': ^3.0.0
       '@types/node': ^17.0.33
       execa: ^6.1.0
@@ -94,9 +94,9 @@ importers:
 
   packages/scripts:
     specifiers:
-      '@leonzalion-blog/content': workspace:*
-      '@leonzalion-blog/content-scripts': workspace:*
-      '@leonzalion-blog/date-utils': workspace:*
+      '@leonzalion-blog/content': link:../content
+      '@leonzalion-blog/content-scripts': link:../content-scripts
+      '@leonzalion-blog/date-utils': link:../date-utils
       '@notionhq/client': ^1.0.4
       '@types/inquirer': ^8.2.1
       chmodrp: ^1.0.2
@@ -123,9 +123,9 @@ importers:
 
   packages/server:
     specifiers:
-      '@leonzalion-blog/content': workspace:*
-      '@leonzalion-blog/content-scripts': workspace:*
-      '@leonzalion-blog/date-utils': workspace:*
+      '@leonzalion-blog/content': link:../content
+      '@leonzalion-blog/content-scripts': link:../content-scripts
+      '@leonzalion-blog/date-utils': link:../date-utils
       '@types/node': ^17.0.33
       '@types/node-schedule': ^2.1.0
       desm: ^1.2.0
@@ -156,8 +156,8 @@ importers:
 
   packages/website:
     specifiers:
-      '@leonzalion-blog/content': workspace:*
-      '@leonzalion-blog/date-utils': workspace:*
+      '@leonzalion-blog/content': link:../content
+      '@leonzalion-blog/date-utils': link:../date-utils
       '@mdi/js': ^6.6.96
       '@types/dateformat': ^5.0.0
       '@types/jquery': ^3.5.14

@@ -9,9 +9,9 @@
 		"compile-daily-timeblocks": "node-ts ./src/bin/compile-daily-timeblocks.ts"
 	},
 	"dependencies": {
-		"@leonzalion-blog/content": "workspace:*",
-		"@leonzalion-blog/content-scripts": "workspace:*",
-		"@leonzalion-blog/date-utils": "workspace:*",
+		"@leonzalion-blog/content": "link:../content",
+		"@leonzalion-blog/content-scripts": "link:../content-scripts",
+		"@leonzalion-blog/date-utils": "link:../date-utils",
 		"@notionhq/client": "^1.0.4",
 		"chmodrp": "^1.0.2",
 		"dotenv": "^16.0.0",
