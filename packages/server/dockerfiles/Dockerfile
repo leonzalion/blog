@@ -14,6 +14,7 @@ FROM base AS dev
 
 RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store pnpm install --frozen-lockfile
 RUN pnpm build
+RUN pnpm --filter=@leonzalion-blog/server exec node-ts ./scripts/adjust-for-deployment.ts
 
 # Resetting back to no dependencies installed, and deleting all source folders because we don't need source files. This way whatever files are built are left behind.
 FROM dev AS assets
