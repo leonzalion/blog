@@ -25,16 +25,17 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 if (process.env.NODE_ENV === 'production') {
-	// Make a local copy of the repo in a temp folder if it doesn't exist
-	// The point of cloning the blog is to get access to the up-to-date `content/` directory
-	await execa('git', [
-		'clone',
-		'https://github.com/leonzalion/blog',
-		localRepoDir,
-	]);
+	console.info('Cloning the repo in a temp folder...');
+	// Make a local copy of the repo in a temp folder.
+	// The point of cloning the blog is to get (read-only) access to the up-to-date `content/` directory
+	await execa(
+		'git',
+		['clone', 'https://github.com/leonzalion/blog', localRepoDir],
+		{ stdio: 'inherit' }
+	);
 }
 
-console.info('Synchronizing daily timeblocks from Notion...')
+console.info('Synchronizing daily timeblocks from Notion...');
 await syncDailyTimeblockFromNotion({
 	contentDir,
 });
