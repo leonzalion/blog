@@ -59,12 +59,12 @@ export async function updateGithubTaskListSnapshot({
 		filePath: `packages/content/metadata/task-list-snapshots.json`,
 		branch: 'dev',
 		content: taskListSnapshotsMetadataJson,
-		message,
+		message: 'Synchronized task list snapshots metadata',
 	});
 	await updateGithubFile({
 		filePath: `content/metadata/task-list-snapshots.json`,
 		branch: 'netlify',
 		content: taskListSnapshotsMetadataJson,
-		message,
+		message: 'Synchronized task list snapshots metadata',
 	});
 }

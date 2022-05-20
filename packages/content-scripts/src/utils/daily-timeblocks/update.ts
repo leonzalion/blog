@@ -55,12 +55,12 @@ export async function updateGithubDailyTimeblock({
 		filePath: `packages/content/metadata/daily-timeblocks.json`,
 		branch: 'dev',
 		content: dailyTimeblocksMetadataJson,
-		message,
+		message: 'Synchronized daily timeblock metadata',
 	});
 	await updateGithubFile({
 		filePath: `content/metadata/daily-timeblocks.json`,
 		branch: 'netlify',
 		content: dailyTimeblocksMetadataJson,
-		message,
+		message: 'Synchronized daily timeblock metadata',
 	});
 }
