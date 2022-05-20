@@ -33,6 +33,10 @@ if (process.env.NODE_ENV === 'production') {
 		['clone', 'https://github.com/leonzalion/blog', localRepoDir],
 		{ stdio: 'inherit' }
 	);
+	await execa('git', ['checkout', 'netlify'], {
+		stdio: 'inherit',
+		cwd: localRepoDir,
+	});
 }
 
 console.info('Synchronizing daily timeblocks from Notion...');
