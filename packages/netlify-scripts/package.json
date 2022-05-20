@@ -6,7 +6,7 @@
 		"push": "dotenv -e ../../.env pnpm run-bin push"
 	},
 	"dependencies": {
-		"@leonzalion-blog/content-scripts": "workspace:*",
+		"@leonzalion-blog/content-scripts": "link:../content-scripts",
 		"execa": "^6.1.0",
 		"lion-utils": "^0.1.2"
 	},

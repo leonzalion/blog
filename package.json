@@ -15,7 +15,7 @@
 		"dev:website": "pnpm --filter=@leonzalion-blog/website run dev",
 		"build:website": "pnpm --filter=@leonzalion-blog/website run build",
 		"create-daily-timeblock": "pnpm --filter=@leonzalion-blog/scripts run create-daily-timeblock",
-		"typecheck": "tsc --build",
+		"build": "tsc --build",
 		"dt": "pnpm --filter=@leonzalion-blog/scripts run edit-daily-timeblock"
 	},
 	"devDependencies": {

@@ -4,11 +4,12 @@
 	"main": "./src/index.ts",
 	"exports": "./src/index.ts",
 	"scripts": {
-		"build": "node-ts ./scripts/build.ts"
+		"build": "node-ts ./scripts/build.ts",
+		"sync-content": "dotenv -e ../../.env run-bin sync-content"
 	},
 	"dependencies": {
-		"@leonzalion-blog/content": "workspace:*",
-		"@leonzalion-blog/date-utils": "workspace:*",
+		"@leonzalion-blog/content": "link:../content",
+		"@leonzalion-blog/date-utils": "link:../date-utils",
 		"@notionhq/client": "^1.0.4",
 		"execa": "^6.1.0",
 		"fast-deep-equal": "^3.1.3",
