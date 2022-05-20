@@ -6,7 +6,7 @@ importers:
     specifiers:
       dotenv-cli: ^5.1.0
       lion-utils: ^0.1.2
-      lionconfig: ^1.7.11
+      lionconfig: ^1.7.13
       run-if: ^0.0.6
       typescript: ^4.6.4
     dependencies:
@@ -14,7 +14,7 @@ importers:
       run-if: 0.0.6
     devDependencies:
       dotenv-cli: 5.1.0
-      lionconfig: 1.7.11_typescript@4.6.4
+      lionconfig: 1.7.13_typescript@4.6.4
       typescript: 4.6.4
 
   packages/content:
@@ -4861,6 +4861,11 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /is-path-inside/4.0.0:
+    resolution: {integrity: sha512-lJJV/5dYS+RcL8uQdBDW9c9uWFLLBNRyFhnAKXw5tVqLlKZ4RMGZKv+YQ/IA3OhD+RpbJa1LLFM1FQPGyIXvOA==}
+    engines: {node: '>=12'}
+    dev: true
+
   /is-plain-obj/1.1.0:
     resolution: {integrity: sha1-caUMhCnfync8kqOQpKA7OfzVHT4=}
     engines: {node: '>=0.10.0'}
@@ -5365,8 +5370,8 @@ packages:
       dot-prop: 7.2.0
       pkg-up: 4.0.0
 
-  /lionconfig/1.7.11_typescript@4.6.4:
-    resolution: {integrity: sha512-13SVBh36+4qtK8aE4foMV3ZlRqKlyz7tL3wSW8A/k3EBbezMlBKK2B6hxfXODF/9tSftiMgD7345bch2b8wAow==}
+  /lionconfig/1.7.13_typescript@4.6.4:
+    resolution: {integrity: sha512-pECFt0wXnC3ggGXTcNBrvY7LyHOZ90m2DqTOysISmJQpC53QLMj/tEzzYMTpaALchMA5OstpOsd2RK2zTEXFqQ==}
     hasBin: true
     requiresBuild: true
     dependencies:
@@ -5412,6 +5417,7 @@ packages:
       find-up: 5.0.0
       import-meta-resolve: 1.1.1
       is-ci: 3.0.1
+      is-path-inside: 4.0.0
       lint-staged: 12.4.1
       lion-git-hooks: 1.0.13
       lion-utils: 0.1.2
