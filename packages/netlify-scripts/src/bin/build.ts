@@ -26,9 +26,11 @@ import { writeContentMetadata } from '@leonzalion-blog/content-scripts';
 import { execaCommand } from 'execa';
 import { getProjectDir } from 'lion-utils';
 import * as fs from 'node:fs';
+import path from 'node:path';
 import process from 'node:process';
 
-process.chdir(getProjectDir(import.meta.url, { monorepoRoot: true }));
+const monorepoDir = getProjectDir(import.meta.url, { monorepoRoot: true });
+process.chdir(monorepoDir);
 
 fs.rmSync('dist', { recursive: true, force: true });
 
@@ -38,4 +40,6 @@ async function buildWebsite() {
 }
 
 await buildWebsite();
-await writeContentMetadata();
+await writeContentMetadata({
+	contentDir: path.join(monorepoDir, 'packages/content'),
+});
