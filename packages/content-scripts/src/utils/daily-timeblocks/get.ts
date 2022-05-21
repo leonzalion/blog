@@ -50,9 +50,10 @@ export async function getDailyTimeblockFromGithub({
 	dateString: string;
 }): Promise<DailyTimeblock | undefined> {
 	try {
-		const dailyTimeblockResponse = await retrieveGithubFiles(
-			`packages/content/daily-timeblocks/json/${dateString}.json`
-		);
+		const dailyTimeblockResponse = await retrieveGithubFiles({
+			path: `content/daily-timeblocks/json/${dateString}.json`,
+			branch: 'netlify',
+		});
 
 		if (Array.isArray(dailyTimeblockResponse)) {
 			throw new TypeError('Expected a path to a file, not a folder');

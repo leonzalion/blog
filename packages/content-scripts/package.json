@@ -2,7 +2,7 @@
 	"name": "@leonzalion-blog/content-scripts",
 	"type": "module",
 	"main": "./dist/index.js",
-	"exports": "./dist/index.js",
+	"exports": "./src/index.ts",
 	"scripts": {
 		"build": "node-ts ./scripts/build.ts",
 		"sync-content": "dotenv -e ../../.env run-bin sync-content"
