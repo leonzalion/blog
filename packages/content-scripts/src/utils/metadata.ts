@@ -8,6 +8,8 @@ import type {
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 
+import { debug } from '~/utils/debug.js';
+
 export async function generateArticlesMetadata({
 	contentDir,
 }: {
@@ -77,6 +79,7 @@ export async function generateDailyTimeblocksMetadata({
 	const dailyTimeblocksDir = path.join(contentDir, 'daily-timeblocks/json');
 
 	const dailyTimeblockFileNames = await fs.promises.readdir(dailyTimeblocksDir);
+	debug((f) => f`Daily timeblock file names: ${dailyTimeblockFileNames}`);
 	const dailyTimeblockDateStrings = dailyTimeblockFileNames
 		.filter((fileName) => fileName !== '.gitkeep')
 		.map((fileName) => path.parse(fileName).name);
