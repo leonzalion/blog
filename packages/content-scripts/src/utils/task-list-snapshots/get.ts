@@ -60,9 +60,10 @@ export async function getTaskListSnapshotFromGithub({
 	dateString: string;
 }): Promise<TaskListSnapshot | undefined> {
 	try {
-		const taskListSnapshotResponse = await retrieveGithubFiles(
-			`packages/content/task-list-snapshots/json/${dateString}.json`
-		);
+		const taskListSnapshotResponse = await retrieveGithubFiles({
+			path: `content/task-list-snapshots/json/${dateString}.json`,
+			branch: 'netlify',
+		});
 
 		if (Array.isArray(taskListSnapshotResponse)) {
 			throw new TypeError('Expected a path to a file, not a folder');

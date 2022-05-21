@@ -1,6 +1,12 @@
 import { getOctokit } from '~/utils/github/octokit.js';
 
-export async function retrieveGithubFiles(path: string) {
+export async function retrieveGithubFiles({
+	path,
+	branch,
+}: {
+	path: string;
+	branch: string;
+}) {
 	const octokit = getOctokit();
 
 	// Retrieving the existing announcements from the GitHub repository
@@ -10,7 +16,7 @@ export async function retrieveGithubFiles(path: string) {
 			owner: 'leonzalion',
 			repo: 'blog',
 			path,
-			ref: 'dev',
+			ref: branch,
 		}
 	);
 
