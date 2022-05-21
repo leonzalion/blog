@@ -15,11 +15,12 @@ const contentDir = path.join(
 );
 
 console.info('Syncing tasks from Notion...');
-await syncTasksFromNotion({ contentDir });
+await syncTasksFromNotion({ contentDir, force: true });
 
 try {
 	console.info('Syncing daily timeblock from Notion...');
 	await syncDailyTimeblockFromNotion({
+		force: true,
 		contentDir,
 		dateString: getTodayDateString(),
 	});
