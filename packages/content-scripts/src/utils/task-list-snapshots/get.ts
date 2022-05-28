@@ -11,12 +11,23 @@ export async function getTaskListFromNotion() {
 
 	const tasksQueryData = await notion.databases.query({
 		database_id: databaseId,
-		// Do not query internal tasks
 		filter: {
-			property: 'Internal',
-			checkbox: {
-				equals: false,
-			},
+			and: [
+				// Don't retrieve tasks that are internal
+				{
+					property: 'Internal',
+					checkbox: {
+						equals: false,
+					},
+				},
+				// Retrieve all tasks that are unchecked
+				{
+					property: 'Done',
+					checkbox: {
+						equals: false,
+					},
+				},
+			],
 		},
 	});
 
