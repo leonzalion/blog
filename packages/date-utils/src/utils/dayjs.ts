@@ -1,7 +1,8 @@
 import dayjsOriginal from 'dayjs';
 import timezone from 'dayjs/plugin/timezone.js';
 import utc from 'dayjs/plugin/utc.js';
-// Needed for type safety
+
+// Duplicated imports are needed for type safety
 import 'dayjs/plugin/timezone.js';
 import 'dayjs/plugin/utc.js';
 

@@ -6,7 +6,7 @@ importers:
     specifiers:
       dotenv-cli: ^5.1.0
       lion-utils: ^0.1.4
-      lionconfig: ^1.7.19
+      lionconfig: ^1.7.20
       run-if: ^0.0.6
       typescript: ^4.7.2
     dependencies:
@@ -14,7 +14,7 @@ importers:
       run-if: 0.0.6
     devDependencies:
       dotenv-cli: 5.1.0
-      lionconfig: 1.7.19_typescript@4.7.2
+      lionconfig: 1.7.20_typescript@4.7.2
       typescript: 4.7.2
 
   packages/content:
@@ -5416,8 +5416,8 @@ packages:
       dot-prop: 7.2.0
       pkg-up: 4.0.0
 
-  /lionconfig/1.7.19_typescript@4.7.2:
-    resolution: {integrity: sha512-Iu9Ukc0qWv+BgPCHAGQDiRPIjVEQuAFnkmyh9wvxAJdR3fC0Oyv37Y8fdbvE08S4Z78uDL5ZaSC7SELNKP1+wg==}
+  /lionconfig/1.7.20_typescript@4.7.2:
+    resolution: {integrity: sha512-wrKhgxLffx76IdtMLle7joQaBTENjB7P6shhNL6tyUFYyagvbWc0mxaxk0yGnWdAfPYBkdjHM+b+7pfg3YeZFA==}
     hasBin: true
     requiresBuild: true
     dependencies:
@@ -5490,7 +5490,7 @@ packages:
       type-fest: 2.13.0
       update-notifier: 5.1.0
       webpack: /ignoredep/25.9999.0
-      xo: 0.49.0_mpjraefuf2lkadzhozfzbzdiyq
+      xo: 0.49.0_ignoredep@25.9999.0
     transitivePeerDependencies:
       - '@swc/wasm'
       - enquirer
@@ -8567,18 +8567,21 @@ packages:
     resolution: {integrity: sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==}
     dev: false
 
-  /xo/0.49.0_mpjraefuf2lkadzhozfzbzdiyq:
+  /xo/0.49.0_ignoredep@25.9999.0:
     resolution: {integrity: sha512-dDj1bYy3LJ/8C2XItw/lFVckZtO68C2YCx9TR8xfSLVcmael3y0SkeFse/3OMUPMvG5jG44bQ2CAI6wFTpRqVg==}
     engines: {node: '>=12.20'}
     hasBin: true
     dependencies:
       '@eslint/eslintrc': 1.3.0
+      '@typescript-eslint/eslint-plugin': 5.26.0_hzuh7e2up357pvq3mkokjvu2lq
+      '@typescript-eslint/parser': 5.26.0_xztl6dhthcahlo6akmb2bmjmle
       arrify: 3.0.0
       cosmiconfig: 7.0.1
       define-lazy-prop: 3.0.0
       eslint: 8.16.0
       eslint-config-prettier: 8.5.0_eslint@8.16.0
       eslint-config-xo: 0.41.0_eslint@8.16.0
+      eslint-config-xo-typescript: 0.51.1_mcxojtcprbyox45dkaw7scmziq
       eslint-formatter-pretty: 4.1.0
       eslint-import-resolver-webpack: 0.13.2_vaezxk2hyfnncf5nd77py7moyy
       eslint-plugin-ava: 13.2.0_eslint@8.16.0
@@ -8606,7 +8609,6 @@ packages:
       to-absolute-glob: 2.0.2
       typescript: 4.7.2
     transitivePeerDependencies:
-      - '@typescript-eslint/parser'
       - eslint-import-resolver-typescript
       - supports-color
       - webpack
