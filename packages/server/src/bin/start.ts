@@ -1,4 +1,5 @@
 import {
+	getNotionClient,
 	syncDailyTimeblockFromNotion,
 	syncTasksFromNotion,
 } from '@leonzalion-blog/content-scripts';
@@ -13,6 +14,7 @@ import process from 'node:process';
 import schedule from 'node-schedule';
 import tmp from 'tmp-promise';
 
+import { checkIsTwitchStreamActive } from '~/utils/stream.js';
 import { syncTogglData } from '~/utils/toggl.js';
 
 let contentDir: string;
@@ -110,4 +112,39 @@ schedule.scheduleJob('0/1 * * * *', async () => {
 	} catch (error: unknown) {
 		console.error(`Error syncing Toggl data: ${JSON.stringify(error)}`);
 	}
+});
+
+// At 7:15AM every day, check whether my stream is active
+schedule.scheduleJob('15 7 * * *', async () => {
+	const isStreamActive = await checkIsTwitchStreamActive();
+
+	const successMessage = 'Success! Stream live at https://twitch.tv/leonzalion';
+	const failureMessage = `Failed...Amazon gift card code: ${process.env.GIFT_CARD_CODE}`;
+
+	const notion = getNotionClient();
+	const precommitmentsDatabaseId = '82f4522715d04bf592f5c051d7f5daac';
+	// If the stream isn't active by 7:15AM, add the gift card code to today's precommitments
+	await notion.pages.create({
+		parent: {
+			database_id: precommitmentsDatabaseId,
+			type: 'database_id',
+		},
+		properties: {
+			title: '7:15AM Stream Precommitment',
+		},
+		content: [
+			{
+				type: 'paragraph',
+				paragraph: {
+					rich_text: [
+						{
+							text: {
+								content: isStreamActive ? successMessage : failureMessage,
+							},
+						},
+					],
+				},
+			},
+		],
+	});
 });
