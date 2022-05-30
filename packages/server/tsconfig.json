@@ -9,5 +9,6 @@
 			"~/*": ["./src/*"]
 		}
 	},
-	"include": ["./src/**/*.ts", "./typings/**/*.ts"]
+	"include": ["./src/**/*.ts", "./typings/**/*.ts"],
+	"references": [{ "path": "../content-scripts" }, { "path": "../date-utils" }]
 }

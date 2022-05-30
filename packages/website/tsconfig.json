@@ -10,5 +10,6 @@
 		},
 		"types": ["vue/ref-macros"]
 	},
-	"include": ["./src", "./typings"]
+	"include": ["./src", "./typings"],
+	"references": [{ "path": "../date-utils" }]
 }
