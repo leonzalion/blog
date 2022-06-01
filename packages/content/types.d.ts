@@ -9,7 +9,8 @@
 export interface ArticleListing {
 	slug: string;
 	title: string;
-	dateCreated: string;
+	datePublished: string;
+	lastEditedDate: string;
 }
 
 export interface Article extends ArticleListing {

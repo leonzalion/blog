@@ -16,7 +16,7 @@
 		"got": "^12.0.4",
 		"gray-matter": "^4.0.3",
 		"ldebug": "^0.1.2",
-		"lion-utils": "^0.1.2",
+		"lion-utils": "^0.1.4",
 		"notion-to-md": "^2.3.3",
 		"octokit": "^1.7.1",
 		"onetime": "^6.0.0",

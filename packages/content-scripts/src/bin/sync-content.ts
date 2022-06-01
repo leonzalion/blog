@@ -7,7 +7,7 @@ import {
 	syncTasksFromNotion,
 	writeContentMetadata,
 } from '~/index.js';
-import { compileArticlesIntoJson } from '~/utils/articles/compile.js';
+import { syncArticlesFromNotion } from '~/utils/articles/sync.js';
 
 const contentDir = path.join(
 	getProjectDir(import.meta.url, { monorepoRoot: true }),
@@ -30,7 +30,7 @@ try {
 }
 
 console.info('Compiling articles into JSON...');
-await compileArticlesIntoJson({ contentDir });
+await syncArticlesFromNotion({ contentDir });
 
 console.info('Generating content metadata...');
 await writeContentMetadata({ contentDir });

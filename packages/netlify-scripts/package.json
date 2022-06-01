@@ -8,7 +8,7 @@
 	"dependencies": {
 		"@leonzalion-blog/content-scripts": "link:../content-scripts",
 		"execa": "^6.1.0",
-		"lion-utils": "^0.1.2"
+		"lion-utils": "^0.1.4"
 	},
 	"devDependencies": {
 		"@types/is-ci": "^3.0.0",

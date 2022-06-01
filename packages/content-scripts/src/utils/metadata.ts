@@ -27,11 +27,16 @@ export async function generateArticlesMetadata({
 
 		const articleSlug = path.parse(articleJsonFile).name;
 
-		const { title, dateCreated, slug } = JSON.parse(
+		const { title, datePublished, lastEditedDate, slug } = JSON.parse(
 			fs.readFileSync(path.join(articlesDir, articleJsonFile), 'utf8')
 		) as Article;
 
-		articleMetadata[articleSlug] = { title, dateCreated, slug };
+		articleMetadata[articleSlug] = {
+			title,
+			lastEditedDate,
+			datePublished,
+			slug,
+		};
 	}
 
 	return articleMetadata;
