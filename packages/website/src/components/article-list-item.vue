@@ -22,7 +22,7 @@ const { articleListing } = defineProps<{
 				<span class="text-lg">{{ articleListing.title }}</span>
 				<span class="italic text-xs text-gray-500">
 					{{
-						dateFormat(dayjs(articleListing.dateCreated).toDate(), 'longDate')
+						dateFormat(dayjs(articleListing.datePublished).toDate(), 'longDate')
 					}}
 				</span>
 			</div>
