@@ -3,6 +3,7 @@ import type { ValueOf } from 'type-fest';
 
 import { getArticleFromNotion } from '~/utils/articles/get.js';
 import { updateGithubArticle } from '~/utils/articles/update.js';
+import { debug } from '~/utils/debug.js';
 import { getNotionClient } from '~/utils/notion.js';
 
 export async function syncArticlesFromNotion({
@@ -18,7 +19,15 @@ export async function syncArticlesFromNotion({
 	const databaseId = '260e9ebf99274268a9eb8d6adc7cab93';
 	const articlesQueryData = await notion.databases.query({
 		database_id: databaseId,
+		filter: {
+			property: 'Publish',
+			checkbox: {
+				equals: true,
+			},
+		},
 	});
+
+	debug((f) => f`Articles query data: ${articlesQueryData}`);
 
 	for (const articleResult of articlesQueryData.results) {
 		if (!('properties' in articleResult)) {

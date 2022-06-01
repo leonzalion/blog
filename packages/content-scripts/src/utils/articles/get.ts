@@ -50,6 +50,12 @@ export async function getArticleFromNotion({
 	const properties =
 		articlePage.properties as unknown as NotionArticleProperties;
 
+	if (!properties.Publish.checkbox) {
+		throw new Error(
+			`Publish checkbox for article ${articleSlug} was not selected.`
+		);
+	}
+
 	const mdBlocks = await notionToMarkdown.pageToMarkdown(articlePage.id);
 	const content = notionToMarkdown.toMarkdownString(mdBlocks);
 

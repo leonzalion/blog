@@ -29,8 +29,8 @@ try {
 	console.error(error);
 }
 
-console.info('Compiling articles into JSON...');
-await syncArticlesFromNotion({ contentDir });
+console.info('Syncing articles from Notion...');
+await syncArticlesFromNotion({ contentDir, force: true });
 
 console.info('Generating content metadata...');
 await writeContentMetadata({ contentDir });
