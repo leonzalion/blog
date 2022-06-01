@@ -1,7 +1,4 @@
-import type {
-	Article,
-	ArticlesMetadata,
-} from '@leonzalion-blog/content';
+import type { Article, ArticlesMetadata } from '@leonzalion-blog/content';
 import ky from 'ky';
 
 export async function fetchArticle({
@@ -30,7 +27,7 @@ export async function getArticlesMetadata() {
 	if (import.meta.env.DEV) {
 		({ default: articlesMetadata } = (await import(
 			'../../public/content/metadata/articles.json'
-		)) as { default: ArticlesMetadata });
+		)) as unknown as { default: ArticlesMetadata });
 	} else {
 		articlesMetadata = await ky
 			.get('/content/metadata/articles.json')

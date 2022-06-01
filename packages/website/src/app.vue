@@ -19,6 +19,8 @@ html,
 }
 
 #app .markdown-body {
+	/* For some reason the text is faint on certain devices? */
+	color: black;
 	background-color: rgb(251, 251, 251);
 	font-family: Avenir, Arial, sans-serif;
 }
