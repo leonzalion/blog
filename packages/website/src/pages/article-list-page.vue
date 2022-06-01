@@ -8,7 +8,7 @@ const articlesMetadata = await getArticlesMetadata();
 
 const articleListings = sort(
 	Object.values(Object.values(articlesMetadata))
-).desc((articleListing) => articleListing.dateCreated);
+).desc((articleListing) => articleListing.datePublished);
 </script>
 
 <template>

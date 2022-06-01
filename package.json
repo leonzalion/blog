@@ -16,7 +16,8 @@
 		"build:website": "pnpm --filter=@leonzalion-blog/website run build",
 		"create-daily-timeblock": "pnpm --filter=@leonzalion-blog/scripts run create-daily-timeblock",
 		"build": "tsc --build && pnpm recursive run build",
-		"dt": "pnpm --filter=@leonzalion-blog/scripts run edit-daily-timeblock"
+		"dt": "pnpm --filter=@leonzalion-blog/scripts run edit-daily-timeblock",
+		"typecheck": "tsc --build"
 	},
 	"devDependencies": {
 		"dotenv-cli": "^5.1.0",

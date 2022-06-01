@@ -17,12 +17,6 @@ export interface Article extends ArticleListing {
 	content: string;
 }
 
-export interface ArticleFileMatter {
-	title: string;
-	dateCreated: string;
-	published: boolean;
-}
-
 /**
 	Map of article slugs to article listings
 */

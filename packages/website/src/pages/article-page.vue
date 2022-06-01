@@ -36,7 +36,7 @@ const md = getMarkdownInstance();
 			<div class="mb-4">
 				<h1 class="font-bold text-4xl">{{ article.title }}</h1>
 				<div class="text-gray-500 text-[0.9rem] italic">
-					{{ dateFormat(dayjs(article.dateCreated).toDate(), 'longDate') }}
+					{{ dateFormat(dayjs(article.datePublished).toDate(), 'longDate') }}
 				</div>
 			</div>
 			<div class="markdown-body" v-html="md.render(article.content)"></div>
