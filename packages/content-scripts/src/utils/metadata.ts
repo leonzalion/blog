@@ -4,6 +4,7 @@ import type {
 	DailyTimeblocksMetadata,
 	TaskListSnapshot,
 	TaskListSnapshotsMetadata,
+	TogglDailyResultsMetadata,
 } from '@leonzalion-blog/content';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
@@ -84,15 +85,38 @@ export async function generateDailyTimeblocksMetadata({
 	const dailyTimeblocksDir = path.join(contentDir, 'daily-timeblocks/json');
 
 	const dailyTimeblockFileNames = await fs.promises.readdir(dailyTimeblocksDir);
-	debug((f) => f`Daily timeblock file names: ${dailyTimeblockFileNames}`);
-	const dailyTimeblockDateStrings = dailyTimeblockFileNames
-		.filter((fileName) => fileName !== '.gitkeep')
-		.map((fileName) => path.parse(fileName).name);
+	const dailyTimeblockDateStrings = dailyTimeblockFileNames.map(
+		(fileName) => path.parse(fileName).name
+	);
 	const dailyTimeblocksMetadata: DailyTimeblocksMetadata = {
 		dateStrings: dailyTimeblockDateStrings,
 	};
 
 	return dailyTimeblocksMetadata;
+}
+
+export async function generateTogglDailyResultsMetadata({
+	contentDir,
+}: {
+	contentDir: string;
+}): Promise<TogglDailyResultsMetadata> {
+	const togglDailyResultsDir = path.join(
+		contentDir,
+		'toggl-daily-results/json'
+	);
+	const togglDailyResultsFileNames = await fs.promises.readdir(
+		togglDailyResultsDir
+	);
+
+	const togglDateStrings = togglDailyResultsFileNames.map(
+		(fileName) => path.parse(fileName).name
+	);
+
+	const togglDailyResultsMetadata: TogglDailyResultsMetadata = {
+		dateStrings: togglDateStrings,
+	};
+
+	return togglDailyResultsMetadata;
 }
 
 export async function writeContentMetadata({

@@ -5,7 +5,7 @@ import type { ValueOf } from 'type-fest';
 import { retrieveGithubFiles } from '~/utils/github/files.js';
 import { getNotionClient } from '~/utils/notion.js';
 
-export async function getTaskListFromNotion() {
+export async function getTaskListFromNotion(): Promise<Task[]> {
 	const notion = getNotionClient();
 	const databaseId = '6ebb1d947ba74c72a9c7f0fd6921db57';
 
