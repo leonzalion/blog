@@ -45,6 +45,31 @@ export interface TaskListSnapshot extends TaskListSnapshotListing {
 }
 
 /**
-	Each date string is associate with a task list snapshot.
+	Each date string is associated with a task list snapshot.
 */
 export type TaskListSnapshotsMetadata = Record<string, TaskListSnapshotListing>;
+
+export interface TogglTimeEntry {
+	start: string;
+	stop?: string;
+	duration: number;
+	description: string;
+	at: string;
+	activityType?: string;
+}
+
+export interface TogglDailyResult {
+	dateString: string;
+	timeEntries: TogglTimeEntry[],
+	activityTypeTotals: {
+		Precommit: number;
+		Dialect: number;
+		'Side Project': number;
+		Leisure: number;
+	}
+}
+
+/**
+	Map of date strings to the Toggl Daily Result for that day.
+*/
+export type TogglDailyResultsMetadata = { dateStrings: string[]}
