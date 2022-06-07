@@ -1,54 +1,36 @@
-import { dayjs, getTodayDateString } from '@leonzalion-blog/date-utils';
+import { getTodayDateString } from '@leonzalion-blog/date-utils';
 
 import {
-	getTaskListFromNotion,
-	getTaskListSnapshotFromGithub,
-} from '~/utils/task-list-snapshots/get.js';
-import { updateGithubTaskListSnapshot } from '~/utils/task-list-snapshots/update.js';
+	getTogglDailyResult,
+	getTogglDailyResultFromGitHub,
+} from '~/utils/toggl-daily-results/get.js';
+import { updateGithubTogglDailyResult } from '~/utils/toggl-daily-results/update.js';
 
-let lastChanged: ReturnType<typeof dayjs> | undefined;
 export async function syncTogglDailyResults({
 	contentDir,
-	force = false,
 }: {
 	contentDir: string;
-	force?: boolean;
 }) {
 	const todayDateString = getTodayDateString();
-	const currentTasksOnNotion = await getTaskListFromNotion();
-	const githubTaskListSnapshot = await getTaskListSnapshotFromGithub({
+	const currentTogglDailyResult = await getTogglDailyResult();
+	const githubTogglDailyResult = await getTogglDailyResultFromGitHub({
 		dateString: todayDateString,
 	});
 
 	if (
-		JSON.stringify(githubTaskListSnapshot?.tasks) ===
-		JSON.stringify(currentTasksOnNotion)
+		JSON.stringify(githubTogglDailyResult) ===
+		JSON.stringify(currentTogglDailyResult)
 	) {
 		console.info(
-			`Task list on GitHub is up to date with the task list on Notion. No changes were made.`
+			`Toggl daily result on GitHub is up to date. No changes were made.`
 		);
 	} else {
-		if (
-			!force &&
-			(lastChanged === undefined || dayjs().diff(lastChanged, 'minute') < 2)
-		) {
-			console.info(
-				`Task list snapshot on Notion was different than the task list snapshot on GitHub. It was last changed on ${
-					lastChanged?.toISOString() ?? '<unknown>'
-				}. Marking it as changed.`
-			);
-			lastChanged = dayjs();
-		} else {
-			console.info(
-				`Task list on Notion is different than the task list on GitHub; updating the task list on GitHub...`
-			);
-			await updateGithubTaskListSnapshot({
-				contentDir,
-				taskListSnapshot: {
-					dateString: todayDateString,
-					tasks: currentTasksOnNotion,
-				},
-			});
-		}
+		console.info(
+			`Task list on Notion is different than the task list on GitHub; updating the task list on GitHub...`
+		);
+		await updateGithubTogglDailyResult({
+			contentDir,
+			togglDailyResult: currentTogglDailyResult,
+		});
 	}
 }

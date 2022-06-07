@@ -86,7 +86,7 @@ async function trySyncTomorrowDailyTimeblock() {
 	}
 }
 
-async function trySyncTogglData() {
+async function trySyncTogglDailyResults() {
 	try {
 		console.info('Syncing Toggl data...');
 		await syncTogglDailyResults({
@@ -96,6 +96,13 @@ async function trySyncTogglData() {
 		console.error(`Error syncing Toggl data: ${JSON.stringify(error)}`);
 	}
 }
+
+await Promise.allSettled([
+	trySyncTasks(),
+	trySyncTodayDailyTimeblock(),
+	trySyncTomorrowDailyTimeblock(),
+	trySyncTogglDailyResults(),
+]);
 
 // Runs once every 5 minutes
 schedule.scheduleJob('0/5 * * * *', async () => {
@@ -108,7 +115,7 @@ schedule.scheduleJob('0/5 * * * *', async () => {
 
 // Runs once every minute
 schedule.scheduleJob('0/1 * * * *', async () => {
-	await trySyncTogglData();
+	await trySyncTogglDailyResults();
 });
 
 // At 7:15AM every day, check whether my stream is active

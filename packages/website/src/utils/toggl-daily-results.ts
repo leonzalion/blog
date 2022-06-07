@@ -9,7 +9,7 @@ export async function fetchTogglDailyResults({
 }: {
 	dateString: string;
 }): Promise<TogglDailyResult> {
-	const url = `/content/task-list-snapshots/json/${dateString}.json`;
+	const url = `/content/toggl-daily-results/json/${dateString}.json`;
 
 	return ky.get(url).json<TogglDailyResult>();
 }

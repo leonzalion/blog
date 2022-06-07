@@ -7,6 +7,8 @@ import type {
 	TogglDailyResult,
 } from '@leonzalion-blog/content';
 import { dayjs } from '@leonzalion-blog/date-utils';
+import type { ChartData } from 'chart.js';
+import { Bar } from 'vue-chartjs';
 import { useRoute, useRouter } from 'vue-router';
 
 import {
@@ -55,6 +57,17 @@ const taskListSnapshotMarkdown = $computed(() =>
 		: getTaskListSnapshotMarkdown(taskListSnapshot)
 );
 
+const togglActivityTypeChartData = $computed((): ChartData<'bar', number[]> => {
+	if (togglDailyResult === undefined) {
+		return { labels: [], datasets: [] };
+	}
+
+	return {
+		labels: Object.keys(togglDailyResult.activityTypeTotals),
+		datasets: [{ data: Object.values(togglDailyResult.activityTypeTotals) }],
+	};
+});
+
 const md = getMarkdownInstance();
 </script>
 
@@ -68,6 +81,7 @@ const md = getMarkdownInstance();
 			</h1>
 
 			<h2>Toggl Data</h2>
+			<Bar :chart-data="togglActivityTypeChartData" />
 			<template
 				v-if="
 					togglDailyResult !== undefined &&
@@ -75,7 +89,7 @@ const md = getMarkdownInstance();
 				"
 			>
 				<div
-					v-for="(timeEntry, entryIndex) of togglDailyResult?.timeEntries"
+					v-for="(timeEntry, entryIndex) of togglDailyResult.timeEntries ?? []"
 					:key="entryIndex"
 				>
 					<div>{{ timeEntry.description }}</div>
@@ -85,6 +99,11 @@ const md = getMarkdownInstance();
 				<em>No entries.</em>
 			</div>
 
+			<h2
+				v-if="!dailyTimeblock.content.trimStart().startsWith('## Timeblocks')"
+			>
+				Timeblocks
+			</h2>
 			<div v-html="md.render(dailyTimeblock.content)"></div>
 
 			<template v-if="taskListSnapshot !== undefined">
