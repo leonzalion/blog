@@ -7,7 +7,7 @@ import type {
 	TogglDailyResult,
 } from '@leonzalion-blog/content';
 import { dayjs } from '@leonzalion-blog/date-utils';
-import type { ChartData } from 'chart.js';
+import type { ChartData, ChartOptions } from 'chart.js';
 import {
 	BarElement,
 	CategoryScale,
@@ -16,6 +16,7 @@ import {
 	Title,
 	Tooltip,
 } from 'chart.js';
+import mapObject from 'map-obj';
 import prettyMilliseconds from 'pretty-ms';
 import { Bar } from 'vue-chartjs';
 import { useRoute, useRouter } from 'vue-router';
@@ -73,15 +74,20 @@ const togglActivityTypeChartData = $computed((): ChartData<'bar', number[]> => {
 		return { labels: [], datasets: [] };
 	}
 
-	const t = togglDailyResult.activityTypeTotals;
+	const t = mapObject(togglDailyResult.activityTypeTotals, (key, value) => [
+		key,
+		// Converting value from milliseconds to minutes
+		value / 1000 / 60,
+	]);
 	const data: ChartData<'bar', number[]> = {
 		labels: ['Dialect', 'Precommit', 'Side Projects', 'Leisure'],
 		datasets: [
-			{ data: [t.Dialect, t.Precommit, t['Side Project'], t.Leisure] },
+			{
+				data: [t.Dialect, t.Precommit, t['Side Project'], t.Leisure],
+				backgroundColor: ['lightpurple', 'orange', 'lightblue', 'green'],
+			},
 		],
 	};
-
-	console.log(data);
 
 	return data;
 });
@@ -93,13 +99,15 @@ function getActivityTypeColor(activityType: string | undefined) {
 		case 'Precommit':
 			return 'orange';
 		case 'Side Project':
-			return 'blue';
+			return 'lightblue';
 		case 'Leisure':
 			return 'green';
 		default:
 			return 'gray';
 	}
 }
+
+const chartOptions: ChartOptions<'bar'> = {};
 
 const md = getMarkdownInstance();
 </script>
@@ -160,7 +168,10 @@ const md = getMarkdownInstance();
 			</div>
 
 			<div class="max-w-lg mx-auto pt-4">
-				<Bar :chart-data="togglActivityTypeChartData" />
+				<Bar
+					:chart-options="chartOptions"
+					:chart-data="togglActivityTypeChartData"
+				/>
 			</div>
 
 			<h2

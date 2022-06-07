@@ -70,7 +70,7 @@ export async function getTogglDailyResult(): Promise<TogglDailyResult> {
 		const timeEntryDuration =
 			fullTimeEntry.duration >= 0
 				? fullTimeEntry.duration
-				: dayjs().diff(fullTimeEntry.start, 'seconds');
+				: dayjs(fullTimeEntry.at).diff(fullTimeEntry.start, 'milliseconds');
 
 		activityTypeTotals[activityType] += timeEntryDuration;
 	}

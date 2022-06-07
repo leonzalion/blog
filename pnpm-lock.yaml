@@ -178,6 +178,7 @@ importers:
       gray-matter: ^4.0.3
       jquery: ^3.6.0
       ky: ^0.30.0
+      map-obj: ^5.0.1
       markdown-it: ^13.0.1
       markdown-it-anchor: ^8.6.4
       markdown-it-emoji: ^2.0.2
@@ -217,6 +218,7 @@ importers:
       gray-matter: 4.0.3
       jquery: 3.6.0
       ky: 0.30.0
+      map-obj: 5.0.1
       markdown-it: 13.0.1
       markdown-it-anchor: 8.6.4_ea7kj7wzjkld5jo2noyjqxi764
       markdown-it-emoji: 2.0.2
@@ -6557,7 +6559,6 @@ packages:
   /map-obj/5.0.1:
     resolution: {integrity: sha512-p3Qoax94q4c4Pb4etNi2lQSQGlqOA4PoD3ARovo7NllRoObZHwNEYd40fz4qgX1zTFK4geU/R1kbowl5hU5OVg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-    dev: true
 
   /markdown-it-anchor/8.6.4_ea7kj7wzjkld5jo2noyjqxi764:
     resolution: {integrity: sha512-Ul4YVYZNxMJYALpKtu+ZRdrryYt/GlQ5CK+4l1bp/gWXOG2QWElt6AqF3Mih/wfUKdZbNAZVXGR73/n6U/8img==}
