@@ -1,3 +1,4 @@
 {
-	"prettier.configPath": "./node_modules/lionconfig/prettier.cjs"
+	"prettier.configPath": "./node_modules/lionconfig/prettier.cjs",
+	"typescript.tsdk": "node_modules/typescript/lib"
 }

@@ -4,9 +4,9 @@ import 'github-markdown-css/github-markdown.css';
 import type {
 	DailyTimeblock,
 	TaskListSnapshot,
+	TogglDailyResult,
 } from '@leonzalion-blog/content';
 import { dayjs } from '@leonzalion-blog/date-utils';
-import { sort } from 'fast-sort';
 import { useRoute, useRouter } from 'vue-router';
 
 import {
@@ -14,14 +14,20 @@ import {
 	getDailyTimeblocksMetadata,
 } from '~/utils/daily-timeblock.js';
 import { getMarkdownInstance } from '~/utils/markdown.js';
-import { fetchTaskListSnapshot } from '~/utils/task-list-snapshot.js';
+import {
+	fetchTaskListSnapshot,
+	getTaskListSnapshotMarkdown,
+} from '~/utils/task-list-snapshot.js';
+import { fetchTogglDailyResults } from '~/utils/toggl-daily-results.js';
 
 const route = useRoute();
 const router = useRouter();
 const dateString = route.params.dateString?.toString();
 
 let dailyTimeblock = $ref<DailyTimeblock | undefined>();
+let togglDailyResult = $ref<TogglDailyResult | undefined>();
 let taskListSnapshot = $ref<TaskListSnapshot | undefined>();
+
 (async () => {
 	const dailyTimeblocksMetadata = await getDailyTimeblocksMetadata();
 
@@ -37,56 +43,17 @@ let taskListSnapshot = $ref<TaskListSnapshot | undefined>();
 		taskListSnapshot = await fetchTaskListSnapshot({
 			dateString,
 		});
+		togglDailyResult = await fetchTogglDailyResults({
+			dateString,
+		});
 	}
 })();
 
-const taskListSnapshotMarkdown = $computed(() => {
-	if (taskListSnapshot === undefined) {
-		return '';
-	}
-
-	const sortedTasks = sort(taskListSnapshot.tasks).by({
-		asc: (task) =>
-			task.deadline === undefined
-				? Number.POSITIVE_INFINITY
-				: new Date(task.deadline),
-	});
-	let markdown = '';
-	for (const task of sortedTasks) {
-		// Skip completed tasks which were due before today
-		if (
-			task.deadline !== undefined &&
-			dayjs(task.deadline).isBefore(dateString) &&
-			task.completed
-		) {
-			continue;
-		}
-
-		if (task.completed) {
-			markdown += '- [x] ';
-		} else {
-			markdown += '- [ ] ';
-		}
-
-		markdown += task.description;
-
-		if (task.deadline === undefined) {
-			if (task.deadlineNotes !== undefined) {
-				markdown += ` (**Deadline:** _${task.deadlineNotes}_)`;
-			}
-		} else {
-			if (task.deadlineNotes === '') {
-				markdown += ` (**Deadline:** ${task.deadline})`;
-			} else {
-				markdown += ` (**Deadline:** ${task.deadline}, ${task.deadlineNotes})`;
-			}
-		}
-
-		markdown += '\n';
-	}
-
-	return markdown;
-});
+const taskListSnapshotMarkdown = $computed(() =>
+	taskListSnapshot === undefined
+		? ''
+		: getTaskListSnapshotMarkdown(taskListSnapshot)
+);
 
 const md = getMarkdownInstance();
 </script>
@@ -99,6 +66,25 @@ const md = getMarkdownInstance();
 			<h1>
 				{{ dayjs(dailyTimeblock.dateString).format('dddd, MMMM D, YYYY') }}
 			</h1>
+
+			<h2>Toggl Data</h2>
+			<template
+				v-if="
+					togglDailyResult !== undefined &&
+					togglDailyResult.timeEntries.length > 0
+				"
+			>
+				<div
+					v-for="(timeEntry, entryIndex) of togglDailyResult?.timeEntries"
+					:key="entryIndex"
+				>
+					<div>{{ timeEntry.description }}</div>
+				</div>
+			</template>
+			<div v-else>
+				<em>No entries.</em>
+			</div>
+
 			<div v-html="md.render(dailyTimeblock.content)"></div>
 
 			<template v-if="taskListSnapshot !== undefined">
