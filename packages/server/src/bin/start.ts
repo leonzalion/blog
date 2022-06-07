@@ -2,6 +2,7 @@ import {
 	getNotionClient,
 	syncDailyTimeblockFromNotion,
 	syncTasksFromNotion,
+	syncTogglDailyResults,
 } from '@leonzalion-blog/content-scripts';
 import {
 	getTodayDateString,
@@ -15,7 +16,6 @@ import schedule from 'node-schedule';
 import tmp from 'tmp-promise';
 
 import { checkIsTwitchStreamActive } from '~/utils/stream.js';
-import { syncTogglData } from '~/utils/toggl.js';
 
 let contentDir: string;
 let localRepoDir!: string;
@@ -45,36 +45,16 @@ if (process.env.NODE_ENV === 'production') {
 	});
 }
 
-console.info('Synchronizing daily timeblocks from Notion...');
-try {
-	await syncDailyTimeblockFromNotion({
-		dateString: getTodayDateString(),
-		contentDir,
-	});
-} catch (error: unknown) {
-	console.error(error);
-}
-
-try {
-	await syncDailyTimeblockFromNotion({
-		dateString: getTomorrowDateString(),
-		contentDir,
-	});
-} catch (error: unknown) {
-	console.error(error);
-}
-
-await syncTogglData();
-
-// Runs once every 5 minutes
-schedule.scheduleJob('0/5 * * * *', async () => {
+async function trySyncTasks() {
 	try {
 		console.info('Syncing Notion tasks...');
 		await syncTasksFromNotion({ contentDir });
 	} catch (error: unknown) {
 		console.error(`Error syncing Notion tasks: ${JSON.stringify(error)}`);
 	}
+}
 
+async function trySyncTodayDailyTimeblock() {
 	try {
 		console.info('Syncing Notion daily timeblock...');
 		await syncDailyTimeblockFromNotion({
@@ -88,7 +68,9 @@ schedule.scheduleJob('0/5 * * * *', async () => {
 			)}`
 		);
 	}
+}
 
+async function trySyncTomorrowDailyTimeblock() {
 	try {
 		console.info('Syncing Notion daily timeblock...');
 		await syncDailyTimeblockFromNotion({
@@ -102,16 +84,31 @@ schedule.scheduleJob('0/5 * * * *', async () => {
 			)}`
 		);
 	}
+}
+
+async function trySyncTogglData() {
+	try {
+		console.info('Syncing Toggl data...');
+		await syncTogglDailyResults({
+			contentDir,
+		});
+	} catch (error: unknown) {
+		console.error(`Error syncing Toggl data: ${JSON.stringify(error)}`);
+	}
+}
+
+// Runs once every 5 minutes
+schedule.scheduleJob('0/5 * * * *', async () => {
+	await Promise.allSettled([
+		trySyncTasks(),
+		trySyncTodayDailyTimeblock(),
+		trySyncTomorrowDailyTimeblock(),
+	]);
 });
 
 // Runs once every minute
 schedule.scheduleJob('0/1 * * * *', async () => {
-	try {
-		console.info('Syncing Toggl data...');
-		await syncTogglData();
-	} catch (error: unknown) {
-		console.error(`Error syncing Toggl data: ${JSON.stringify(error)}`);
-	}
+	await trySyncTogglData();
 });
 
 // At 7:15AM every day, check whether my stream is active
