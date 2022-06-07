@@ -122,56 +122,60 @@ const md = getMarkdownInstance();
 			</h1>
 
 			<h2>Toggl Data</h2>
-			<div
+			<template
 				v-if="
 					togglDailyResult !== undefined &&
 					togglDailyResult.timeEntries.length > 0
 				"
-				class="border-1 py-2 px-4"
 			>
-				<div
-					v-for="(timeEntry, entryIndex) of togglDailyResult.timeEntries ?? []"
-					:key="entryIndex"
-					class="grid grid-cols-[max-content,1fr] gap-2 items-center"
-				>
-					<div class="column items-center">
-						<div class="row items-center gap-1">
-							<div
-								:style="{
-									backgroundColor: getActivityTypeColor(timeEntry.activityType),
-									width: '7px',
-									height: '7px',
-								}"
-							></div>
-							<div class="text-sm">
-								{{ timeEntry.activityType ?? 'Unknown' }}
+				<div class="border-1 py-2 px-4">
+					<div
+						v-for="(timeEntry, entryIndex) of togglDailyResult.timeEntries ??
+						[]"
+						:key="entryIndex"
+						class="grid grid-cols-[max-content,1fr] gap-2 items-center"
+					>
+						<div class="column items-center">
+							<div class="row items-center gap-1">
+								<div
+									:style="{
+										backgroundColor: getActivityTypeColor(
+											timeEntry.activityType
+										),
+										width: '7px',
+										height: '7px',
+									}"
+								></div>
+								<div class="text-sm">
+									{{ timeEntry.activityType ?? 'Unknown' }}
+								</div>
+							</div>
+
+							<div class="text-gray-600 text-xs">
+								{{
+									prettyMilliseconds(
+										dayjs(timeEntry.at).diff(timeEntry.start, 'milliseconds')
+									)
+								}}
 							</div>
 						</div>
 
-						<div class="text-gray-600 text-xs">
-							{{
-								prettyMilliseconds(
-									dayjs(timeEntry.at).diff(timeEntry.start, 'milliseconds')
-								)
-							}}
+						<div class="row items-stretch">
+							<div class="bg-gray-300 mx-2 w-[1px]"></div>
+							<div class="font-bold">{{ timeEntry.description }}</div>
 						</div>
 					</div>
-
-					<div class="row items-stretch">
-						<div class="bg-gray-300 mx-2 w-[1px]"></div>
-						<div class="font-bold">{{ timeEntry.description }}</div>
-					</div>
 				</div>
-			</div>
+
+				<div class="max-w-lg mx-auto pt-4">
+					<Bar
+						:chart-options="chartOptions"
+						:chart-data="togglActivityTypeChartData"
+					/>
+				</div>
+			</template>
 			<div v-else>
 				<em>No entries.</em>
-			</div>
-
-			<div class="max-w-lg mx-auto pt-4">
-				<Bar
-					:chart-options="chartOptions"
-					:chart-data="togglActivityTypeChartData"
-				/>
 			</div>
 
 			<h2
