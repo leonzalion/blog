@@ -8,6 +8,15 @@ import type {
 } from '@leonzalion-blog/content';
 import { dayjs } from '@leonzalion-blog/date-utils';
 import type { ChartData } from 'chart.js';
+import {
+	BarElement,
+	CategoryScale,
+	Chart,
+	LinearScale,
+	Title,
+	Tooltip,
+} from 'chart.js';
+import prettyMilliseconds from 'pretty-ms';
 import { Bar } from 'vue-chartjs';
 import { useRoute, useRouter } from 'vue-router';
 
@@ -57,16 +66,40 @@ const taskListSnapshotMarkdown = $computed(() =>
 		: getTaskListSnapshotMarkdown(taskListSnapshot)
 );
 
+Chart.register(Title, Tooltip, BarElement, CategoryScale, LinearScale);
+
 const togglActivityTypeChartData = $computed((): ChartData<'bar', number[]> => {
 	if (togglDailyResult === undefined) {
 		return { labels: [], datasets: [] };
 	}
 
-	return {
-		labels: Object.keys(togglDailyResult.activityTypeTotals),
-		datasets: [{ data: Object.values(togglDailyResult.activityTypeTotals) }],
+	const t = togglDailyResult.activityTypeTotals;
+	const data: ChartData<'bar', number[]> = {
+		labels: ['Dialect', 'Precommit', 'Side Projects', 'Leisure'],
+		datasets: [
+			{ data: [t.Dialect, t.Precommit, t['Side Project'], t.Leisure] },
+		],
 	};
+
+	console.log(data);
+
+	return data;
 });
+
+function getActivityTypeColor(activityType: string | undefined) {
+	switch (activityType) {
+		case 'Dialect':
+			return 'purple';
+		case 'Precommit':
+			return 'orange';
+		case 'Side Project':
+			return 'blue';
+		case 'Leisure':
+			return 'green';
+		default:
+			return 'gray';
+	}
+}
 
 const md = getMarkdownInstance();
 </script>
@@ -81,22 +114,53 @@ const md = getMarkdownInstance();
 			</h1>
 
 			<h2>Toggl Data</h2>
-			<Bar :chart-data="togglActivityTypeChartData" />
-			<template
+			<div
 				v-if="
 					togglDailyResult !== undefined &&
 					togglDailyResult.timeEntries.length > 0
 				"
+				class="border-1 py-2 px-4"
 			>
 				<div
 					v-for="(timeEntry, entryIndex) of togglDailyResult.timeEntries ?? []"
 					:key="entryIndex"
+					class="grid grid-cols-[max-content,1fr] gap-2 items-center"
 				>
-					<div>{{ timeEntry.description }}</div>
+					<div class="column items-center">
+						<div class="row items-center gap-1">
+							<div
+								:style="{
+									backgroundColor: getActivityTypeColor(timeEntry.activityType),
+									width: '7px',
+									height: '7px',
+								}"
+							></div>
+							<div class="text-sm">
+								{{ timeEntry.activityType ?? 'Unknown' }}
+							</div>
+						</div>
+
+						<div class="text-gray-600 text-xs">
+							{{
+								prettyMilliseconds(
+									dayjs(timeEntry.at).diff(timeEntry.start, 'milliseconds')
+								)
+							}}
+						</div>
+					</div>
+
+					<div class="row items-stretch">
+						<div class="bg-gray-300 mx-2 w-[1px]"></div>
+						<div class="font-bold">{{ timeEntry.description }}</div>
+					</div>
 				</div>
-			</template>
+			</div>
 			<div v-else>
 				<em>No entries.</em>
+			</div>
+
+			<div class="max-w-lg mx-auto pt-4">
+				<Bar :chart-data="togglActivityTypeChartData" />
 			</div>
 
 			<h2
