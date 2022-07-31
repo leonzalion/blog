@@ -1,0 +1,1 @@
+import{k as t}from"./index.670c6b8e.js";async function a({articleSlug:n}){return t.get(`/content/articles/json/${n}.json`).json()}async function s(){return t.get("/content/metadata/articles.json").json()}export{a as f,s as g};

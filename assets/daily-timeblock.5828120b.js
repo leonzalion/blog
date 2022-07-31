@@ -1,0 +1,1 @@
+import{k as t}from"./index.670c6b8e.js";async function a({dateString:n}){return t.get(`/content/daily-timeblocks/json/${n}.json`).json()}async function e(){return t.get("/content/metadata/daily-timeblocks.json").json()}export{a as f,e as g};

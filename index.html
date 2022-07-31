@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>blog.leonzalion.com</title>
+		<script type="module" crossorigin src="/assets/index.b63cc35f.js"></script>
+		<link rel="stylesheet" href="/assets/index.9c7b0134.css">
+	</head>
+	<body>
+		<div id="app"></div>
+		
+		<script>
+			// https://stackoverflow.com/questions/63404573/how-to-redirect-from-internet-explorer-to-microsoft-edge-seamlessly
+			// Redirects user to Microsoft Edge if they're on Internet Explorer
+			if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+				window.location = 'microsoft-edge:' + window.location;
+				setTimeout(function () {
+					// If the redirection failed, redirect the user to a Microsoft Help Page informing
+					// them that their browser is not supported.
+					window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
+				}, 1);
+			}
+
+			// Redirects user from 404
+			(function () {
+				var redirect = sessionStorage.redirect;
+				delete sessionStorage.redirect;
+				if (redirect && redirect != location.href) {
+					history.replaceState(null, null, redirect);
+				}
+			})();
+		</script>
+	</body>
+</html>
